@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tgaff/tunely/issues"
   },
-  "homepage": "https://github.com/tgaff/tunely#readme"
+  "homepage": "https://github.com/tgaff/tunely#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
