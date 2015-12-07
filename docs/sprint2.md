@@ -7,7 +7,8 @@ This sprint we will:
 * build a form to save Albums into our database
 * add a `.post` method to our server so that it can receive the form's data
 
-> Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions
+> Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions.
+
 > You must complete all of the previous sprint before starting this sprint. (excludes stretch challenges)
 
 ## Step 1:
@@ -30,6 +31,8 @@ sample serialized form data:
 ```js
 name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop
 ```
+
+1. Clear the form after getting the data.
 
 ## Step 3:
 
@@ -71,14 +74,18 @@ curl:
 
 ## Step 6:
 
-1. When your server returns JSON display it on the page.  We already have a function to render it!
+1. When your server returns JSON, display it on the page.  We already have a function to render it!
 
+1. TEST ALL THE THINGS
 
+![Test all the things](http://www.daedtech.com/wp-content/uploads/2012/12/TestAllTheThings-300x225.jpg)
 
 ## Stretch Challenges
+
+1. Add HTML5 form validations to the form.  Ensure that all fields are filled.  
 
 1. Change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre.  See the mockup:
 
 ![add new field button](/docs/assets/images/add_new_field_button.png)
 
-1. Convert the form to a modal
+1. Convert the form to a modal and add a link to the right-side of the "Albums" header to open it!
