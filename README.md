@@ -1,6 +1,14 @@
 # tunely lab
 
-Full CRUD SPA with mongoose and express.
+Full CRUD SPA with mongoose and Express.
+
+Prerequisites:
+* jQuery, AJAX
+* Express server, static assets
+* RESTful design
+* CRUD with mongoose
+  * mongoose embedded relationships
+  * Part 3: mongoose references
 
 ## Overview
 
@@ -17,7 +25,7 @@ This lab begins with a basic front-end to display a list of music albums.  As we
 
 ### Project Planning
 
-It's important to do a good amount of planning and whiteboarding before you start coding.  That'll save you costly mistakes and help you to refine the eventual user experience before you've invested hours in the project.
+It's important to do a good amount of planning and whiteboarding before you start coding.  That'll save you from costly mistakes and help you to refine the eventual user experience before you've invested hours in the project.
 
 We're going to use **"outside-in development"** practices.  This means we'll start by designing our UI (the outside).
 Then we'll move more inside by connecting it to a backend serving hard-coded data.  Next, we'll retrieve that data from a database.
@@ -30,7 +38,7 @@ Let's start with a basic wireframe.
 
 Typically when you work on a project you'll start with a basic idea and do your initial development on paper or whiteboard.  You can develop and "virtually" test your app with wireframes.  There are also a number of software packages that will help you build wireframes.
 
-In the above you can see we're building a site that displays a list of musical albums.  It also has a jumbotron to introduce users to the page.  This is our starting point only; you'll be responsible for evolving it over time.
+In the above you can see we're building a site that displays a list of musical albums.  It also has a jumbotron to introduce users to the page.  This is our starting point only; you'll be responsible for evolving it as we work through the lab.
 
 
 ## Getting Started
@@ -45,11 +53,11 @@ In the above you can see we're building a site that displays a list of musical a
 
 #### Sprint 1
 
-[Sprint 1: serve & display hard-coded data on the page, then connect to database](/docs/sprint1.md)
+[Sprint 1: serve & display hard-coded data on the page, then connect to a database](/docs/sprint1.md)
 
 #### Sprint 2
 
-[Sprint 2: add form and support creation of new data](/docs/sprint2.md)
+[Sprint 2: add a form and support creation of new data](/docs/sprint2.md)
 
 #### Sprint 3
 
