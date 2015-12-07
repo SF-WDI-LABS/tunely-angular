@@ -3,6 +3,7 @@
 ## Overview
 
 This sprint we will:
+* focus on **Read**
 * connect our _partially_ pre-built front-end to a back-end with hard-coded data.
 * replace the hard-coded data with data stored in a mongo db
 
