@@ -5,15 +5,15 @@
 This sprint we will:
 * add an embedded model to our Album model
 * change the UI to allow users to see songs & add songs to an album
-* add a `.post` method to our server so that it can receive the form's data
+
 
 > Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions.
 
 > You must complete all of the previous sprint before starting this sprint. (excludes stretch challenges)
 
-In this step we'll be changing our Album schema to have an embedded schema.
+In this step we'll be changing our Album schema to have an embedded schema that contains songs.
 
-The data could be viewed like:
+The data from the database will look a little like this:
 
 ```js
 { genres: [ 'new wave', 'indie rock', 'synth pop' ],
@@ -40,7 +40,7 @@ The data could be viewed like:
 
 1. Create a `models/song.js`
 
-1. Open the file and create a model with:
+1. Open the file and create a model with properties like:
 
 ```js
   name: String,
@@ -71,7 +71,9 @@ We're going to use this data for all albums for now, even though it's not accura
 
 ## Step 3: display
 
-Let's go back to `app.js` and our html.  We'll edit it to have another `<li>` after the ones that are already being generated.
+Let's go back to `app.js` and our html.  If you check the output of your AJAX call, you should see that we're already retrieving songs with each album.  Double-check this before you proceed.  
+
+We'll change the client to add another `<li>` after the ones that are already being generated for each album.  We'll list our songs in there.
 For now we're just going to make this super simple and output something like:
 
 ```html
@@ -85,6 +87,10 @@ For now we're just going to make this super simple and output something like:
 1. In `app.js`, create a new function `function buildSongsHtml(songs) {}`
 
 1. Make buildSongsHtml return the HTML shown above (or similar).  It should take in an **array of songs**.  It should return an **HTML string**.
+
+<details><summary>Hint: making a long dash &ndash; </summary>
+Use `&ndash;`
+</details>
 
 <details><summary>Hint: `function buildSongsHtml(songs) {}`</summary>
 ```js  
