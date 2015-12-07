@@ -43,8 +43,3 @@ $(document).ready(function() {
 function renderAlbum(album) {
   // I'm empty!
 }
-
-// fetch all albums
-function fetchAlbums() {
-
-}
