@@ -7,7 +7,8 @@ This sprint we will:
 * change the UI to allow users to see songs & add songs to an album
 * add a `.post` method to our server so that it can receive the form's data
 
-> Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions
+> Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions.
+
 > You must complete all of the previous sprint before starting this sprint. (excludes stretch challenges)
 
 In this step we'll be changing our Album schema to have an embedded schema.
