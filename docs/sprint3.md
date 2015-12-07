@@ -4,7 +4,7 @@
 
 This sprint we will:
 * add an embedded model to our Album model
-* change the UI to allow users to see songs & add songs to an album
+* change the UI to allow users to see songs in the embedded model
 
 
 > Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions.
