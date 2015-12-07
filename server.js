@@ -16,31 +16,31 @@ app.use(express.static(__dirname + '/public'));
 var albums = [];
 albums.push({
               _id: 132,
-              artistName: 'Ladyhawke',
-              name: 'Ladyhawke',
-              releaseDate: '2008, November 18',
-              genres: [ 'new wave', 'indie rock', 'synth pop' ]
+              artistName: 'Nine Inch Nails',
+              name: 'The Downward Spiral',
+              releaseDate: '1994, March 8',
+              genres: [ 'industrial', 'industrial metal' ]
             });
 albums.push({
               _id: 133,
-              artistName: 'The Knife',
-              name: 'Silent Shout',
-              releaseDate: '2006, February 17',
-              genres: [ 'synth pop', 'electronica', 'experimental' ]
+              artistName: 'Metallica',
+              name: 'Metallica',
+              releaseDate: '1991, August 12',
+              genres: [ 'heavy metal' ]
             });
 albums.push({
               _id: 134,
-              artistName: 'Juno Reactor',
-              name: 'Shango',
-              releaseDate: '2000, October 9',
-              genres: [ 'electronic', 'goa trance', 'tribal house' ]
+              artistName: 'The Prodigy',
+              name: 'Music for the Jilted Generation',
+              releaseDate: '1994, July 4',
+              genres: [ 'electronica', 'breakbeat hardcore', 'rave', 'jungle' ]
             });
 albums.push({
               _id: 135,
-              artistName: 'Philip Wesley',
-              name: 'Dark Night of the Soul',
-              releaseDate: '2008, September 12',
-              genres: [ 'piano' ]
+              artistName: 'Johnny Cash',
+              name: 'Unchained',
+              releaseDate: '1996, November 5',
+              genres: [ 'country', 'rock' ]
             });
 
 
