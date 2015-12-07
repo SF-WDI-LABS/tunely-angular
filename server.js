@@ -15,24 +15,28 @@ app.use(express.static(__dirname + '/public'));
 /* hard-coded data */
 var albums = [];
 albums.push({
+              _id: 132,
               artistName: 'Ladyhawke',
               name: 'Ladyhawke',
               releaseDate: '2008, November 18',
               genres: [ 'new wave', 'indie rock', 'synth pop' ]
             });
 albums.push({
+              _id: 133,
               artistName: 'The Knife',
               name: 'Silent Shout',
               releaseDate: '2006, February 17',
               genres: [ 'synth pop', 'electronica', 'experimental' ]
             });
 albums.push({
+              _id: 134,
               artistName: 'Juno Reactor',
               name: 'Shango',
               releaseDate: '2000, October 9',
               genres: [ 'electronic', 'goa trance', 'tribal house' ]
             });
 albums.push({
+              _id: 135,
               artistName: 'Philip Wesley',
               name: 'Dark Night of the Soul',
               releaseDate: '2008, September 12',
