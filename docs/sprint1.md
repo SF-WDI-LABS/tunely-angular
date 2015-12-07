@@ -25,12 +25,23 @@ Let's start on the outside and work our way in.
 
 1. Open `index.html` and find the HTML for **one album**.  Copy it and then delete the HTML for all of the albums.  
 
-1. Open `app.js` and edit the function renderAlbum to display one Album on the page.
+1. Open `app.js` and edit the function `renderAlbum` to display one Album on the page.
 You should use the HTML you just copied.  Build-up the HTML string and use jQuery to render it on the page.
 
 1. Run the function on document-ready and give it `sampleAlbums[0]` (just one album).  Verify that the page looks right.
 
 1. Update your code to use **all** the sampleAlbums.  Use `forEach`.
+
+<details><summary>hint: calling renderAlbum</summary>
+
+```js
+$(document).ready(function() {
+  console.log('app.js loaded!');
+  renderAlbum(sampleAlbums[0]);
+});
+```
+</details>
+
 
 ## Step 2:
 
@@ -42,7 +53,7 @@ GET /api/albums
 
 1. Open server.js and create a new route for `/api/albums`
 
-1. Serve the hard-coded albums in server.js on `/api/albums`
+1. Serve the hard-coded albums in server.js on `/api/albums`.  This is an API route, so let's send JSON.
 
 1. In `app.js`, use `ajax` to get the albums.  Render them on the page.
 
@@ -100,7 +111,7 @@ Let's try seeding our database.
 
 1. Resolve any errors you encounter.
 
-<details><summary>hint: error connect ECONNREFUSED</summary>
+<details><summary>hint: `error connect ECONNREFUSED`</summary>
 If you see an error like:
 
 ```
@@ -109,7 +120,7 @@ process.nextTick(function() { throw err; })
 Error: connect ECONNREFUSED 127.0.0.1:27017
 ```
 
-It generally means that `mongod` is not running.
+It usually means that `mongod` is not running.
 </details>
 
 
@@ -135,6 +146,8 @@ var db = require('./models');
 **If you're stuck, take a look at the solutions branch**
 
 If you've made it this far then we've created an API that has an index route `/api/albums`.
-Our app has a single-page view that makes an ajax GET request to the API and renders the information.
+Our app has a single-page view that makes an ajax GET request to the API and renders the information.  Our data is being **R**ead from the database by the server.
+
+We've completed the **Read** component of our **CRUD** app for the moment.
 
 **Good job!**
