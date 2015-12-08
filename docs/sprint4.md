@@ -61,8 +61,12 @@ Now you can tie the previous front-end and back-end changes together.
 
 1. Refresh the page and make sure they are truly being deleted.  
 
+> If you run out of things to delete, try re-seeding your database.
 
 
 ## Challenges
+
+1. Prompt the user with an alert "Are you sure?" when they click delete.
+  * for a superior look and feel, use a bootstrap modal for this prompt
 
 1. Add an animation for album deletion.
