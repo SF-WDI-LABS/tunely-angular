@@ -34,7 +34,19 @@ $(document).ready(function() {
   $('#albums').on('click', '.delete-album', handleDeleteAlbumClick);
   $('#albums').on('click', '.edit-album', handleAlbumEditClick);
   $('#albums').on('click', '.save-album', handleSaveChangesClick);
+  $('#albums').on('click', '.edit-songs', handleEditSongsClick);
 });
+
+// when edit songs button clicked
+function handleEditSongsClick(e) {
+  var $albumRow = $(this).closest('.album');
+  var albumId = $albumRow.data('album-id');
+  console.log('edit songs clicked for ', albumId);
+
+  // fire zee modal!
+  $('#editSongsModal').modal();
+
+}
 
 // when the edit button for an album is clicked
 function handleAlbumEditClick(e) {
@@ -110,6 +122,7 @@ function handleDeleteAlbumSuccess(data) {
   console.log('removing the following album from the page:', deletedAlbumId);
   $('div[data-album-id=' + deletedAlbumId + ']').remove();
 }
+
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
