@@ -13,6 +13,14 @@ $(document).ready(function() {
       renderAlbum(album);
     });
   });
+
+  $('#album-form form').on('submit', function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+    console.log('formData', formData);
+    $(this).trigger("reset");
+  });
+
 });
 
 
