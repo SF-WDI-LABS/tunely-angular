@@ -208,14 +208,15 @@ function handleNewSongSubmit(e) {
 
 ## Step 6:
 
-Now we need to add the POST route on the server.  We're going to be using request-params this time.  
+Now we need to add the POST route on the server.  We're going to be using request-params (URL parameters) this time.  
 
-1. Build the `app.post` callback method.  Get the id from the request and find the correct album in the database.
+1. Build the `app.post` callback method for '/api/albums/:album_id/songs'.  Get the id from the request and find the correct album in the database.
 
 1. Create the new Song and add it to the Album.  
 
 1. Save your results and respond to the client with JSON.
 
+> Hint: when connecting to the database make sure that Song has been exported in `models/index.js`
 
 ## Step 7:
 
