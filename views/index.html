@@ -34,10 +34,7 @@
       </div>
       <!-- albums! -->
       <div id='albums'>
-
-
-
-
+        <script id='album-template' type='text/x-handlebars-template'>
           <!-- one album -->
           <div class="row album">
 
@@ -56,17 +53,17 @@
                       <ul class="list-group">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Album Name:</h4>
-                          <span class='album-name'>Ladyhawke</span>
+                          <span class='album-name'>{{name}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>Ladyhawke</span>
+                          <span class='artist-name'>{{artistName}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Released date:</h4>
-                          <span class='album-releaseDate'>2008, November 18</span>
+                          <span class='album-releaseDate'>{{releaseDate}}</span>
                         </li>
                       </ul>
                     </div>
@@ -83,8 +80,7 @@
           </div>
           <!-- end one album -->
 
-
-
+        </script>
 
       </div>
     </section>
