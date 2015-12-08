@@ -222,19 +222,33 @@ Now we need to add the POST route on the server.  We're going to be using reques
 
 Display the created song on the page.
 
-1. Using the response from the server display the new song on the page.  **OR** add a `GET /api/albums/:id` route and use that to re-render the altered album.
+1. Add a `GET /api/albums/:id` route and use that to re-render the altered album.
 
-1. Close the modal
+1. Make sure you remove the old copy from the page.
+
+1. Close the modal afterward.
 
 ## Challenges
 
-1. Add the missing album and song routes to **Create** and **Read**.
+1. Add the remaining GET and POST routes to **Create** and **Read**.
 
 ```
-GET /api/albums/:id
 GET /api/albums/:album_id/songs/:id
+GET /api/albums/:album_id/songs
 ```
 
 1. Add imageUrl as a property on Albums.  Update everything to use it!
 
 1. Add track length as a field for each album.  
+
+
+## Conclusion
+
+You should now have the following API routes:
+
+```
+GET /api/albums
+POST /api/albums
+GET /api/albums/:id
+POST /api/albums/:id/songs
+```
