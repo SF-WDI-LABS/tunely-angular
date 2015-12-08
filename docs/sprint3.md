@@ -170,9 +170,11 @@ $('#albums').on('click', '.add-song', function(e) {
 1.  Set the data-attribute `album-id` on the `#songModal`.
 
 <detail><summary>Hint: setting data-album-id</summary>
+
 ```js
 $('#songModal').data('album-id', currentAlbumId);
 ```
+
 </detail>
 
 1. You can open a bootstrap modal by selecting it in jQuery and calling the `.modal()` function.  After setting the data-album-id attribute in your function, open the modal.
@@ -181,13 +183,14 @@ $('#songModal').data('album-id', currentAlbumId);
 
 ## Step 5:
 
-Then we'll also need a function to handle the submit on the modal and POST the form data as a new song.
+So we should now have a working modal, but it doesn't do anything yet.
+Let's add a function to handle the submit on the modal and POST the form data as a new song.
 
 ```pseudo
-//
+// call this when the button on the modal is clicked
 function handleNewSongSubmit(e) {
   e.preventDefault();
-  // get form data
+  // get data from modal fields
   // POST to SERVER
   // clear form
   // close modal
@@ -199,7 +202,9 @@ function handleNewSongSubmit(e) {
 
 1. We'll need the album-id in order to build the correct URL for the AJAX POST.  Our URL will eventually be like `http://localhost:3000/api/albums/:album_id/songs`.  In the `handleNewSongSubmit` function get the correct id from the modal.  Build the URL and save it as a variable.
 
-1. Prepare the AJAX POST.  For data make sure you get the `.val` from the input fields.
+1. Prepare the AJAX POST.  For data make sure you get the `.val` from the input fields.  Don't forget to call handleNewSongSubmit when the modal button is clicked.
+
+> Hint: The modal doesn't actually have a form.  Use .val to get the data from the input fields and construct an object for your POST data.
 
 ## Step 6:
 
