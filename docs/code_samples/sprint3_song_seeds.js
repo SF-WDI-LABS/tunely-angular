@@ -1,45 +1,32 @@
-/*
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+/*  Approximate schema for these seeds
 
 var SongSchema = new Schema({
   name: String,
   trackNumber: Number,
-  length: Number  // of seconds
 });
-var Song = mongoose.model('Song', SongSchema);
-
-module.exports = Song;
 */
 
 
 var sampleSongs = [];
 
 sampleSongs.push({ name: 'Swamped',
-                   trackNumber: 1,
-                   length: 240
+                   trackNumber: 1
 });
 sampleSongs.push({ name: "Heaven's a Lie",
-                   trackNumber: 2,
-                   length: 286
+                   trackNumber: 2
 });
 sampleSongs.push({ name: 'Daylight Dancer',
-                   trackNumber: 3,
-                   length: 230
+                   trackNumber: 3
 });
 sampleSongs.push({ name: 'Humane',
-                   trackNumber: 4,
-                   length: 252
+                   trackNumber: 4
 });
 sampleSongs.push({ name: 'Self Deception',
-                   trackNumber: 5,
-                   length: 212
+                   trackNumber: 5
 });
 sampleSongs.push({ name: 'Aeon',
-                   trackNumber: 6,
-                   length: 116
+                   trackNumber: 6
 });
 sampleSongs.push({ name: 'Tight Rope',
-                   trackNumber: 7,
-                   length: 255
+                   trackNumber: 7
 });

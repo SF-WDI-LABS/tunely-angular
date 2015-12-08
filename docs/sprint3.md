@@ -19,11 +19,9 @@ The data from the database will look a little like this:
 { genres: [ 'new wave', 'indie rock', 'synth pop' ],
     songs:
      [ { _id: 5665ff1678209c64e51b4e6a,
-         length: 240,
          trackNumber: 1,
          name: 'Swamped' },
        { _id: 5665ff1678209c64e51b4e64,
-         length: 255,
          trackNumber: 7,
          name: 'Tight Rope' } ],
     _id: 5665ff1678209c64e51b4e63,
@@ -44,8 +42,7 @@ The data from the database will look a little like this:
 
 ```js
   name: String,
-  trackNumber: Number,
-  length: Number  // of seconds
+  trackNumber: Number
 ```
 
 1. Export the module and require it in `models/index.js`
@@ -226,3 +223,5 @@ Display the created song on the page.
 GET /api/albums/:id
 GET /api/albums/:album_id/songs/:id
 ```
+
+1. Add imageUrl as a property on Albums.  Update everything to use it!
