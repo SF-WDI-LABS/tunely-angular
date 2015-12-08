@@ -14,7 +14,8 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  // FILL ME IN !
+  console.log(req.body);
+  res.json(req.body);
 }
 
 function show(req, res) {
