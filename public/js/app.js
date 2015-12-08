@@ -72,7 +72,7 @@ function renderAlbum(album) {
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
-  "                        <span class='album-name'>" + "HARDCODED RELEASE DATE" + "</span>" +
+  "                        <span class='album-releaseDate'>" + "HARDCODED RELEASE DATE" + "</span>" +
   "                      </li>" +
   "                    </ul>" +
   "                  </div>" +
