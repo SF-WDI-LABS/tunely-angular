@@ -60,9 +60,7 @@ We're going to use this data for all albums for now, even though it's not accura
 
 1. Write a `forEach` loop that adds the sample songs to each sampleAlbum in `seed.js`.  Compare your work to the sample above.
 
-1. Add a better `console.log` to the `db.Album.create` callback.  Let's `console.log(albums)` just before exiting, that way we can see that they're all created.  
-
-1. `node seed.js`
+1. Run `node seed.js`
 
 1. Fix any issues you encounter, until you can see that it's also adding songs for each album.
 
@@ -91,18 +89,18 @@ Use `&ndash;`
 
 <details><summary>Hint: `function buildSongsHtml(songs) {}`</summary>
 ```js  
-  function buildSongsHtml(songs) {
-    var songText = "	&ndash; ";
-    songs.forEach(function(song) {
-      songText = songText + "(" + song.trackNumber + ") " + song.name + " &ndash; ";
-    });
+function buildSongsHtml(songs) {
+  var songText = "	&ndash; ";
+  songs.forEach(function(song) {
+     songText = songText + "(" + song.trackNumber + ") " + song.name + " &ndash; ";
+  });
   var songsHtml  =
-    "                      <li class='list-group-item'>" +
-    "                        <h4 class='inline-header'>Songs:</h4>" +
-    "                         <span>" + songText + "</span>" +
-    "                      </li>";
-    return songsHtml;
-  }
+  "                      <li class='list-group-item'>" +
+  "                        <h4 class='inline-header'>Songs:</h4>" +
+  "                         <span>" + songText + "</span>" +
+  "                      </li>";
+  return songsHtml;
+}
 ```
 </details>
 
@@ -156,11 +154,18 @@ First we need to make sure we have the album id so we can use it later.  We'll s
 > Hint: you may want to read the jQuery documentation for `parents` and `data`
 
 ```js
-$('.add-song').on('click', function(e) {
-  var id = $(this).parents('.album').data('album-id') // "5665ff1678209c64e51b4e7b"
-  console.log(id);  
+$('#albums').on('click', '.add-song', function(e) {
+    console.log('asdfasdfasdf');
+    var id= $(this).parents('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+    console.log('id',id);
 });
 ```
+
+> The above code might be new to you.  We've added a second CSS-locator in the 'on' arguments.
+> Because the .add-song component is not be on the page at document-ready our event-listener cannot bind to it.  
+> Instead we'll bind to something above it like `body` or `#albums`.  As long as it's on the page when we add our event-listener
+>  we will be able to capture the click and if it's on the '.add-song' handle it in our function.
+
 
 1.  Set the data-attribute `album-id` on the `#songModal`.
 
