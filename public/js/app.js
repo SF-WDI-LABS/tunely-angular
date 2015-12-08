@@ -58,7 +58,7 @@ function renderAlbum(album) {
   "              <!-- begin album internal row -->" +
   "                <div class='row'>" +
   "                  <div class='col-md-3 col-xs-12 thumbnail album-art'>" +
-  "                     <img src='" + "http://placehold.it/800x800'" +  " alt='album image'>" +
+  "                     <img src='" + "http://placehold.it/400x400'" +  " alt='album image'>" +
   "                  </div>" +
   "                  <div class='col-md-9 col-xs-12'>" +
   "                    <ul class='list-group'>" +
@@ -79,7 +79,11 @@ function renderAlbum(album) {
   "                </div>" +
   "                <!-- end of album internal row -->" +
 
-  "              </div>" + // end of panel
+  "              </div>" + // end of panel-body
+
+  "              <div class='panel-footer'>" +
+  "              </div>" +
+
   "            </div>" +
   "          </div>" +
   "          <!-- end one album -->";
