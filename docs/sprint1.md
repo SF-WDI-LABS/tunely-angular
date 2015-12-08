@@ -24,10 +24,10 @@ Continually verify that your browser console is displaying the `app.js loaded!` 
 **Goal** display hard-coded data from `app.js` on `index.html`
 Let's start on the outside and work our way in.  
 
-1. Open `index.html` and find the HTML for **one album**.  Copy it and then delete the HTML for all of the albums.  
+1. Open `index.html` and find the HTML for an **album**. Delete the HTML for all of the albums. Leave the `div.albums` in place.
 
 1. Open `app.js` and edit the function `renderAlbum` to display one Album on the page.
-You should use the HTML you just copied.  Build-up the HTML string and use jQuery to render it on the page.
+You should use HTML just like what you just deleted.  Build-up the HTML string and use jQuery to render it on the page.
 
 1. Run the function on document-ready and give it `sampleAlbums[0]` (just one album).  Verify that the page looks right.
 
