@@ -6,6 +6,8 @@ Prerequisites:
 * jQuery, AJAX
 * Express server, static assets
 * RESTful design
+* JSON serving /api routes
+* Bootstrap - the lab will introduce modals
 * CRUD with mongoose
   * mongoose embedded relationships
   * Part 3: mongoose references
@@ -27,7 +29,7 @@ This lab begins with a basic front-end to display a list of music albums.  As we
 
 It's important to do a good amount of planning and whiteboarding before you start coding.  That'll save you from costly mistakes and help you to refine the eventual user experience before you've invested hours in the project.
 
-We're going to use **"outside-in development"** practices.  This means we'll start by designing our UI (the outside).
+We're going to use **"outside-in development"** practices.  This means that we'll start by designing our UI (the outside).
 Then we'll move more inside by connecting it to a backend serving hard-coded data.  Next, we'll retrieve that data from a database.
 
 We will also be breaking our work into short **sprints** with specific design goals.  In each sprint we'll try to work outside-in.  
@@ -68,7 +70,7 @@ In the above you can see we're building a site that displays a list of musical a
 
 #### Sprint 4
 
-[Sprint 4: delete albums & delete songs](/docs/sprint4.md)
+[Sprint 4: delete albums](/docs/sprint4.md)
 
 #### Sprint 5
 
@@ -76,7 +78,7 @@ In the above you can see we're building a site that displays a list of musical a
 
 #### Sprint 6
 
-[Sprint 6: update song info](/docs/sprint6.md)
+[Sprint 6: update song info & delete songs](/docs/sprint6.md)
 
 
 ### Module C: Full CRUD with Mongo and reference relationships.
