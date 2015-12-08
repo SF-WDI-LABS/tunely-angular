@@ -3,7 +3,7 @@
 ## Overview
 
 This sprint we will:
-* add an embedded model to our Album model
+* add an embedded Song model to our Album model
 * change the UI to allow users to see songs in the embedded model
 
 
@@ -53,7 +53,7 @@ The data from the database will look a little like this:
 
 ## Step 2: Seeding
 
-Let's add seeds.  Some basic data is [provided for you](/docs/assets/sprint3_song_seeds.js).
+Let's add seeds.  Some basic data is [provided for you](/docs/code_samples/sprint3_song_seeds.js).
 We're going to use this data for all albums for now, even though it's not accurate.
 
 1. Copy the sample songs into `seed.js`

@@ -60,6 +60,7 @@ GET /api/albums
 
 > The data in `server.js` and `app.js` is different; making it easy to see which data is being rendered on your page.
 
+
 ## Step 3:
 
 Let's setup the database now.
