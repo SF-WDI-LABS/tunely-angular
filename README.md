@@ -65,4 +65,18 @@ In the above you can see we're building a site that displays a list of musical a
 
 
 ### Module B: Update and Delete with Mongo and embedded model relationships.
+
+#### Sprint 4
+
+[Sprint 4: delete albums & delete songs](/docs/sprint4.md)
+
+#### Sprint 5
+
+[Sprint 5: edit and update album info](/docs/sprint5.md)
+
+#### Sprint 6
+
+[Sprint 6: update song info](/docs/sprint6.md)
+
+
 ### Module C: Full CRUD with Mongo and reference relationships.

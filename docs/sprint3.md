@@ -252,3 +252,7 @@ POST /api/albums
 GET /api/albums/:id
 POST /api/albums/:id/songs
 ```
+
+You should also have a working app!  Congratulations!
+
+![](http://i.giphy.com/wue4QtxncWuE8.gif)
