@@ -67,7 +67,7 @@ We're going to use this data for all albums for now, even though it's not accura
 
 1. `node seed.js`
 
-1. Fix any issues you encounter until you can see that it's also adding songs for each album.
+1. Fix any issues you encounter, until you can see that it's also adding songs for each album.
 
 ## Step 3: display
 
@@ -110,3 +110,119 @@ Use `&ndash;`
 </details>
 
 1. Now call `buildSongsHtml` from inside `renderAlbum`. Use it to add the 4th `<li>` to each album.
+
+
+## Step 4: Create Songs
+
+Now let's create the functionality to add new songs.  To do this we're going to use a button to open a bootstrap modal.
+Fortunately, the modal is already setup for you in `index.html`.  We will have to add a button to trigger it.  Also since the modal will be used for creating a song for any album we'll have to track that.  
+
+
+We're going to do this by setting a data-attribute called `album-id` on the modal itself.  We will set this attribute when we display the modal.  
+
+
+Let's pseudo-code this.
+
+```
+// this function will be called when someone clicks a button to create a new song
+//   it has to determine what album (in the DB) the song will go to
+function handleNewSongButtonClick() {
+  // get the current album's id from the row the button is in
+  // set the album-id data attribute on the modal (jquery)
+  // display the modal
+}
+```
+
+
+First we need to make sure we have the album id so we can use it later.  We'll set a data-attribute on each album row first so that each row has it's ID listed.
+
+1. On the HTML for each album add a new data-album-id attribute to the top `<div class='row album'>`.
+
+1. Set the value of that attribute to `album._id`.
+
+1. Refresh the page and inspect the HTML in the browser.  Make sure the attribute is set and different for each one.
+
+1. Add a button inside the panel-footer.
+
+<detail><summary>button code</summary>
+```js
+<div class='panel-footer'>
+  <button class='btn btn-primary add-song'>Add Song</button>
+</div>
+```
+</detail>
+
+1. Use jQuery to bind to these buttons' click events.
+
+1. In your click event-handler get the current album row's data-album-id attribute.  
+
+> Hint: you may want to read the jQuery documentation for `parents` and `data`
+
+```js
+$('.add-song').on('click', function(e) {
+  var id = $(this).parents('.album').data('album-id') // "5665ff1678209c64e51b4e7b"
+  console.log(id);  
+});
+```
+
+1.  Set the data-attribute `album-id` on the `#songModal`.
+
+<detail><summary>Hint: setting data-album-id</summary>
+```js
+$('#songModal').data('album-id', currentAlbumId);
+```
+</detail>
+
+1. You can open a bootstrap modal by selecting it in jQuery and calling the `.modal()` function.  After setting the data-album-id attribute in your function, open the modal.
+
+> Suggested reading: [See the bootstrap docs](http://getbootstrap.com/javascript/#modals-usage)
+
+## Step 5:
+
+Then we'll also need a function to handle the submit on the modal and POST the form data as a new song.
+
+```pseudo
+//
+function handleNewSongSubmit(e) {
+  e.preventDefault();
+  // get form data
+  // POST to SERVER
+  // clear form
+  // close modal
+  // update the correct album to show the new song
+}
+```
+
+1. Create the `handleNewSongSubmit` function.  
+
+1. We'll need the album-id in order to build the correct URL for the AJAX POST.  Our URL will eventually be like `http://localhost:3000/api/albums/:album_id/songs`.  In the `handleNewSongSubmit` function get the correct id from the modal.  Build the URL and save it as a variable.
+
+1. Prepare the AJAX POST.  For data make sure you get the `.val` from the input fields.
+
+## Step 6:
+
+Now we need to add the POST route on the server.  We're going to be using request-params this time.  
+
+1. Build the `app.post` callback method.  Get the id from the request and find the correct album in the database.
+
+1. Create the new Song and add it to the Album.  
+
+1. Save your results and respond to the client with JSON.
+
+
+## Step 7:
+
+Display the created song on the page.
+
+1. Using the response from the server display the new song on the page.  **OR** add a `GET /api/albums/:id` route and use that to re-render the altered album.
+
+1. Close the modal
+
+## Challenges
+
+1. Add the missing album and song routes to **Create** and **Read**.
+
+```
+GET /api/albums/:id
+GET /api/albums/:album_id/songs/:id
+```
