@@ -31,9 +31,15 @@ $(document).ready(function() {
 
   // save song modal save button
   $('#saveSong').on('click', handleNewSongSubmit);
+  $('#albums').on('click', '.delete-album', handleDeleteAlbumClick);
+
 });
 
 
+function handleDeleteAlbumClick(e) {
+  var albumId = $(this).parents('.album').data('album-id');
+  console.log('someone wants to delete album id=' + albumId );
+}
 
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
