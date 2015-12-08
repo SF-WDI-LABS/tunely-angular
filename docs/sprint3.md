@@ -225,3 +225,5 @@ GET /api/albums/:album_id/songs/:id
 ```
 
 1. Add imageUrl as a property on Albums.  Update everything to use it!
+
+1. Add track length as a field for each album.  
