@@ -71,7 +71,7 @@ Let's setup the database now.
 
 1. Export Album in `models/album.js`
 
-1. Require and export Album in `models/album.js`
+1. Require and export Album in `models/index.js`
 
 
 <details><summary>hint: `models/albums.js`</summary>
@@ -86,6 +86,8 @@ var AlbumSchema = new Schema({
 });
 
 var Album = mongoose.model('Album', AlbumSchema);
+
+module.exports = Album;
 ```
 
 </details>
