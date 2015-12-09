@@ -56,7 +56,7 @@ Objectives:
 
 1. Ensure that the song list on the page (the main album row that contains this song) is updated as well.
 
-> You may want to re-retrieve the songs rather than trying to parse the current <li> content
+> You may want to re-retrieve the songs rather than trying to parse the current album `<li>` content
 
 
 ## Step 4 Update  
