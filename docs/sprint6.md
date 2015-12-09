@@ -20,7 +20,7 @@ Objectives:
 
 ## Step 1: modalize
 
-1. Add a new modal to the page.  You can build your own OR [use the sample provided](/docs/assets/code_samples/sprint6_modal.html).
+1. Add a new modal to the page.  You can build your own OR [use the sample provided](/docs/code_samples/sprint6_modal.html).
 
 > If you're using the sample, take a look at the unique ids created on the elements.  We'll be using those later on.
 
@@ -36,13 +36,13 @@ Objectives:
 
 ## Step 2: form
 
-1. Develop a form for editing the song list.  It should be able to
-  * delete a song
-  * edit each song
+1. Develop a form for editing the song list.  It should be able to (1) delete a song (2) edit each song. Your form will need to be put into an HTML string (write a function for this).
 
 1. Remember that in order to do a `DELETE /api/albums/:album_id/songs/:id` or a `PUT /api/albums/:album_id/songs/:id` you'll need those `id`s.  Embed them in `data-` attributes in your form.
 
 1. You may want to use a `GET /api/albums/:album_id/songs` index route to get all songs for a particular album.  This is likely easier than retrieving incomplete data from the page.
+
+> A sample HTML string for the form <a href="/docs/code_samples/sprint6_inline_form.js">is provided for you</a>.
 
 ## Step 3
 
@@ -54,20 +54,20 @@ Objectives:
 
 1. Test delete for songs.
 
-1. Ensure that the song list on the page is updated as well.
+1. Ensure that the song list on the page (the main album row that contains this song) is updated as well.
 
-> You can if you want re-draw
+> You may want to re-retrieve the songs rather than trying to parse the current <li> content
 
 
 ## Step 4 Update  
 
-Since we're editing multiple songs at the same time; when we "Save All" we have to `$.ajax({ method: put })` for _EACH_ song.  That's multiple AJAX calls.  In a bigger app we might find another way to do this so we can submit them all in one `PUT`, but for now this is ok.
+Let's allow users to save their edits.
 
-1. After the user clicks 'Save All' (or 'Update All'), make an AJAX `PUT` request for each song.  
-
-1. After the user clicks 'Save All' (or 'Update All') close the modal.
+1. After the user clicks a 'Save' button, make an AJAX `PUT` request for the edited song.  
 
 1. Make sure you test everything.
+
+1. Make sure the modal closes when the close button is clicked.
 
 
 ## Step 5
