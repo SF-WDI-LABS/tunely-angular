@@ -56,14 +56,16 @@ Objectives:
 
 1. Ensure that the song list on the page (the main album row that contains this song) is updated as well.
 
-> You may want to re-retrieve the songs rather than trying to parse the current album `<li>` content
-
+> You may want to re-retrieve the songs rather than trying to parse the current album `<li>` content.
+> It would be a good idea to make a function for this, it'll be useful in the next step.
 
 ## Step 4 Update  
 
 Let's allow users to save their edits.
 
 1. After the user clicks a 'Save' button, make an AJAX `PUT` request for the edited song.  
+
+1. Update the page with the changed song.
 
 1. Make sure you test everything.
 
@@ -72,7 +74,7 @@ Let's allow users to save their edits.
 
 ## Step 5
 
-1. Add functionality so that the user can create new songs and have them added to the list.
+1. Add functionality so that the user can create new songs and have them added to the list from within the modal.
 
 
 ## Challenges
