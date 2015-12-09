@@ -28,11 +28,11 @@ Objectives:
 
 1. When 'Edit Songs' is clicked open the modal!
 
-<detail><summary>opening a modal with js</summary>
+<details><summary>opening a modal with js</summary>
 
 `$('#fooModal').modal('show');`
 
-</detail>
+</details>
 
 ## Step 2: form
 
@@ -83,10 +83,10 @@ Let's allow users to save their edits.
 
 1. Save each song when the user leaves the input box.
 
-1. Client-side validations: make sure track-numbers are numbers & unique.  In the form sort them by trackNumber.
-
-1. Consider using Font Awesome.
+1. Client-side validations: make sure trackNumbers are numbers & unique.  In the form sort them by trackNumber.
 
 1. Consider using a Bootstrap theme.
+
+1. Consider using Font Awesome.
 
 1. Server-side validations: make sure track-numbers are unique per album.  

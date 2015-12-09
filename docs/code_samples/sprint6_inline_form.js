@@ -1,6 +1,6 @@
 
 // sample html string to use for each song (one-line form)
-html += '<form class="form-inline" id="' + albumId  + '"' +
+ html = '<form class="form-inline" id="' + albumId  + '"' +
         '  <div class="form-group">' +
         '    <input type="text" class="form-control song-trackNumber" value="' + song.trackNumber + '">' +
         '  </div>'+
