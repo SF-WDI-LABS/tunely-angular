@@ -28,6 +28,8 @@ We're going to add a button that allows our users to edit an album.
 
 1. Also replace the major fields on the Album with `input` elements.
 
+> Hint: you could have 2 buttons in place already, 1) "Edit", 2) "Save changes" and simply toggle their visibility with [$.toggle](http://api.jquery.com/toggle/)
+
 ## Step 2
 
 1. When `Save Changes` is clicked, react to it.  
