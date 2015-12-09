@@ -40,9 +40,9 @@ Once again let's start on the front-end and add a button to delete an album.
 
 Let's add a route for `DELETE /api/albums/:id` to our server.
 
-1. Add the new route on the server side.  It should return just a 200 status code.
+1. Add the new route on the server side.  It should return just a [200 or 204 status code](http://stackoverflow.com/questions/2342579/http-status-code-for-update-and-delete).
 
-> HTTP DELETE normally [doesn't have a defined body.](http://tools.ietf.org/html/rfc7231#section-4.3.5)
+> HTTP DELETE often [doesn't have a defined body.](http://tools.ietf.org/html/rfc7231#section-4.3.5)
 
 1. Test it with curl or postman.
 
