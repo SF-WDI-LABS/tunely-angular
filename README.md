@@ -4,6 +4,10 @@ Full CRUD SPA with mongoose and Express.
 
 Prerequisites:
 * jQuery, AJAX
+  * `$('asdf').on('click', '.add-song'`
+  * `$.get`
+  * `$.post`
+  * `$(document).ready(function() `
 * Express server, static assets
 * RESTful design
 * JSON serving /api routes
@@ -11,6 +15,8 @@ Prerequisites:
 * CRUD with mongoose
   * mongoose embedded relationships
   * Part 3: mongoose references
+* html `data-` attributes
+
 
 ## Overview
 

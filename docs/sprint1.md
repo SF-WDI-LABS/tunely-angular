@@ -17,21 +17,19 @@ Now would be a great time to explore the files provided for you.  In particular 
 
 ### Working through the lab
 
-Use nodemon throughout the exercise to run your server.  
+Use `nodemon` or `node server.js` throughout the exercise to run your server.  
 Continually verify that your browser console is displaying the `app.js loaded!` message on document-ready.
 
 ## Step 1:
 **Goal** display hard-coded data from `app.js` on `index.html`
 Let's start on the outside and work our way in.  
 
-1. Open `index.html` and find the HTML for an **album**. Delete the HTML for all of the albums. Leave the `div.albums` in place.
+1. Open `index.html` and find the HTML for an **album**. Convert this into a handlebars template.  Make sure you remove the data and place appropriate attributes in place instead.  (You can get those attributes from the array of objects provided in `app.js`)  Leave `div.albums` in place.
 
-1. Open `app.js` and edit the function `renderAlbum` to display one Album on the page.
+1. Open `app.js` and edit the function `renderAlbums` to display one Album on the page.
 You should use HTML just like what you just deleted.  Build-up the HTML string and use jQuery to render it on the page.
 
 1. Run the function on document-ready and give it `sampleAlbums[0]` (just one album).  Verify that the page looks right.
-
-1. Update your code to use **all** the sampleAlbums.  Use `forEach`.
 
 <details><summary>hint: calling renderAlbum</summary>
 
@@ -42,6 +40,35 @@ $(document).ready(function() {
 });
 ```
 </details>
+
+
+## Step 1.5: rendering all the albums
+
+1. Update your code to use **all** the sampleAlbums.  Use the template's `#each` method.  Change the `renderAlbum` method to a `renderAlbums` method.  This way we can call one method to re-render all the album data.
+  * Note that you'll need to pass the array of albums inside an object for the templating system to be able to use it.  That is your function call may need to look like `renderAlbums({albums: sampleAlbums});`
+
+
+1. Later on we'll be clearing out the `div.albums` div.  This will unfortunately also remove the script tag holding our handlebars template.  Move that script down to the bottom of the document to preserve it.
+
+At this point you should see all 4 hard-coded albums rendered on page.
+
+<details><summary>Rendering all the albums with handlebars</summary>
+```js
+$(document).ready(function() {
+  console.log('app.js loaded!');
+  renderAlbums({albums: sampleAlbums});
+});
+
+
+// this function takes a single album and renders it to the page
+function renderAlbums(albums) {
+  console.log('rendering albums');
+  var albumHtml = $('#album-template').html();
+  var albumsTemplate = Handlebars.compile(albumHtml);
+  var html = albumsTemplate(albums);
+  $('#albums').prepend(html);
+ }
+```
 
 
 ## Step 2:
@@ -57,6 +84,8 @@ GET /api/albums
 1. Serve the hard-coded albums in server.js on `/api/albums`.  This is an API route, so let's send JSON.
 
 1. In `app.js`, use `ajax` to get the albums.  Render them on the page.
+
+1. You can safely delete the hard-coded data in `app.js` now!
 
 > The data in `server.js` and `app.js` is different; making it easy to see which data is being rendered on your page.
 
