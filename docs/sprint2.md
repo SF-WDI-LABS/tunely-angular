@@ -62,7 +62,9 @@ curl:
 
 1. Verify it's getting logged by the server when you submit.
 
-1. On the server-side break the data we're getting in the  `genre` field into an array.
+1. On the server-side break the data we're getting in the `genre` field into an array.
+
+> Hint: the `split` method may be handy here.
 
 ## Step 5:
 
