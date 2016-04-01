@@ -12,42 +12,7 @@ app.use(express.static(__dirname + '/public'));
 // We're placing these under /vendor to differentiate them from our own assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
-
-/************
- * DATABASE *
- ************/
-
-/* hard-coded data */
-var albums = [];
-albums.push({
-              _id: 132,
-              artistName: 'Nine Inch Nails',
-              name: 'The Downward Spiral',
-              releaseDate: '1994, March 8',
-              genres: [ 'industrial', 'industrial metal' ]
-            });
-albums.push({
-              _id: 133,
-              artistName: 'Metallica',
-              name: 'Metallica',
-              releaseDate: '1991, August 12',
-              genres: [ 'heavy metal' ]
-            });
-albums.push({
-              _id: 134,
-              artistName: 'The Prodigy',
-              name: 'Music for the Jilted Generation',
-              releaseDate: '1994, July 4',
-              genres: [ 'electronica', 'breakbeat hardcore', 'rave', 'jungle' ]
-            });
-albums.push({
-              _id: 135,
-              artistName: 'Johnny Cash',
-              name: 'Unchained',
-              releaseDate: '1996, November 5',
-              genres: [ 'country', 'rock' ]
-            });
-
+var controllers = require('./controllers');
 
 
 /**********
@@ -67,16 +32,7 @@ app.get('/', function homepage (req, res) {
  * JSON API Endpoints
  */
 
-app.get('/api', function api_index (req, res){
-  res.json({
-    message: "Welcome to tunely!",
-    documentation_url: "https://github.com/tgaff/tunely/api.md",
-    base_url: "http://tunely.herokuapp.com",
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
-    ]
-  });
-});
+app.get('/api', controllers.api.index);
 
 /**********
  * SERVER *
