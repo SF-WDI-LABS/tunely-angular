@@ -17,6 +17,10 @@ Prerequisites:
   * Part 3: mongoose references
 * html `data-` attributes
 
+Other tools
+* bower is used, but students need not interact with it
+  * components are automatically installed via an npm postinstall script
+
 
 ## Overview
 
