@@ -1,2 +1,2 @@
-module.exports.api = require('./api');
-module.exports.albums = require('./albums');
+module.exports.api = require('./apiController');
+module.exports.albums = require('./albumsController');
