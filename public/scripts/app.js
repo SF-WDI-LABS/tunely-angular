@@ -20,6 +20,7 @@ $(document).ready(function() {
     console.log('formData', formData);
     $.post('/api/albums', formData, function(album) {
       console.log('album after POST', album);
+      renderAlbum(album);  //render the server's response
     });
     $(this).trigger("reset");
   });
