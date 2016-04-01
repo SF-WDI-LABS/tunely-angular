@@ -24,10 +24,9 @@ Continually verify that your browser console is displaying the `app.js loaded!` 
 **Goal** display hard-coded data from `app.js` on `index.html`
 Let's start on the outside and work our way in.  
 
-1. Open `index.html` and find the HTML for an **album**. Convert this into a handlebars template.  Make sure you remove the data and place appropriate attributes in place instead.  (You can get those attributes from the array of objects provided in `app.js`)  Leave `div.albums` in place.
+1. Open `index.html` and find the HTML for an **album**. Convert this into a handlebars template by adding the correct script tags.  Make sure you remove the data and place appropriate attribute placeholders in place instead.  (You can get those attributes from the array of objects provided in `app.js`)  Leave `div.albums` in place.
 
-1. Open `app.js` and edit the function `renderAlbums` to display one Album on the page.
-You should use HTML just like what you just deleted.  Build-up the HTML string and use jQuery to render it on the page.
+1. Open `app.js` and edit the function `renderAlbum` to display one Album on the page.  Use the handlebars template.  
 
 1. Run the function on document-ready and give it `sampleAlbums[0]` (just one album).  Verify that the page looks right.
 
@@ -44,11 +43,10 @@ $(document).ready(function() {
 
 ## Step 1.5: rendering all the albums
 
-1. Update your code to use **all** the sampleAlbums.  Use the template's `#each` method.  Change the `renderAlbum` method to a `renderAlbums` method.  This way we can call one method to re-render all the album data.
-  * Note that you'll need to pass the array of albums inside an object for the templating system to be able to use it.  That is your function call may need to look like `renderAlbums({albums: sampleAlbums});`
+1. Update your code to use **all** the sampleAlbums.  Use `forEach` to loop over each album in the array and use the template to put it on the page.  
 
+  > Note that we could use the templates `#each` method and pass it all the albums at once. However, we're planning to be able to add individual albums later on, so we'll need the ability to render each album individually.  Having two separate render functions and templates (1 for individual albums, 1 for all albums) seems excessive at this point.  
 
-1. Later on we'll be clearing out the `div.albums` div.  This will unfortunately also remove the script tag holding our handlebars template.  Move that script down to the bottom of the document to preserve it.
 
 At this point you should see all 4 hard-coded albums rendered on page.
 

@@ -3,19 +3,21 @@
 Full CRUD SPA with mongoose and Express.
 
 Prerequisites:
+
+* html `data-` attributes
 * jQuery, AJAX
   * `$('asdf').on('click', '.add-song'`
   * `$.get`
   * `$.post`
   * `$(document).ready(function() `
+  * Access to challenging CSS selectors could be helpful.  Example: `      $('[data-album-id=a7397f6f2e]')`
 * Express server, static assets
+  * serving JSON on /api routes
 * RESTful design
-* JSON serving /api routes
 * Bootstrap - the lab will introduce modals
 * CRUD with mongoose
   * mongoose embedded relationships
   * Part 3: mongoose references
-* html `data-` attributes
 
 Other tools
 * bower is used, but students need not interact with it
@@ -25,6 +27,7 @@ Other tools
 ## Overview
 
 This lab begins with a basic front-end to display a list of music albums.  As we progress through we'll:
+
 * serve the album data from our server's `/api/` routes.
 * get the data from the server using ajax and display it on the page with jQuery
 * retrieve the data from the database

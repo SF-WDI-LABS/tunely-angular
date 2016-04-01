@@ -90,4 +90,6 @@ curl:
 
 ![add new field button](/docs/assets/images/add_new_field_button.png)
 
+<!-- note the above image works fine on github, but not in the editor -->
+
 1. Convert the form to a modal and add a link to the right-side of the "Albums" header to open it!
