@@ -29,8 +29,11 @@ $(document).ready(function() {
   // catch and handle the click on an add song button
   $('#albums').on('click', '.add-song', function(e) {
       console.log('add-song clicked!');
-      var id= $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-      console.log('id',id);
+      var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+      console.log('id',currentAlbumId);
+      $('#songModal').data('album-id', currentAlbumId);
+      $('#songModal').modal();  // display the modal!
+
   });
 
 });
