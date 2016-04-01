@@ -105,7 +105,7 @@
       <div id='albums'>
         <script id='album-template' type='text/x-handlebars-template'>
           <!-- one album -->
-          <div class="row album">
+          <div class="row album" data-album-id="{{_id}}">
 
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
@@ -148,6 +148,10 @@
                   <!-- end of album internal row -->
 
                   <div class='panel-footer'>
+                    <div class='panel-footer'>
+                      <button class='btn btn-primary add-song'>Add Song</button>
+                    </div>
+
                   </div>
 
                 </div>

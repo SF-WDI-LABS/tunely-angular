@@ -25,7 +25,16 @@ $(document).ready(function() {
     $(this).trigger("reset");
   });
 
+
+  // catch and handle the click on an add song button
+  $('#albums').on('click', '.add-song', function(e) {
+      console.log('add-song clicked!');
+      var id= $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+      console.log('id',id);
+  });
+
 });
+
 
 
 // this function takes a single album and renders it to the page
