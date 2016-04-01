@@ -51,6 +51,7 @@ $(document).ready(function() {
 At this point you should see all 4 hard-coded albums rendered on page.
 
 <details><summary>Rendering all the albums with handlebars</summary>
+
 ```js
 $(document).ready(function() {
   console.log('app.js loaded!');
@@ -77,15 +78,19 @@ We're going to add the following _index_ route on our server:
 GET /api/albums
 ```
 
-1. Open server.js and create a new route for `/api/albums`
+To better organize this app we're going to be using controllers to separate out logic for different `resources`.  That means that when you create a route like `/api/albums/:id` you'll put the server code to handle that in a separate file; and reference it's function.  [Example](controllers_example.md).  If you take a look in `server.js` you'll see that we've already required the controllers for you.
 
-1. Serve the hard-coded albums in server.js on `/api/albums`.  This is an API route, so let's send JSON.
+1. Open server.js and create a new route for `/api/albums`.  This route's callback should point to `controllers.albums.index`.
+
+1. Open `controllers/albums.js` and fill in the index function to return all albums.
+
+1. Serve the hard-coded albums in albums.js on `/api/albums`.  This is an API route, so let's send JSON.
 
 1. In `app.js`, use `ajax` to get the albums.  Render them on the page.
 
 1. You can safely delete the hard-coded data in `app.js` now!
 
-> The data in `server.js` and `app.js` is different; making it easy to see which data is being rendered on your page.
+> The data in `albums.js` and `app.js` is different; making it easy to see which data is being rendered on your page.
 
 
 ## Step 3:
@@ -94,7 +99,7 @@ Let's setup the database now.
 
 1. Use `npm` to install `mongoose`.
 
-1. In `models/album.js` add a model for our albums.  You should be able to determine the datatypes based on the sample data in the server.
+1. In `models/album.js` add a model for our albums.  You should be able to determine the datatypes based on the sample data we've been using.
 
 1. Export Album in `models/album.js`
 
@@ -159,9 +164,11 @@ It usually means that `mongod` is not running.
 
 Now that the database is seeded, let's continue and use it in our `/api/albums` route.
 
-1. Require `./models` in `server.js`.
+1. Delete the hard-coded server data.
 
-1. Edit the current `app.get('/api/albums', fun...` to access the database and pull all albums.
+1. Require `./models` in `controllers/albums.js`.
+
+1. Edit the current `function index` to access the database and pull all albums.
 
 1. Verify that you're getting the right data on your index page now.  Your ajax should still work; but if the `keys` in the data have changed at all you'll have to resolve that.
 

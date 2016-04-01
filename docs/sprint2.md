@@ -42,7 +42,9 @@ Let's add a post route on the server now.  We already know that POST is used to 
 POST  /api/albums
 ```
 
-1. In `server.js`, after the current `GET /api/albums` add a new route.  Start by just `console.log`ing the output and returning the same data you received as json.
+1. In `server.js`, after the current `GET /api/albums` add a new route.  Create the appropriate function (`function create`) in your albums controller.  Start by just `console.log`ing the output and returning the same data you received as json.
+
+  > Don't forget to export the `create` function from the controller or it won't be accessible in `server.js`.
 
 1. Add body-parser to the server.
 
@@ -50,10 +52,12 @@ POST  /api/albums
 
 curl:
 ```bash
- curl -X POST http://localhost:3000/api/albums --data "name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop
+ curl -X POST http://localhost:3000/api/albums --data "name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop"
 ```
 
 > Hint: If using postman to POST set the BODY type to x-www-form-urlencoded, then set key-value pairs.
+
+
 
 
 ## Step 4:

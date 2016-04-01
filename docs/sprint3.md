@@ -200,7 +200,9 @@ Let's add a function to handle the submit on the modal and POST the form data as
 
 Now we need to add the POST route on the server.  We're going to be using request-params (URL parameters) this time.  
 
-1. Build the `app.post` callback method for '/api/albums/:album_id/songs'.  Get the id from the request and find the correct album in the database.
+1. In `controllers/albumsController` build the `app.post` callback method for '/api/albums/:album_id/songs'.  Get the id from the request and find the correct album in the database.
+
+1. Configure the route in `server.js` to call the `create` function.
 
 1. Create the new Song and add it to the Album.  
 
