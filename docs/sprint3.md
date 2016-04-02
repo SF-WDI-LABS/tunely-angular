@@ -18,13 +18,13 @@ The data from the database will look a little like this:
 ```js
 { genres: [ 'new wave', 'indie rock', 'synth pop' ],
     songs:
-     [ { _id: 5665ff1678209c64e51b4e6a,
+     [ { _id: a665ff1678209c64e51b4e6a,
          trackNumber: 1,
          name: 'Swamped' },
-       { _id: 5665ff1678209c64e51b4e64,
+       { _id: a665ff1678209c64e51b4e64,
          trackNumber: 7,
          name: 'Tight Rope' } ],
-    _id: 5665ff1678209c64e51b4e63,
+    _id: a665ff1678209c64e51b4e63,
     releaseDate: '2008, November 18',
     name: 'Comalies',
     artistName: 'Lacuna Coil',
@@ -200,7 +200,7 @@ Let's add a function to handle the submit on the modal and POST the form data as
 
 Now we need to add the POST route on the server.  We're going to be using request-params (URL parameters) this time.  
 
-1. In `controllers/albumsController` build the `app.post` callback method for '/api/albums/:album_id/songs'.  Get the id from the request and find the correct album in the database.
+1. In `controllers/albumsSongsController.js` build the `app.post` callback method for '/api/albums/:album_id/songs'.  Get the id from the request and find the correct album in the database.
 
 1. Configure the route in `server.js` to call the `create` function.
 
