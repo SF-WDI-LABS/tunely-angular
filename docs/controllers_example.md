@@ -124,8 +124,8 @@ app.get('/api/cards/:id', function cardsShow(req, res) {
     └── cards.js
 └── models
     ├── index.js
-    ├── quote.js
-    └── author.js
+    ├── authors.js
+    └── cards.js
 ```
 
 ##### Refactor
