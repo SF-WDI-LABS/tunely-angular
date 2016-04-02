@@ -80,16 +80,34 @@ db.Author.find
 
 Let's refactor `server.js` to use controllers. Here's our starting point:
 
-```
+```js
 // server.js
+
+
 app.get('/api/cards', function cardsIndex(req, res) { 
-  // do index stuff 
+  // get all cards from the database 
+  db.Card.find({}, function(err, allCards) {
+    // add some error checking here!
+    // respond, sending all cards back
+    res.json(allCards);
+  });
 }
 app.post('/api/cards', function cardsCreate(req, res) { 
-  // do post stuff
+  // make a new card with the form data from req.body
+  var newCard = new Card({
+    frontText: req.body.frontText,
+    backText: req.body.backText
+  });
 }
 app.get('/api/cards/:id', function cardsShow(req, res) { 
-  // do show stuff
+  // pull card id out of the request
+  var cardId = req.params.card_id;
+  // get single card from the database 
+  db.Card.findOne({_id: cardId}, function(err, thatCard) {
+    // add some error checking here!
+    // respond, sending all cards back
+    res.json(thatCard);
+  });
 }
 ```
 
