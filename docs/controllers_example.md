@@ -3,23 +3,23 @@
 
 #### Before Controllers
 
-If you haven't seen this before you may be surprised to discover that the logic for every route doesn't have to be in server.js.  If you think about it though, it's obvious that in large apps server.js would become very long and hard to work with. _yuck_
+If you haven't seen this before, you may be surprised to discover that the logic for every route doesn't have to be in `server.js`.  If you think about it, though, it's obvious that in large apps, server.js would become very long and hard to work with. _yuck_
 
 #### Controllers and Resources
 
-We're going to use the module pattern and create a module for each **controller** where we'll store all the route logic for that particular **resource**.  A **resource** can be thought of as being related to the endpoints in your routes.  For example, in Tunely we'll have a `/api/albums/:id` route.  `albums` is a **resource** here and we'll give it it's own **controller**.  You might later put `artists`, or `record_labels` in their own **controllers**.
+We're going to use the module pattern to separate out some of the code that's currently in our server.js.  Have you heard the term **resource**?  A **resource** is just a type of data your app stores -- and it can be thought of as being related to the endpoints in your routes.  For example, in Tunely we'll have a `/api/albums/:id` route.  `albums` is a resource here. To take full advantage of the module pattern, we'll create a module for each resource where we'll store all the server's logic for interacting with that resource. This logic module will be called the **controller** for that resource. So each resource in your database will have its own **model** and its own **controller**. You might later make `artists` or `record_labels` and make them their own **controllers** as well as **models**.    
 
 #### Modules
 
 You've already seen this pattern when using models!
 
 1. We `export` the relevant objects from a file.  
-1. We `require` those other files in an `index.js` and re-`export` everything as an object.
-1. When we need to use those objects we `require` the directory containing those files (which reads `index.js` and retrieves that object).
+1. We `require` those other files in an `index.js` to group them and then re-`export` everything inside one object.
+1. When we need to use those objects, we `require` the directory containing those files (this reads `index.js` and retrieves that combined controller object).
 
 The key here is to realize that `module.exports` always starts as an empty object `{}`.  
 
-> If you `module.exports = { key: value }` you can export anything!
+> If you `module.exports = { key: value }`, you can export anything!
 
 Let's look at an example:
 
@@ -61,7 +61,7 @@ In the above `index.js` is exporting an object that looks like:
 }
 ```
 
-Anywhere we import `models/index` or even `models` we get that object.
+Anywhere we import `models/index`, or even `models`, we get that object.
 
 Let's take a look:
 
@@ -78,7 +78,7 @@ db.Author.find
 
 #### Applying this to controllers
 
-Let's refactor this `server.js` to use controllers:
+Let's refactor `server.js` to use controllers. Here's our starting point:
 
 ```
 // server.js
@@ -93,15 +93,21 @@ app.get('/api/cards/:id', function cardsShow(req, res) {
 }
 ```
 
-> aww check out those beautiful RESTful routes!
+> aww, check out those beautiful RESTful routes!
 
 ##### New file structure
+
+
 
 ```
 ├── server.js
 └── controllers
     ├── index.js
     └── cards.js
+└── models
+    ├── index.js
+    ├── quote.js
+    └── author.js
 ```
 
 ##### Refactor
@@ -129,7 +135,8 @@ var publicMethods = {
 module.exports = publicMethods;
 ```
 
-Then in `index.js` we require and re-export.  
+Then, in `controllers/index.js`, we require and re-export.  
+
 > This step may seem odd right now, but when you have 15 controllers, you'll thank us.
 
 ```js
@@ -138,7 +145,7 @@ module.exports.cards = require('./cards');
 module.exports.someOtherController = require('./someOtherController');
 ```
 
-Finally in server.js we connect these together:
+Finally in `server.js` we connect these together:
 
 ```js
 // server.js
@@ -151,7 +158,7 @@ app.get('/api/cards/:id', controllers.cards.show);
 
 #### Wrap-up
 
-Using this pattern it becomes clear where to find the logic for each route and your server.js file becomes much cleaner.  It also starts guiding us down the path of using RESTful routes since we're assigning these typical names like index, show, create, etc.  We can group by **resource** which makes it easier for future developers on the project to find what they need.
+Using this pattern, it becomes clear where to find the logic for each route, and your `server.js` file becomes much cleaner.  It also helps us start using some conventional names for RESTful routes: index, show, create, etc.  We also group the logic by **resource**, which makes it easier for future developers on the project to find what they need.
 
-Your `server.js` file is effectively now a router.  When you work with other server architectures you will run into very similar patterns; knowing how this works will help you to adapt to other technologies you come across!
+Your `server.js` file is effectively now a list of routes with the controller methods those routes use.  When you work with other server architectures, you will run into very similar patterns. Knowing how this works will help you to adapt to other technologies you come across!
 
