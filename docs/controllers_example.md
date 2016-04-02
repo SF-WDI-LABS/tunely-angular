@@ -175,6 +175,8 @@ app.post('/api/cards', controllers.cards.create);
 app.get('/api/cards/:id', controllers.cards.show);
 ```
 
+![dancing semaphore man](https://media.giphy.com/media/rDroB384ydCvK/giphy.gif)
+
 #### Wrap-up
 
 Using this pattern, it becomes clear where to find the logic for each route, and your `server.js` file becomes much cleaner.  It also helps us start using some conventional names for RESTful routes: index, show, create, etc.  We also group the logic by **resource**, which makes it easier for future developers on the project to find what they need.
