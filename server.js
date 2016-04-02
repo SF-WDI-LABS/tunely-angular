@@ -37,8 +37,10 @@ app.get('/', function homepage (req, res) {
 app.get('/api', controllers.api.index);
 
 app.get('/api/albums', controllers.albums.index);
+app.get('/api/albums/:albumId', controllers.albums.show);
 app.post('/api/albums', controllers.albums.create);
 app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
+
 
 /**********
  * SERVER *

@@ -76,10 +76,12 @@ function handleNewSongSubmit(e) {
     // close modal
     $modal.modal('hide');
     // update the correct album to show the new song
-    // Note there are a couple of ways we could do this.
-    // 1. re-retrieve the entire album and call renderAlbum with it (cost: extra server round-trip)
-    // 2. allow the server to respond with the entire album and then renderAlbum (slightly less standard)
-    console.log('for now lets log the results and wait till we have the server setup:', data);
+    $.get('/api/albums/' + albumId, function(data) {
+      // remove the current instance of the album from the page
+      $('[data-album-id=' + albumId + ']').remove();
+      // re-render it with the new album data (including songs)
+      renderAlbum(data);
+    });
   }).error(function(err) {
     console.log('post to /api/albums/:albumId/songs resulted in error', err);
   });

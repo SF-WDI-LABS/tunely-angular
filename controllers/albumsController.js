@@ -28,7 +28,11 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  // FILL ME IN !
+  db.Album.findById(req.params.albumId, function(err, foundAlbum) {
+    if(err) { console.log('albumsController.show error', err); }
+    console.log('albumsController.show responding with', foundAlbum);
+    res.json(foundAlbum);
+  });
 }
 
 function destroy(req, res) {
