@@ -7,7 +7,7 @@ If you haven't seen this before, you may be surprised to discover that the logic
 
 #### Controllers and Resources
 
-We're going to use the module pattern to separate out some of the code that's currently in our server.js.  Have you heard the term **resource**?  A **resource** is just a type of data your app stores -- and it can be thought of as being related to the endpoints in your routes.  For example, in Tunely we'll have a `/api/albums/:id` route.  `albums` is a resource here. To take full advantage of the module pattern, we'll create a module for each resource where we'll store all the server's logic for interacting with that resource. This logic module will be called the **controller** for that resource. So each resource in your database will have its own **model** and its own **controller**. You might later make `artists` or `record_labels` and make them their own **controllers** as well as **models**.    
+We're going to use the module pattern to separate out some of the code that's currently in our server.js.  Have you heard the term **resource**?  A **resource** is just a type of data your app stores -- and it can be thought of as being related to the endpoints in your routes.  For example, in Tunely we'll have a `/api/albums/:id` route.  `albums` is a resource here. To take full advantage of the module pattern, we'll create a module for each resource where we'll store all the server's logic for interacting with that resource. This logic module will be called the **controller** for that resource. So each resource in your database will have its own **model** and its own **controller**. You might later add `artists` or `record_labels` and give each one its own **controller** and **model**.    
 
 #### Modules
 
