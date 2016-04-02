@@ -115,16 +115,35 @@ app.get('/api/cards/:id', function cardsShow(req, res) {
 ```js
 // controllers/cards.js
 
+// send all card data back!
 function index(req, res) {
-  // do index stuff
+  // get all cards from the database 
+  db.Card.find({}, function(err, allCards) {
+    // add some error checking here!
+    // respond, sending all cards back
+    res.json(allCards);
+  });
 }
 
+// create a card!
 function create(req, res) {
-  // do post stuff
+  // make a new card with the form data from req.body
+  var newCard = new Card({
+    frontText: req.body.frontText,
+    backText: req.body.backText
+  });
 }
 
+// send data for one card
 function show(req, res) {
-  // do show stuff
+  // pull card id out of the request
+  var cardId = req.params.card_id;
+  // get single card from the database 
+  db.Card.findOne({_id: cardId}, function(err, thatCard) {
+    // add some error checking here!
+    // respond, sending all cards back
+    res.json(thatCard);
+  });
 }
 
 var publicMethods = {
