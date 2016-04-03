@@ -5,6 +5,7 @@
 Now let's allow our users to edit the Album info.  
 
 This sprint we will:
+
 * make it so users can edit each Album
 * add a `PUT /api/albums/:id` route to the server
 
@@ -28,7 +29,22 @@ We're going to add a button that allows our users to edit an album.
 
 1. Also replace the major fields on the Album with `input` elements.
 
+
+Confused? How about a wire-frame from the UX department to sort things out: 
+
+##### Before clicking on "Edit Album"
+
+![before clicking edit album](assets/albums/tunely_edit_album_example.png)
+
+##### After clicking on "Edit Album"
+
+![after clicking edit album](assets/albums/tunely_edit_album_after_click_example.png)
+
+
 > Hint: you could have 2 buttons in place already, 1) "Edit", 2) "Save changes" and simply toggle their visibility with [$.toggle](http://api.jquery.com/toggle/)
+
+> Note: this step could be a little tricky, especially if you want to display the current values in the input fields.  You'll have to get the text from the page, then replace the text with input elements.  You also have to worry about swapping
+
 
 ## Step 2
 
