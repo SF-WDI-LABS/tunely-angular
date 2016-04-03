@@ -44,7 +44,23 @@ function destroy(req, res) {
 
 //app.put('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.update);
 function update(req, res) {
-  console.log('not implemented');
+  db.Album.findById(req.params.albumId, function(err, foundAlbum) {
+    console.log(foundAlbum);
+    // we've got the album, now find the song within it
+    var correctSong = foundAlbum.songs.id(req.params.songId);
+    if (correctSong) {
+      console.log(req.body);
+      correctSong.trackNumber = req.body.trackNumber;
+      correctSong.name = req.body.name;
+      foundAlbum.save(function(err, saved) {
+        console.log('UPDATED', correctSong, 'IN ', saved.songs);
+        res.json(correctSong);
+      });
+    } else {
+      res.send(404);
+    }
+  });
+
 }
 
 

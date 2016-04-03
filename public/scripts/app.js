@@ -38,8 +38,68 @@ $(document).ready(function() {
 
   // edit songs modal triggers
   $('#editSongsModalBody').on('click', 'button.btn-danger', handleDeleteSongClick);
+  $('#editSongsModal').on('click', 'button#editSongsModalSubmit', handleUpdateSongsSave);
 
 });
+
+function handleUpdateSongsSave(event) {
+  // build all the songs objects up
+  var $modal = $('#editSongsModal');
+  if($modal.find('form').length < 1) {
+    // if there are no form elements, then there are no songs to update
+    $modal.modal('hide');
+    return;
+  }
+  // snag the albumId from the first form object on the modal
+  var albumId = $modal.find('form').data('album-id');
+
+  var updatedSongs = [];
+  // see https://api.jquery.com/each/
+  $modal.find('form').each(function () {
+    // in here this is a form element
+    var aSong = {};
+    aSong._id = $(this).attr('id');
+    aSong.name = $(this).find('input.song-name').val();
+    aSong.trackNumber = $(this).find('input.song-trackNumber').val();
+    console.log('found updated data for song: ', aSong);
+    updatedSongs.push(aSong);
+  });
+  // at this point we should have an array of songs to PUT to the server
+  //   this is going to be a lot of requests and after all of them we have to update the page again
+  //   maybe we should display a spinner to let the user know the requests are processing ?
+  //   but let's just take the easy route - hide the modal and continue processing in the background
+  $modal.modal('hide');
+  updateMultipleSongs(albumId, updatedSongs);
+}
+
+function updateMultipleSongs(albumId, songs) {
+  // Now we're getting into tough stuff!
+  // We're going to kick off as many PUT requests as we need - 1 per songId
+  // We'll keep track of the promises from each and once they are ALL done then
+  //   we'll re-render the entire album again.
+  // We don't want to re-render BEFORE the PUT requests are complete because the data we fetch back
+  //   might not have all the updates in it yet!
+  var url = '/api/albums/' + albumId + '/songs/';
+  var deferreds = [];
+
+  songs.forEach(function(song) {
+    var ajaxCall = $.ajax({
+      method: 'PUT',
+      url: url + song._id,
+      data: song,
+      error: function(err) { console.log('Error updating song ', song.name, err); }
+    });
+    deferreds.push(ajaxCall);
+  });
+
+  // wait for all the deferreds then, refetch and re-render the album
+  // the .apply here is allowing us to apply the stuff in the promises array
+  $.when.apply(null, deferreds).always(function() {
+    console.log('all updates sent and received, time to refresh!');
+    console.log(arguments);
+    fetchAndReRenderAlbumWithId(albumId);
+  });
+}
 
 function fetchAndReRenderAlbumWithId(albumId) {
   $.get('/api/albums/' + albumId, function(data) {
