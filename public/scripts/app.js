@@ -35,7 +35,36 @@ $(document).ready(function() {
   $('#albums').on('click', '.edit-album', handleAlbumEditClick);
   $('#albums').on('click', '.save-album', handleSaveChangesClick);
   $('#albums').on('click', '.edit-songs', handleEditSongsClick);
+
+  // edit songs modal triggers
+  $('#editSongsModalBody').on('click', 'button.btn-danger', handleDeleteSongClick);
+
 });
+
+// when a delete button in the edit songs modal is clicked
+function handleDeleteSongClick(e) {
+  e.preventDefault();  // this is a form!
+  var $thisButton = $(this);
+  var songId = $thisButton.data('song-id');
+  var albumId = $thisButton.closest('form').data('album-id');
+
+  var url = '/api/albums/' + albumId + '/songs/' + songId;
+  console.log('send DELETE ', url);
+  $.ajax({
+    method: 'DELETE',
+    url: url,
+    success: handleSongDeleteResponse
+  });
+}
+
+function handleSongDeleteResponse(data) {
+  console.log('handleSongDeleteResponse got ', data);
+  var songId = data._id;
+  // remove that song edit form from the page
+  $('form#' + songId).remove();
+  // still need to fetch and re-render album
+}
+
 
 // when edit songs button clicked
 function handleEditSongsClick(e) {
@@ -46,19 +75,21 @@ function handleEditSongsClick(e) {
   // frameworks, this'll be a little easier, for now - lets request the data we need
   $.get('/api/albums/' + albumId + "/songs", function(songs) {
     console.log('got back songs: ', songs);
-    populateEditSongsModal(songs);
+    populateEditSongsModal(songs, albumId);
     // fire zee modal!
     $('#editSongsModal').modal();
   });
 }
 
 // takes an array of songs and generates an EDIT form for them
-function populateEditSongsModal(songs) {
+function populateEditSongsModal(songs, albumId) {
   // prep the template
   var templateHtml = $('#song-edit-template').html();
   var template = Handlebars.compile(templateHtml);
   // use the template's #each to render all songs at once
-  songsForms = template({songs: songs});
+  // note that DELETE/PUT will need the albumId to construct the URL,
+  //   so we'll plant that on the form too
+  songsForms = template({songs: songs, albumId: albumId});
   // find the modal's body and replace it with the generated html
   $('#editSongsModalBody').html(songsForms);
 }
