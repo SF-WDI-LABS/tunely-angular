@@ -35,10 +35,22 @@ $(document).ready(function() {
 
 });
 
-
+// when a delete button for an album is clicked
 function handleDeleteAlbumClick(e) {
   var albumId = $(this).parents('.album').data('album-id');
   console.log('someone wants to delete album id=' + albumId );
+  $.ajax({
+    url: '/api/albums/' + albumId,
+    method: 'DELETE',
+    success: handleDeleteAlbumSuccess
+  });
+}
+
+// callback after DELETE /api/albums/:id
+function handleDeleteAlbumSuccess(data) {
+  var deletedAlbumId = data._id;
+  console.log('removing the following album from the page:', deletedAlbumId);
+  $('div[data-album-id=' + deletedAlbumId + ']').remove();
 }
 
 // this function takes a single album and renders it to the page
