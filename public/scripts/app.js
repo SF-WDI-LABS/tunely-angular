@@ -27,17 +27,10 @@ $(document).ready(function() {
 
 
   // catch and handle the click on an add song button
-  $('#albums').on('click', '.add-song', function(e) {
-      console.log('add-song clicked!');
-      var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-      console.log('id',currentAlbumId);
-      $('#songModal').data('album-id', currentAlbumId);
-      $('#songModal').modal();  // display the modal!
-  });
+  $('#albums').on('click', '.add-song', handleAddSongClick);
 
   // save song modal save button
   $('#saveSong').on('click', handleNewSongSubmit);
-
 });
 
 
@@ -51,6 +44,16 @@ function renderAlbum(album) {
   $('#albums').prepend(html);
 }
 
+// when the add song button is clicked, display the modal
+function handleAddSongClick(e) {
+  console.log('add-song clicked!');
+  var currentAlbumId = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+  console.log('id',currentAlbumId);
+  $('#songModal').data('album-id', currentAlbumId);
+  $('#songModal').modal();  // display the modal!
+}
+
+// when the song modal submit button is clicked:
 function handleNewSongSubmit(e) {
   e.preventDefault();
   var $modal = $('#songModal');
