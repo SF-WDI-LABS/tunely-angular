@@ -20,8 +20,7 @@ Objectives:
 * practice more with bootstrap modal's
 
 > Hey! Good work, partner!
-> You're practically an express cowboy/cowgirl now!  That means you're at home on the range (aka DOM) and we're gonna ask you to solve problems on your own in this sprint.  The web is still a bit of the wild-west, and things can get outta hand mighty quick!  Y'all are gonna have to think outside of the lasso and solve issues on yer own!
-
+> You're practically a full-stack cowboy/cowgirl now!  That means you're at home on the range (aka DOM) and we're gonna ask you to solve problems on your own in this sprint.  
 ![cowboy](https://m.popkey.co/e5a568/7grXg.gif)
 
 ## Step 1: modalize
@@ -45,14 +44,17 @@ Objectives:
 
 ## Step 2: form
 
+
+
 1. Develop a form for editing the song list.  It should be able to 
-	(1) delete a song (2) edit each song. Your form will need to be put into an HTML string (write a function for this).
+	(1) delete a song (2) edit each song. Your form should be in a handlebars template.  
+	> You can put the template anywhere in `index.html`.
 
 1. Remember that in order to do a `DELETE /api/albums/:album_id/songs/:id` or a `PUT /api/albums/:album_id/songs/:id` you'll need those `id`s.  Embed them in `data-` attributes in your form.
 
 1. You may want to use a `GET /api/albums/:album_id/songs` index route to get all songs for a particular album.  This is likely easier than retrieving incomplete data from the page.
 
-> A sample HTML string for the form <a href="/docs/code_samples/sprint6_inline_form.js">is provided for you</a>.
+> Sample HTML for the form <a href="/docs/code_samples/sprint6_inline_form.html">is provided for you</a>.
 
 ## Step 3
 
