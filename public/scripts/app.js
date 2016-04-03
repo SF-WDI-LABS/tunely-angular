@@ -32,8 +32,14 @@ $(document).ready(function() {
   // save song modal save button
   $('#saveSong').on('click', handleNewSongSubmit);
   $('#albums').on('click', '.delete-album', handleDeleteAlbumClick);
-
+  $('#albums').on('click', '.edit-album', handleAlbumEditClick);
 });
+
+// when the edit button for an album is clicked
+function handleAlbumEditClick(e) {
+  var albumId = $(this).closest('.album').data('album-id');
+  console.log('edit album', albumId);
+}
 
 // when a delete button for an album is clicked
 function handleDeleteAlbumClick(e) {
