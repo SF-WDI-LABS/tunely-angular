@@ -37,8 +37,27 @@ $(document).ready(function() {
 
 // when the edit button for an album is clicked
 function handleAlbumEditClick(e) {
-  var albumId = $(this).closest('.album').data('album-id');
+  var $albumRow = $(this).closest('.album');
+  var albumId = $albumRow.data('album-id');
   console.log('edit album', albumId);
+
+  // show the save changes button
+  $albumRow.find('.save-album').toggleClass('hidden');
+  // hide the edit button
+  $albumRow.find('.edit-album').toggleClass('hidden');
+
+
+  // get the album name and replace its field with an input element
+  var albumName = $albumRow.find('span.album-name').text();
+  $albumRow.find('span.album-name').html('<input class="edit-album-name" value="' + albumName + '"></input>');
+
+  // get the artist name and replace its field with an input element
+  var artistName = $albumRow.find('span.artist-name').text();
+  $albumRow.find('span.artist-name').html('<input class="edit-artist-name" value="' + artistName + '"></input>');
+
+  // get the releasedate and replace its field with an input element
+  var releaseDate = $albumRow.find('span.album-releaseDate').text();
+  $albumRow.find('span.album-releaseDate').html('<input class="edit-album-releaseDate" value="' + releaseDate + '"></input>');
 }
 
 // when a delete button for an album is clicked
