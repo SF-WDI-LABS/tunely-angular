@@ -1,6 +1,13 @@
 // albumsSongsController
 var db = require('../models');
 
+// app.get('/api/albums/:albumId/songs', controllers.albumsSongs.index);
+function index(req, res) {
+  db.Album.findById(req.params.albumId, function(err, foundAlbum) {
+    console.log('responding with songs:', foundAlbum.songs);
+    res.json(foundAlbum.songs);
+  });
+}
 
 // POST '/api/albums/:albumId/songs'
 function create(req, res) {
@@ -17,5 +24,6 @@ function create(req, res) {
 
 
 module.exports = {
+  index: index,
   create: create
 };
