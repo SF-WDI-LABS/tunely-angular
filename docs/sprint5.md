@@ -13,6 +13,8 @@ This sprint we will:
 
 > You must complete all of the previous sprint before starting this sprint. (excludes stretch challenges)
 
+> In this sprint you might notice that our instructions are getting a little more succinct; we're hoping that you're starting to feel more comfortable and developing more resourcefulness and independence.  Still, if you get stuck, it's ok to ask a friend or your friendly neighborhood DIR, or instructor.
+
 ## Step 1
 
 We're going to add a button that allows our users to edit an album.
@@ -60,6 +62,14 @@ Confused? How about a wire-frame from the UX department to sort things out:
 1. Connect it to the database.
 
 1. Make any final changes to your AJAX and test everything.
+
+#### Step 3.5
+
+1. Make sure you are removing the form fields and replacing them with updated data from the server.
+  * You should do this when you get a response to your PUT request.
+  * Use the response data from the PUT request.
+
+> Hint: you already have a render function, ね(ne)?
 
 
 
