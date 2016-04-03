@@ -33,6 +33,7 @@ $(document).ready(function() {
   $('#saveSong').on('click', handleNewSongSubmit);
   $('#albums').on('click', '.delete-album', handleDeleteAlbumClick);
   $('#albums').on('click', '.edit-album', handleAlbumEditClick);
+  $('#albums').on('click', '.save-album', handleSaveChangesClick);
 });
 
 // when the edit button for an album is clicked
@@ -60,7 +61,30 @@ function handleAlbumEditClick(e) {
   $albumRow.find('span.album-releaseDate').html('<input class="edit-album-releaseDate" value="' + releaseDate + '"></input>');
 }
 
-// when a delete button for an album is clicked
+// after editing an album, when the save changes button is clicked
+function handleSaveChangesClick(e) {
+  var albumId = $(this).parents('.album').data('album-id'); // $(this).closest would have worked fine too
+  var $albumRow = $('[data-album-id=' + albumId + ']');
+
+  var data = {
+    name: $albumRow.find('.edit-album-name').val(),
+    artistName: $albumRow.find('.edit-artist-name').val(),
+    releaseDate: $albumRow.find('.edit-album-releaseDate').val()
+  };
+  console.log('PUTing data for album', albumId, 'with data', data);
+
+  $.ajax({
+    method: 'PUT',
+    url: '/api/albums/' + albumId,
+    data: data,
+    success: function(data) {
+      console.log(data);
+    }
+  });
+  //re-show buttons and hide the save button
+  //$(this).parent().find('.btn').toggle();
+}
+
 function handleDeleteAlbumClick(e) {
   var albumId = $(this).parents('.album').data('album-id');
   console.log('someone wants to delete album id=' + albumId );
