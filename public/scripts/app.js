@@ -41,6 +41,15 @@ $(document).ready(function() {
 
 });
 
+function fetchAndReRenderAlbumWithId(albumId) {
+  $.get('/api/albums/' + albumId, function(data) {
+    // remove the current instance of the album from the page
+    $('div[data-album-id=' + albumId + ']').remove();
+    // re-render it with the new album data (including songs)
+    renderAlbum(data);
+  });
+}
+
 // when a delete button in the edit songs modal is clicked
 function handleDeleteSongClick(e) {
   e.preventDefault();  // this is a form!
@@ -60,9 +69,12 @@ function handleDeleteSongClick(e) {
 function handleSongDeleteResponse(data) {
   console.log('handleSongDeleteResponse got ', data);
   var songId = data._id;
+  var $formRow = $('form#' + songId);
+  // since albumId isn't passed to this function, we'll deduce it from the page
+  var albumId = $formRow.data('album-id');
   // remove that song edit form from the page
-  $('form#' + songId).remove();
-  // still need to fetch and re-render album
+  $formRow.remove();
+  fetchAndReRenderAlbumWithId(albumId);
 }
 
 
@@ -214,12 +226,7 @@ function handleNewSongSubmit(e) {
     // close modal
     $modal.modal('hide');
     // update the correct album to show the new song
-    $.get('/api/albums/' + albumId, function(data) {
-      // remove the current instance of the album from the page
-      $('[data-album-id=' + albumId + ']').remove();
-      // re-render it with the new album data (including songs)
-      renderAlbum(data);
-    });
+    fetchAndReRenderAlbumWithId(albumId);
   }).error(function(err) {
     console.log('post to /api/albums/:albumId/songs resulted in error', err);
   });
