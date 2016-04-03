@@ -11,12 +11,18 @@ Here's a rough idea of what it could look like:
 
 ![Edit Songs Modal](/docs/assets/images/edit_songs.png)
 
-> Make sure your modal's elements don't use the same ids as the other modal does.  id in html must be unique!
+> Make sure your modal's elements don't use the same ids as the other modal does.  *id in html must be unique*!
 
 Objectives:
+
 * allow songs to be edited
 * allow songs to be deleted
 * practice more with bootstrap modal's
+
+> Hey! Good work, partner!
+> You're practically an express cowboy/cowgirl now!  That means you're at home on the range (aka DOM) and we're gonna ask you to solve problems on your own in this sprint.  The web is still a bit of the wild-west, and things can get outta hand mighty quick!  Y'all are gonna have to think outside of the lasso and solve issues on yer own!
+
+![cowboy](https://m.popkey.co/e5a568/7grXg.gif)
 
 ## Step 1: modalize
 
@@ -28,15 +34,19 @@ Objectives:
 
 1. When 'Edit Songs' is clicked open the modal!
 
-<details><summary>opening a modal with js</summary>
-
-`$('#fooModal').modal('show');`
-
-</details>
+	<details><summary>opening a modal with js</summary>
+	
+	```js
+	// STUDENT! memorizify this!
+	$('#fooModal').modal('show');
+	```
+	
+	</details>
 
 ## Step 2: form
 
-1. Develop a form for editing the song list.  It should be able to (1) delete a song (2) edit each song. Your form will need to be put into an HTML string (write a function for this).
+1. Develop a form for editing the song list.  It should be able to 
+	(1) delete a song (2) edit each song. Your form will need to be put into an HTML string (write a function for this).
 
 1. Remember that in order to do a `DELETE /api/albums/:album_id/songs/:id` or a `PUT /api/albums/:album_id/songs/:id` you'll need those `id`s.  Embed them in `data-` attributes in your form.
 
