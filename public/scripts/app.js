@@ -77,12 +77,21 @@ function handleSaveChangesClick(e) {
     method: 'PUT',
     url: '/api/albums/' + albumId,
     data: data,
-    success: function(data) {
-      console.log(data);
-    }
+    success: handleAlbumUpdatedResponse
   });
-  //re-show buttons and hide the save button
-  //$(this).parent().find('.btn').toggle();
+}
+
+function handleAlbumUpdatedResponse(data) {
+  console.log('response to update', data);
+
+  var albumId = data._id;
+  // scratch this album from the page
+  $('[data-album-id=' + albumId + ']').remove();
+  // and then re-draw it with the updates ;-)
+  renderAlbum(data);
+
+  // BONUS: scroll the change into view ;-)
+  $('[data-album-id=' + albumId + ']')[0].scrollIntoView();
 }
 
 function handleDeleteAlbumClick(e) {
