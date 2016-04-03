@@ -42,10 +42,25 @@ function handleEditSongsClick(e) {
   var $albumRow = $(this).closest('.album');
   var albumId = $albumRow.data('album-id');
   console.log('edit songs clicked for ', albumId);
+  // seems we need the list of songs here - later, when you see full front-end
+  // frameworks, this'll be a little easier, for now - lets request the data we need
+  $.get('/api/albums/' + albumId + "/songs", function(songs) {
+    console.log('got back songs: ', songs);
+    populateEditSongsModal(songs);
+    // fire zee modal!
+    $('#editSongsModal').modal();
+  });
+}
 
-  // fire zee modal!
-  $('#editSongsModal').modal();
-
+// takes an array of songs and generates an EDIT form for them
+function populateEditSongsModal(songs) {
+  // prep the template
+  var templateHtml = $('#song-edit-template').html();
+  var template = Handlebars.compile(templateHtml);
+  // use the template's #each to render all songs at once
+  songsForms = template({songs: songs});
+  // find the modal's body and replace it with the generated html
+  $('#editSongsModalBody').html(songsForms);
 }
 
 // when the edit button for an album is clicked
