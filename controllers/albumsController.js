@@ -36,7 +36,10 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  // FILL ME IN !
+  db.Album.findOneAndRemove({ _id: req.params.albumId }, function(err, foundAlbum){
+    // note you could send just send 204, but we're sending 200 and the deleted entity
+    res.json(foundAlbum);
+  });
 }
 
 function update(req, res) {
