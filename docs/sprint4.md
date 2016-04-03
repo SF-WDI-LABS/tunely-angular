@@ -36,6 +36,8 @@ Once again let's start on the front-end and add a button to delete an album.
 
 1. In your `click` event determine the album-id of the current album.  Just `console.log` it for now.
 
+> Pro tip: Notice how we usually just `console.log` things at the beginning?  Testing each little bit of code as you go reduces the surface area of code that you're uncertain about.
+
 ## Step 2
 
 Let's add a route for `DELETE /api/albums/:id` to our server.
@@ -44,7 +46,7 @@ Let's add a route for `DELETE /api/albums/:id` to our server.
 
 > HTTP DELETE often [doesn't have a defined body.](http://tools.ietf.org/html/rfc7231#section-4.3.5)
 
-1. Test it with curl or postman.
+1. Find an album ID and test it with curl or postman.
 
 1. Connect it to the database and delete the specified album.
 

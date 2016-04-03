@@ -129,6 +129,9 @@ First we need to make sure we have the album id so we can use it later.  We'll s
 	  <button class='btn btn-primary add-song'>Add Song</button>
 	</div>
 	```
+
+    > CSS IDs must be unique, that's why we used a class here.  We'll just use a compound CSS selector.
+
 	</detail>
 
 
@@ -204,7 +207,7 @@ Now we need to add the POST route on the server.  We're going to be using reques
 
 1. Configure the route in `server.js` to call the `create` function.
 
-1. Create the new Song and add it to the Album.  
+1. In your method in `controllers/albumsSongsController` create the new Song and add it to the Album.
 
 1. Save your results and respond to the client with JSON.
 
@@ -212,22 +215,36 @@ Now we need to add the POST route on the server.  We're going to be using reques
 
 ## Step 7: Display the created song on the page.
 
-1. Add a `GET /api/albums/:albumId` route, it should respond with the requested album including it's songs.  Depending on your choice below, you may or may not need this right away.
+1. Add a `GET /api/albums/:albumId` route (show method), it should respond with the requested album including it's songs.  Depending on your choice below, you may or may not need this right away.
 
 	> You can easily test this route by finding a valid ID and then using postman, curl or your browser console with code like: `$.get('/api/albums/56fdd7b7febebdd208a38934').success(function(data) { console.log(data) });`
 
 To get back and display the created song on the page, you have a couple of options:
 
-* You could have `POST /api/albums/:albumId/songs` return just the created song.  This is a very common approach.
+* You could have `POST /api/albums/:albumId/songs` return just the created song.  
 	* Then make a request to `GET /api/albums/:albumId` to get the entire album and render that on the page.
+	* You'll need to add the `show` function in `albumsController` and route in `server.js`.
 
-* You could have your `POST /api/albums/:albumId/songs` route return the entire album instead of just the song. (easier) Then: 
-	
+> This is a very common approach and probably the most standard.  
+> The solutions will take this route (and you're encouraged to as well).
+
+##### OR
+
+* You could have your `POST /api/albums/:albumId/songs` route return the entire album instead of just the song.  Then: 
 	* Re-render the album on the page.
+
+> This has the advantage of reducing the number of requests from client to server.  But **usually** a POST response contains just the created record (not it's parent).
+
 	
-> Regardless, close the modal afterward.
+#### Regardless, close the modal afterward.
+
+> Hint: `$('#id-to-modal').modal('hide');`
+> [bootstrap modal docs](http://getbootstrap.com/javascript/#modals)
+
 
 ## Challenges
+
+1. Add imageUrl as a property on Albums.  Update everything to use it!
 
 1. Add the remaining GET and POST routes to **Create** and **Read**.
 
@@ -236,20 +253,18 @@ GET /api/albums/:album_id/songs/:id
 GET /api/albums/:album_id/songs
 ```
 
-1. Add imageUrl as a property on Albums.  Update everything to use it!
-
 1. Add track length as a field for each album.  
 
 
 ## Conclusion
 
-You should now have the following API routes:
+You should now have the following API routes at a minimum:
 
 ```
 GET /api/albums
 POST /api/albums
 GET /api/albums/:id
-POST /api/albums/:id/songs
+POST /api/albums/:albumId/songs
 ```
 
 You should also have a working app!  Congratulations!
