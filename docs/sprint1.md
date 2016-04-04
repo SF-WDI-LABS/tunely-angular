@@ -69,7 +69,7 @@ function renderAlbums(albums) {
   $('#albums').prepend(html);
  }
 ```
-
+</details>
 
 ## Step 2:
 
