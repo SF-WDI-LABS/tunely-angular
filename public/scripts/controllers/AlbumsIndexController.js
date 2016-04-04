@@ -1,14 +1,14 @@
 var app = angular
-  .module('tunely');
-app
-  .controller('MainController', MainController);
+  .module('tunely')
+  .controller('AlbumsIndexController', AlbumsIndexController);
 
-MainController.$inject = ['$http'];
+AlbumsIndexController.$inject = ['$http'];
 
-function MainController ($http) {
+function AlbumsIndexController ($http) {
   var vm = this;
   vm.newAlbum = {};
   vm.newAlbum.genres = "rock, pop";
+  vm.editing = true;
 
   $http({
     method: 'GET',
@@ -23,9 +23,18 @@ function MainController ($http) {
       url: '/api/albums',
       data: vm.newAlbum
     }).then(function successCallback(json) {
-      console.log(json.data);
       vm.albums.unshift(json.data);
     })
+  }
+
+  vm.editAlbum = function (album) {
+    $http({
+      method: 'PUT',
+      url: '/api/albums/'+album._id,
+      data: album
+    }).then(function successCallback(json) {
+      // don't need to do anything!
+    });
   }
 
   vm.deleteAlbum = function (id) {
@@ -33,7 +42,6 @@ function MainController ($http) {
       method: 'DELETE',
       url: '/api/albums/'+ id
     }).then(function successCallback(json) {
-      console.log(json);
       var index = findWithAttr(vm.albums, '_id', id);
       vm.albums.splice(index, 1);
     });

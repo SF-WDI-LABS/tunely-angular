@@ -1,0 +1,61 @@
+<section class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row album">
+
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class='row'>
+                <div class="col-md-3 col-xs-12 thumbnail album-art">
+                  <img src="images/800x800.png" alt="album image">
+                </div>
+
+                <div class="col-md-9 col-xs-12">
+                  <ul class="list-group form-inline">
+                    <li class="list-group-item">
+                      <h4 class='inline-header'>Album Name:</h4>
+                      <span class='album-name' data-ng-hide="editing">{{vm.album.name}}</span>
+                      <input id="textinput" data-ng-show="editing" data-ng-model="vm.album.name" type="text" class="form-control input-md">
+                    </li>
+
+                    <li class="list-group-item">
+                      <h4 class='inline-header'>Artist Name:</h4>
+                      <span class='artist-name' data-ng-hide="editing">{{vm.album.artistName}}</span>
+                      <input id="textinput" data-ng-show="editing" data-ng-model="vm.album.artistName" type="text" class="form-control input-md">
+                    </li>
+
+                    <li class="list-group-item">
+                      <h4 class='inline-header'>Released date:</h4>
+                      <span class='album-releaseDate' data-ng-hide="editing">{{vm.album.releaseDate}}</span>
+                      <input id="textinput" data-ng-show="editing" data-ng-model="vm.album.releaseDate" type="text" class="form-control input-md">
+                    </li>
+
+                    <li class="list-group-item">
+                      <h4 class="inline-header">Songs:</h4>
+                        <div class="list-group-item" data-ng-repeat="song in vm.album.songs">
+                          <button type="button" class="btn btn-info" data-ng-hide="editing" data-ng-click="editing = true"><span class="glyphicon glyphicon-pencil"></span></button>
+                          <button type="button" class="btn btn-danger" data-ng-hide="editing" data-ng-click="vm.deleteSong(song._id)"><span class="glyphicon glyphicon-remove"></span></button>
+                          <button type="button" class="btn btn-success" data-ng-show="editing" data-ng-click="vm.editSong(song); editing = false"><span class="glyphicon glyphicon-ok"> Save</span></button>
+                          ({{song.trackNumber}})
+                          <span data-ng-hide="editing">{{song.name}}</span>
+                          <input data-ng-show="editing" data-ng-model="song.name" type="text" class="form-control input-md">
+                        </div>
+                        <hr>
+                        <input data-ng-model="vm.newSong.trackNumber" placeholder="Track number" type="number" class="form-control input-md">
+                        <input data-ng-model="vm.newSong.name" placeholder="Track name" type="text" class="form-control input-md">
+                        <button type="button" class="btn btn-success" data-ng-click="vm.addNewSong()"><span class="glyphicon glyphicon-plus"></span> Add New Song</button>
+                      </ul>
+                    </li>
+
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

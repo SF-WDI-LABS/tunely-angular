@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <base href="/">
+
     <title>tunely</title>
 
     <!-- STYLESHEETS -->
@@ -15,14 +17,17 @@
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/handlebars/handlebars.min.js"></script>
     <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+
 
 
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/MainController.js"></script>
+    <script src="scripts/controllers/AlbumsIndexController.js"></script>
+    <script src="scripts/controllers/AlbumsShowController.js"></script>
 
   </head>
-  <body data-ng-controller="MainController as main">
+  <body>
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to tunely</h1>
@@ -30,230 +35,8 @@
       </div>
     </div>
 
-
-
-
-    <!-- BEGIN FORM SAMPLE -->
-
-    <section id='album-form' class="container">
-      <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-
-        <form class="form-horizontal">
-          <fieldset>
-
-            <!-- Form Name -->
-            <legend>Add New Album</legend>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="name">Album Name</label>
-              <div class="col-md-4">
-              <input id="name" data-ng-model="main.newAlbum.name" name="name" type="text" placeholder="" class="form-control input-md" required="">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="artistName">Artist Name</label>
-              <div class="col-md-4">
-              <input id="textinput" name="artistName" type="text" placeholder="" class="form-control input-md">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="releaseDate">Release Date</label>
-              <div class="col-md-4">
-              <input id="releaseDate" name="releaseDate" type="text" placeholder="1992" class="form-control input-md">
-
-              </div>
-            </div>
-
-            <!-- Textarea -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="genres">Genres (separated by commas)</label>
-              <div class="col-md-4">
-                <textarea class="form-control" data-ng-model="main.newAlbum.genres" id="genres" name="genres"></textarea>
-              </div>
-            </div>
-
-
-            <!-- Button -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="singlebutton">Save Album</label>
-              <div class="col-md-4">
-                <button id="singlebutton" data-ng-click="main.createAlbum()" name="singlebutton" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      </div>
-    </section>
-
-     <!--   END FORM SAMPLE -->
-
-
-
-
-    <section class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h2>Albums</h2>
-        </div>
-      </div>
-      <!-- albums! -->
-      <div id='albums'>
-        <!-- <script id='album-template' type='text/x-handlebars-template'> -->
-          <!-- one album -->
-          <div data-ng-repeat="album in main.albums" class="row album" data-album-id="{{album._id}}">
-
-            <div class="col-md-10 col-md-offset-1">
-              <div class="panel panel-default">
-                <div class="panel-body">
-
-
-                <!-- begin album internal row -->
-                  <div class='row'>
-                    <div class="col-md-3 col-xs-12 thumbnail album-art">
-                      <img src="images/800x800.png" alt="album image">
-                    </div>
-
-                    <div class="col-md-9 col-xs-12">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Album Name:</h4>
-                          <span class='album-name'>{{album.name}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>{{album.artistName}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Released date:</h4>
-                          <span class='album-releaseDate'>{{album.releaseDate}}</span>
-                        </li>
-
-
-                        <li class="list-group-item">
-                          <h4 class="inline-header">Songs:</h4>
-                          <span data-ng-repeat="song in album.songs">&ndash; ({{song.trackNumber}}) {{song.name}} &ndash;</span>
-                        </li>
-
-                      </ul>
-                    </div>
-
-                  </div>
-                  <!-- end of album internal row -->
-
-                  <div class='panel-footer'>
-                    <div class='panel-footer'>
-                      <button class='btn btn-primary add-song'>Add Song</button>
-                      <button class='btn btn-danger delete-album' data-ng-click="main.deleteAlbum(album._id)">Delete Album</button>
-                      <button class='btn btn-info edit-album'>Edit Album</button>
-                      <button class='btn btn-success save-album hidden'>Save Changes</button>
-                      <button class='btn btn-info edit-songs'>Edit Songs</button>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end one album -->
-        <!-- </script> -->
-
-      </div>
-    </section>
-
-    <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Create Song</h4>
-          </div>
-          <div class="modal-body">
-
-            <fieldset class='form-horizontal'>
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="songName">Song Name</label>
-                <div class="col-md-4">
-                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
-                <div class="col-md-4">
-                  <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
-                </div>
-              </div>
-            </fieldset>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-
-
-
-
-    <!-- Edit Songs Modal -->
-    <div class="modal fade bs-modal-lg" id="editSongsModal" tabindex="-1" role="dialog" aria-labelledby="editSongsModalTitle">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="editSongsModalTitle">Edit Song List</h4>
-          </div>
-          <div class="modal-body" id='editSongsModalBody'>
-            <p> REPLACE #editSongsModalBody </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id='editSongsModalSubmit'>Save changes</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
+    <div data-ng-view></div>
 
   </body>
 
-    <!-- template for editing / deleting a song -->
-    <script id='song-edit-template' type='text/x-handlebars-template'>
-      {{#each songs}}
-      <!-- confused by ../albumId ?  See:
-      http://stackoverflow.com/questions/12297959/access-properties-of-the-parent-with-a-handlebars-each-loop#12297980
-      -->
-      <form class="form-inline" id="{{_id}}" data-album-id="{{../albumId}}" >
-        <div class="form-group">
-          <input type="text" class="form-control song-trackNumber" value="{{trackNumber}}">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control song-name" value="{{name}}">
-        </div>
-        <div class="form-group">
-          <button class="btn btn-danger" data-song-id="{{_id}}">x</button>
-        </div>
-      </form>
-      {{/each}}
-    </script>
-
-  </script>
 </html>
