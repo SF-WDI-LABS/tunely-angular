@@ -18,14 +18,13 @@ function MainController ($http) {
   });
 
   vm.createAlbum = function () {
-    console.log(vm.newAlbum)
     $http({
       method: 'POST',
       url: '/api/albums',
       data: vm.newAlbum
     }).then(function successCallback(json) {
       console.log(json.data);
-      vm.albums.push(json.data);
+      vm.albums.unshift(json.data);
     })
   }
 
