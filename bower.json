@@ -16,7 +16,6 @@
   "dependencies": {
     "jQuery": "~2.2.2",
     "bootstrap": "~3.3.6",
-    "handlebars": "~4.0.5",
     "angular": "~1.5.3"
   }
 }
