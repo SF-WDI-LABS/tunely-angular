@@ -9,7 +9,6 @@ angular
   .module('tunely', ['ngRoute'])
 
   .config(function ($routeProvider, $locationProvider) {
-    // HOME
     $routeProvider
       .when('/', {
         templateUrl: 'templates/albums',
