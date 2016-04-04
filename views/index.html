@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="tunely">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,11 +14,15 @@
     <script src="vendor/jQuery/dist/jquery.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/handlebars/handlebars.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+
 
     <!-- APPLICATION SCRIPTS -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/MainController.js"></script>
+
   </head>
-  <body>
+  <body data-ng-controller="MainController as main">
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to tunely</h1>
@@ -45,7 +49,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="name">Album Name</label>
               <div class="col-md-4">
-              <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="name" data-ng-model="main.newAlbum.name" name="name" type="text" placeholder="" class="form-control input-md" required="">
 
               </div>
             </div>
@@ -72,7 +76,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="genres">Genres (separated by commas)</label>
               <div class="col-md-4">
-                <textarea class="form-control" id="genres" name="genres">rock, pop</textarea>
+                <textarea class="form-control" data-ng-model="main.newAlbum.genres" id="genres" name="genres"></textarea>
               </div>
             </div>
 
@@ -81,7 +85,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="singlebutton">Save Album</label>
               <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                <button id="singlebutton" data-ng-click="main.createAlbum()" name="singlebutton" class="btn btn-primary">Submit</button>
               </div>
             </div>
           </fieldset>
@@ -103,9 +107,9 @@
       </div>
       <!-- albums! -->
       <div id='albums'>
-        <script id='album-template' type='text/x-handlebars-template'>
+        <!-- <script id='album-template' type='text/x-handlebars-template'> -->
           <!-- one album -->
-          <div class="row album" data-album-id="{{_id}}">
+          <div data-ng-repeat="album in main.albums" class="row album" data-album-id="{{album._id}}">
 
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
@@ -122,23 +126,23 @@
                       <ul class="list-group">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Album Name:</h4>
-                          <span class='album-name'>{{name}}</span>
+                          <span class='album-name'>{{album.name}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>{{artistName}}</span>
+                          <span class='artist-name'>{{album.artistName}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Released date:</h4>
-                          <span class='album-releaseDate'>{{releaseDate}}</span>
+                          <span class='album-releaseDate'>{{album.releaseDate}}</span>
                         </li>
 
 
                         <li class="list-group-item">
                           <h4 class="inline-header">Songs:</h4>
-                          <span>&ndash; {{#each songs}} ({{trackNumber}}) {{name}} &ndash;  {{/each}}</span>
+                          <span data-ng-repeat="song in album.songs">&ndash; ({{song.trackNumber}}) {{song.name}} &ndash;</span>
                         </li>
 
                       </ul>
@@ -150,7 +154,7 @@
                   <div class='panel-footer'>
                     <div class='panel-footer'>
                       <button class='btn btn-primary add-song'>Add Song</button>
-                      <button class='btn btn-danger delete-album'>Delete Album</button>
+                      <button class='btn btn-danger delete-album' data-ng-click="main.deleteAlbum(album._id)">Delete Album</button>
                       <button class='btn btn-info edit-album'>Edit Album</button>
                       <button class='btn btn-success save-album hidden'>Save Changes</button>
                       <button class='btn btn-info edit-songs'>Edit Songs</button>
@@ -163,7 +167,7 @@
             </div>
           </div>
           <!-- end one album -->
-        </script>
+        <!-- </script> -->
 
       </div>
     </section>
