@@ -1,8 +1,8 @@
 ## Overview
 
 This sprint we will:
-* focus on **Read**
-* connect our front-end to a pre-built back-end.
+* mock up some data in our client-side `js` and display it in our view.
+* learn some common Angular built-in directives such as `ng-repeat`.
 
 -look at server.js to see the differences, namely
 ```js
