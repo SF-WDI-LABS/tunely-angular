@@ -8,7 +8,9 @@ angular
   .module('tunely', [])
   .controller('AlbumsIndexController', AlbumsIndexController);
 
-function AlbumsIndexController () {
+AlbumsIndexController.$inject = ['$http'];
+
+function AlbumsIndexController ($http) {
   var vm = this;
   vm.newAlbum = {};
 
