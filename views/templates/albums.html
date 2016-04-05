@@ -115,7 +115,7 @@
                 <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
                 <button class='btn btn-info' data-ng-hide="editing" data-ng-click="editing = true">Edit Album</button>
                 <button class='btn btn-success' data-ng-show="editing" data-ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
-                <button class='btn btn-info' data-ng-href="{{album._id}}">Show details</button>
+                <a class='btn btn-info' data-ng-href="{{album._id}}">Show details</a>
               </div>
             </div>
 
