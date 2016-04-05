@@ -31,13 +31,63 @@
     </div>
 
     <div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">
-      <form ng-submit="albumsIndexCtrl.addNewAlbum()">
-        <input type="text" class="form-control" placeholder="New album name" data-ng-model="albumsIndexCtrl.newAlbum.name">
-        <input type="text" class="form-control" placeholder="New album artist" data-ng-model="albumsIndexCtrl.newAlbum.artistName">
-        <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
-        <button type="submit">+ Add new album</button>
-      </form>
-      <input type="text" class="form-control" data-ng-model="searchText">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          <form class="form-horizontal" data-ng-submit="albumsIndexCtrl.createAlbum()">
+            <fieldset>
+
+              <!-- Form Name -->
+              <legend>Add New Album</legend>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Album Name</label>
+                <div class="col-md-4">
+                <input id="name" data-ng-model="albumsIndexCtrl.newAlbum.name" type="text" class="form-control input-md" required="">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Artist Name</label>
+                <div class="col-md-4">
+                <input data-ng-model="albumsIndexCtrl.newAlbum.artistName" type="text" class="form-control input-md">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Release Date</label>
+                <div class="col-md-4">
+                <input data-ng-model="albumsIndexCtrl.newAlbum.releaseDate" type="text" class="form-control input-md">
+                </div>
+              </div>
+
+              <!-- Textarea -->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Genres (separated by commas)</label>
+                <div class="col-md-4">
+                  <textarea class="form-control" data-ng-model="albumsIndexCtrl.newAlbum.genres"></textarea>
+                </div>
+              </div>
+
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Save Album</label>
+                <div class="col-md-4">
+                  <button class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <p>{{albumsIndexCtrl.newAlbum}}</p>
+
+      <input type="text" class="form-control" data-ng-model="searchText" placeholder="Search Albums">
       <div data-ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
 
         <div class="col-md-10 col-md-offset-1">

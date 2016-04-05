@@ -27,7 +27,7 @@ function AlbumsIndexController ($http) {
     console.log('There was an error getting the data', response);
   });
 
-  vm.addNewAlbum = function () {
+  vm.createAlbum = function () {
     $http({
       method: 'POST',
       url: '/api/albums',
