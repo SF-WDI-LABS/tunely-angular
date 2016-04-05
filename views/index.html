@@ -31,7 +31,7 @@
     </div>
 
     <div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">
-      <form ng-submit="vm.addNewAlbum()">
+      <form ng-submit="albumsIndexCtrl.addNewAlbum()">
         <input type="text" class="form-control" placeholder="New album name" data-ng-model="albumsIndexCtrl.newAlbum.name">
         <input type="text" class="form-control" placeholder="New album artist" data-ng-model="albumsIndexCtrl.newAlbum.artistName">
         <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
