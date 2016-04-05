@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class='row'>
+                <div class="col-md-3 col-xs-12 thumbnail">
+                  <img src="images/800x800.png" alt="album image">
+                </div>
+
+                <div class="col-md-9 col-xs-12">
+                  <ul class="list-group form-inline">
+                    <li class="list-group-item">
+                      <h4 class='inline-header'>Album Name:</h4>
+                      <span>{{albumsShowCtrl.album.name}}</span>
+                    </li>
+
+                    <li class="list-group-item">
+                      <h4 class='inline-header'>Artist Name:</h4>
+                      <span>{{albumsShowCtrl.album.artistName}}</span>
+                    </li>
+
+                    <li class="list-group-item">
+                      <h4 class='inline-header'>Released date:</h4>
+                      <span>{{albumsShowCtrl.album.releaseDate}}</span>
+                    </li>
+
+                    <li class="list-group-item">
+                      <h4 class="inline-header">Songs:</h4>
+                        <div class="list-group-item" data-ng-repeat="song in albumsShowCtrl.album.songs">
+                          ({{song.trackNumber}}){{song.name}}
+                        </div>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
