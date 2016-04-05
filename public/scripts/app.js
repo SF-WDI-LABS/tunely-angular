@@ -12,12 +12,12 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'templates/albums',
-        controllerAs: 'vm',
+        controllerAs: 'albumsIndexCtrl',
         controller: 'AlbumsIndexController'
       })
       .when('/:id', {
         templateUrl: 'templates/albums-show',
-        controllerAs: 'vm',
+        controllerAs: 'albumsShowCtrl',
         controller: 'AlbumsShowController'
       })
 

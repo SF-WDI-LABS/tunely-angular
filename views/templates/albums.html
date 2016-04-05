@@ -12,7 +12,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="name">Album Name</label>
             <div class="col-md-4">
-            <input id="name" data-ng-model="vm.newAlbum.name" type="text" class="form-control input-md" required="">
+            <input id="name" data-ng-model="albumsIndexCtrl.newAlbum.name" type="text" class="form-control input-md" required="">
             </div>
           </div>
 
@@ -20,7 +20,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="artistName">Artist Name</label>
             <div class="col-md-4">
-            <input data-ng-model="vm.newAlbum.artistName" type="text" class="form-control input-md">
+            <input data-ng-model="albumsIndexCtrl.newAlbum.artistName" type="text" class="form-control input-md">
             </div>
           </div>
 
@@ -28,7 +28,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="releaseDate">Release Date</label>
             <div class="col-md-4">
-            <input id="releaseDate" data-ng-model="vm.newAlbum.releaseDate" type="text" class="form-control input-md">
+            <input id="releaseDate" data-ng-model="albumsIndexCtrl.newAlbum.releaseDate" type="text" class="form-control input-md">
             </div>
           </div>
 
@@ -36,7 +36,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="genres">Genres (separated by commas)</label>
             <div class="col-md-4">
-              <textarea class="form-control" data-ng-model="vm.newAlbum.genres" id="genres"></textarea>
+              <textarea class="form-control" data-ng-model="albumsIndexCtrl.newAlbum.genres" id="genres"></textarea>
             </div>
           </div>
 
@@ -45,7 +45,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton">Save Album</label>
             <div class="col-md-4">
-              <button id="singlebutton" data-ng-click="vm.createAlbum()" class="btn btn-primary">Submit</button>
+              <button id="singlebutton" data-ng-click="albumsIndexCtrl.createAlbum()" class="btn btn-primary">Submit</button>
             </div>
           </div>
         </fieldset>
@@ -65,7 +65,7 @@
   <!-- albums! -->
   <div id='albums'>
     <!-- one album -->
-    <div data-ng-repeat="album in vm.albums" class="row album">
+    <div data-ng-repeat="album in albumsIndexCtrl.albums" class="row album">
 
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
@@ -112,9 +112,9 @@
 
             <div class='panel-footer'>
               <div class='panel-footer'>
-                <button class='btn btn-danger delete-album' data-ng-click="vm.deleteAlbum(album._id)">Delete Album</button>
+                <button class='btn btn-danger delete-album' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
                 <button class='btn btn-info edit-album' data-ng-hide="editing" data-ng-click="editing = true">Edit Album</button>
-                <button class='btn btn-success save-album' data-ng-show="editing" data-ng-click="vm.editAlbum(album); editing = false">Save Changes</button>
+                <button class='btn btn-success save-album' data-ng-show="editing" data-ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
               </div>
             </div>
 
