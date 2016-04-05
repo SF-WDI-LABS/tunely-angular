@@ -97,3 +97,25 @@ In the above you can see we're building a site that displays a list of musical a
 
 
 ### Module C: Full CRUD with Mongo and reference relationships.
+
+### Module D: Refactor with Angular
+
+#### Sprint 1
+
+[Sprint 1: set up a simple Angular app with hard-coded data](/docs/angular/sprint1.md)
+
+#### Sprint 2
+
+[Sprint 1: `GET` and `POST` album data with the Express back-end](/docs/angular/sprint2.md)
+
+#### Sprint 3
+
+[Sprint 3: `UPDATE` and `DELETE` album data with the Express back-end](/docs/angular/sprint3.md)
+
+#### Sprint 4
+
+[Sprint 4: refactor app to use `ngRoute` and view templates](/docs/angular/sprint4.md)
+
+#### Sprint 5
+
+[Sprint 5: add ability to CRUD songs](/docs/angular/sprint5.md)
