@@ -103,5 +103,23 @@ Creating a new route.
 <a data-ng-href="{{album._id}}">{{album.name}}</a>
 ```
 1. Try clicking on this link in your browser and notice the error messages.
-1. Create two files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`.
-1. Set up these files similar to how we set up `albums.html` and `AlbumsIndexController.js`
+1. Create two new files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`. Don't forget to include `AlbumsShowController.js` in `index.html`.
+1. We will set up these files similar to how we set up `albums.html` and `AlbumsIndexController.js`.
+1. In `AlbumsShowController.js`, we need to `GET` the data for one album. To do that, we need to grab the `_id` of that data object that we're interested in from the url. Angular provides us with a module called `$routeParams` (very similar to Express's `req.params`) that allows us access the url path. To use it we need to `$inject` it in our controller and then use it to `GET` the data we're after like so:
+```js
+AlbumsShowController.$inject = ['$http', '$routeParams'];
+
+function AlbumsShowController ($http, $routeParams) {
+  var vm = this;
+  vm.newSong = {};
+
+  $http({
+    method: 'GET',
+    url: '/api/albums/'+$routeParams.id
+  }).then(function successCallback(json) {
+    vm.album = json.data;
+  });
+
+}
+```
+1. Now create the view in `albums-show.html` to display all this data making sure to loop through all the songs. 
