@@ -98,3 +98,10 @@ function config ($routeProvider, $locationProvider) {
 
 Creating a new route.
 1. You may have noticed that our `config` function refers to a `/:id` route. This route is going to show us the details of individual albums.
+1. This route will be accessible when the user clicks on an album name. To create this link, surround where you display the `albumName` with an `<a>` tag that links to `/:id` like so
+```html
+<a data-ng-href="{{album._id}}">{{album.name}}</a>
+```
+1. Try clicking on this link in your browser and notice the error messages.
+1. Create two files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`.
+1. Set up these files similar to how we set up `albums.html` and `AlbumsIndexController.js`
