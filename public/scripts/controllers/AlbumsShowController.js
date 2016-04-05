@@ -1,4 +1,4 @@
-var app = angular
+angular
   .module('tunely')
   .controller('AlbumsShowController', AlbumsShowController);
 
