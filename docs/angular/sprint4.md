@@ -122,4 +122,4 @@ function AlbumsShowController ($http, $routeParams) {
 
 }
 ```
-1. Now create the view in `albums-show.html` to display all this data making sure to loop through all the songs. 
+1. Now add `html` to the view in `albums-show.html` to display all this data making sure to show (aka loop through) all the songs. 
