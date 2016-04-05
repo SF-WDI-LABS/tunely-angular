@@ -57,5 +57,8 @@ vm.createAlbum = function () {
 1. kablam! our page is posting!
 
 stretch challenges
+1. Add the ability to `update` albums.
+  - add an edit button to the bottom of each album. when the user click this button, all the data fields should be replaced with inputs and this button should be replaced with a save button. after save, the edit button should reappear. 
+  - *HINT*: [`data-ng-show`](https://docs.angularjs.org/api/ng/directive/ngShow) and [`data-ng-hide`](https://docs.angularjs.org/api/ng/directive/ngHide) are your best friends.
 1. Change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
 ![](../assets/images/add_new_field_button.png)
