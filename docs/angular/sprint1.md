@@ -16,7 +16,7 @@ app.get('*', function homepage (req, res) {
 });
 ```
 
--initialize angular App in `app.js`
+-initialize Angular App in `app.js`
 ```js
 angular
   .module('tunely', [])
@@ -61,7 +61,7 @@ function AlbumsIndexController () {
 ```
 -display the initialized data from your controller in the view
 ```html
-<p>{{albumsIndexCtrl.newAlbum}}</p>
+<p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
 ```
 if you move this `<p>` tag outside of the div that defines the controller, what happens?
 -let's dynamically edit the initialized data. add some input boxes
@@ -96,6 +96,6 @@ vm.albums = [
 ```
 
 -exercises
-1. display the data in nicer way
+1. display the data in a nicer way
 1. sort the data using [`orderBy`](https://docs.angularjs.org/api/ng/filter/orderBy)
 1. create a search bar to [`filter`](https://docs.angularjs.org/api/ng/filter/filter) the data
