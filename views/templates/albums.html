@@ -10,7 +10,7 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="name">Album Name</label>
+            <label class="col-md-4 control-label">Album Name</label>
             <div class="col-md-4">
             <input id="name" data-ng-model="albumsIndexCtrl.newAlbum.name" type="text" class="form-control input-md" required="">
             </div>
@@ -18,7 +18,7 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="artistName">Artist Name</label>
+            <label class="col-md-4 control-label">Artist Name</label>
             <div class="col-md-4">
             <input data-ng-model="albumsIndexCtrl.newAlbum.artistName" type="text" class="form-control input-md">
             </div>
@@ -26,26 +26,26 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="releaseDate">Release Date</label>
+            <label class="col-md-4 control-label">Release Date</label>
             <div class="col-md-4">
-            <input id="releaseDate" data-ng-model="albumsIndexCtrl.newAlbum.releaseDate" type="text" class="form-control input-md">
+            <input data-ng-model="albumsIndexCtrl.newAlbum.releaseDate" type="text" class="form-control input-md">
             </div>
           </div>
 
           <!-- Textarea -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="genres">Genres (separated by commas)</label>
+            <label class="col-md-4 control-label">Genres (separated by commas)</label>
             <div class="col-md-4">
-              <textarea class="form-control" data-ng-model="albumsIndexCtrl.newAlbum.genres" id="genres"></textarea>
+              <textarea class="form-control" data-ng-model="albumsIndexCtrl.newAlbum.genres"></textarea>
             </div>
           </div>
 
 
           <!-- Button -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="singlebutton">Save Album</label>
+            <label class="col-md-4 control-label">Save Album</label>
             <div class="col-md-4">
-              <button id="singlebutton" data-ng-click="albumsIndexCtrl.createAlbum()" class="btn btn-primary">Submit</button>
+              <button data-ng-click="albumsIndexCtrl.createAlbum()" class="btn btn-primary">Submit</button>
             </div>
           </div>
         </fieldset>
@@ -65,7 +65,7 @@
   <!-- albums! -->
   <div id='albums'>
     <!-- one album -->
-    <div data-ng-repeat="album in albumsIndexCtrl.albums" class="row album">
+    <div data-ng-repeat="album in albumsIndexCtrl.albums" class="row">
 
       <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
@@ -74,7 +74,7 @@
 
           <!-- begin album internal row -->
             <div class='row'>
-              <div class="col-md-3 col-xs-12 thumbnail album-art">
+              <div class="col-md-3 col-xs-12 thumbnail">
                 <img src="images/800x800.png" alt="album image">
               </div>
 
@@ -82,19 +82,19 @@
                 <ul class="list-group form-inline">
                   <li class="list-group-item">
                     <h4 class='inline-header'>Album Name:</h4>
-                    <span class='album-name' data-ng-hide="editing"><a data-ng-href="{{album._id}}">{{album.name}}</a></span>
+                    <span data-ng-hide="editing"><a data-ng-href="{{album._id}}">{{album.name}}</a></span>
                     <input data-ng-show="editing" data-ng-model="album.name" type="text" class="form-control input-md">
                   </li>
 
                   <li class="list-group-item">
                     <h4 class='inline-header'>Artist Name:</h4>
-                    <span class='artist-name' data-ng-hide="editing">{{album.artistName}}</span>
+                    <span data-ng-hide="editing">{{album.artistName}}</span>
                     <input data-ng-show="editing" data-ng-model="album.artistName" type="text" class="form-control input-md">
                   </li>
 
                   <li class="list-group-item">
                     <h4 class='inline-header'>Released date:</h4>
-                    <span class='album-releaseDate' data-ng-hide="editing">{{album.releaseDate}}</span>
+                    <span data-ng-hide="editing">{{album.releaseDate}}</span>
                     <input data-ng-show="editing" data-ng-model="album.releaseDate" type="text" class="form-control input-md">
                   </li>
 
@@ -112,9 +112,10 @@
 
             <div class='panel-footer'>
               <div class='panel-footer'>
-                <button class='btn btn-danger delete-album' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
-                <button class='btn btn-info edit-album' data-ng-hide="editing" data-ng-click="editing = true">Edit Album</button>
-                <button class='btn btn-success save-album' data-ng-show="editing" data-ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
+                <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
+                <button class='btn btn-info' data-ng-hide="editing" data-ng-click="editing = true">Edit Album</button>
+                <button class='btn btn-success' data-ng-show="editing" data-ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
+                <button class='btn btn-info' data-ng-href="{{album._id}}">Show details</button>
               </div>
             </div>
 
