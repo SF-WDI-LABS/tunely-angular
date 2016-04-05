@@ -53,8 +53,6 @@
     </div>
   </div>
 
-  <p>{{albumsIndexCtrl.newAlbum}}</p>
-
   <input type="text" class="form-control" data-ng-model="searchText" placeholder="Search Albums">
   <div data-ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
     <div class="col-md-10 col-md-offset-1">
