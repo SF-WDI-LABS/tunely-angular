@@ -5,11 +5,13 @@ This sprint we will:
 
 1. Let's start with delete. In the `index.html`, make a delete button inside of the `data-ng-repeat` for albums.
 1. To attach an event handler to this button, we can use Angular's `data-ng-click` attribute like so
+
   ```html
   <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
   ```
 1. This tells Angular to run the function `deleteAlbum()` that's defined in `albumsIndexCtrl` when the button gets clicked. Note that this function passes in the `album._id` as an argument.
 1. Now that we have a button that knows to run a function on click, we need to create that function. Inside of our `AlbumsIndexController` define a `deleteAlbum` function like so
+
   ```js
   vm.deleteAlbum = function (id) {
     $http({
