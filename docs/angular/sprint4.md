@@ -95,9 +95,7 @@ Notice in the first line that we need to explicitly state what `module` this con
 1. Now make sure everything is loading properly in your browser. Phew.
 
 
-
-Creating a new route.
-1. You may have noticed that our `config` function refers to a `/:id` route. This route is going to show us the details of individual albums.
+1. Creating a new route: You may have noticed that our `config` function refers to a `/:id` route. This route is going to show us the details of individual albums.
 1. This route will be accessible when the user clicks on an album name. To create this link, surround where you display the `albumName` with an `<a>` tag that links to `/:id` like so
   ```html
   <a data-ng-href="{{album._id}}">{{album.name}}</a>
