@@ -1,10 +1,10 @@
 ## Overview
 
 This sprint we will:
-* mock up some data in our client-side `js` and display it in our view.
-* learn some common Angular built-in directives such as `ng-repeat`.
+* Mock up some data in our client-side `js` and display it in our view.
+* Learn some common Angular built-in directives such as `ng-repeat`.
 
--look at server.js to see the differences, namely
+-Look at server.js to see the differences between what we've done before and the pieces that are unique to an Angular app, namely:
 ```js
 // set up a route to get the templates, can you find the corresponding functions? note that this is NOT an api route
 app.get('/templates/:name', controllers.api.templates);
@@ -16,7 +16,7 @@ app.get('*', function homepage (req, res) {
 });
 ```
 
--initialize Angular App in `app.js`
+-Initialize Angular App in `app.js`
 ```js
 angular
   .module('tunely', [])
@@ -25,13 +25,13 @@ and in index.html
 ```html
 <html lang="en" data-ng-app="tunely">
 ```
--create a controller. dot chain a controller after your app definition
+-Create a controller to control the albums index page. The syntax is below - just dot chain a controller after your app definition
 ```js
 angular
   .module('tunely', [])
   .controller('AlbumsIndexController', AlbumsIndexController);
 ```
--create the controller function with some initialized data
+-Create the controller function with some initialized data
 ```js
 function AlbumsIndexController () {
   var vm = this;
@@ -43,7 +43,7 @@ function AlbumsIndexController () {
   };
 }
 ```
--tell the view that you'd like to use this controller in part of your view
+-Tell the view that you'd like to use this controller in part of your view
 ```html
 <body>
   <div class="jumbotron">
@@ -59,7 +59,7 @@ function AlbumsIndexController () {
 
 </body>
 ```
--display the initialized data from your controller in the view
+-Display the initialized data from your controller in the view
 ```html
 <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
 ```
@@ -69,7 +69,7 @@ if you move this `<p>` tag outside of the div that defines the controller, what 
 <input type="text" class="form-control" placeholder="New album name" data-ng-model="albumsIndexCtrl.newAlbum.name">
 <input type="text" class="form-control" placeholder="New album artist" data-ng-model="albumsIndexCtrl.newAlbum.artistName">
 ```
-when you edit the content inside these input boxes, what happens?!?!?! this is called two-way data binding. in other words, when data changes in the view, it is automatically updated in the js and vice versa!! whoa
+When you edit the content inside these input boxes, what happens?!?!?! This is called two-way data binding. In other words, when data changes in the view, it is automatically updated in the JS and vice versa!! Whoa!
 
 -let's add some more data to our controller
 ```js
