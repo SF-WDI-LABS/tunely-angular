@@ -38,7 +38,7 @@
       <input type="text" class="form-control" placeholder="New album name" data-ng-model="albumsIndexCtrl.newAlbum.name">
       <input type="text" class="form-control" placeholder="New album artist" data-ng-model="albumsIndexCtrl.newAlbum.artistName">
       <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
-      <input type="text" class="form-control" data-ng-model="searchText">
+      <input type="text" class="form-control" data-ng-model="searchText" placeholder="Search Albums">
       <div data-ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
 
         <div class="col-md-10 col-md-offset-1">
