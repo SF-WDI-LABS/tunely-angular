@@ -54,6 +54,10 @@ app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
 app.delete('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.destroy);
 app.put('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.update);
 
+/* set up a route to get the templates. Templates are
+ * blocks of HTML that Angular will use to render each
+ * "view" or page of your app.
+ */
 app.get('/templates/:name', controllers.api.templates);
 
 // ALL OTHER ROUTES (ANGULAR HANDLES)
