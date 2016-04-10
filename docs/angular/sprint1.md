@@ -1,6 +1,6 @@
-## Overview
+## Sprint 1 Overview
 
-This sprint we will:
+For sprint 1 we will:
 * Mock up some data in our client-side `js` and display it in our view.
 * Learn some common Angular built-in directives such as `ng-repeat`.
 
