@@ -19,7 +19,7 @@ For sprint 1 we will:
 1. Initialize Angular App in `app.js`
   ```js
   angular
-    .module('tunely', [])
+    .module('tunely', []);
   ```
 and in index.html
   ```html
