@@ -62,4 +62,4 @@ Don't forget to have a button with `type="submit"` in the form!
 ## stretch challenges
 1. Change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
 
-![](/assets/images/add_new_field_button.png)
+![](assets/images/add_new_field_button.png)
