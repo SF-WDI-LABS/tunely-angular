@@ -21,6 +21,7 @@ the first line tells the controller that we'd like to have access to the `$http`
 ## `GET` the data.
 1. delete the hard-coded `vm.album` data from before.
 1. use Angular's `$http` `GET` method to get the data from the back-end. Make sure your back-end is populated with data. If not, run `node seed.js` to populate. `$http` looks very similar to jQuery's `$.ajax` with some small key differences. Copy this code into your `AlbumsIndexController` function.
+
   ```js
   $http({
     method: 'GET',
@@ -36,11 +37,13 @@ the first line tells the controller that we'd like to have access to the `$http`
 ## `POST` some data
 1. Let's flesh out the `newAlbum` form. Create a form that has fields for Album Name and Artist Name; optionally Genres (separated by commas) and Release Date.
 1. Angular allows us to call functions from our `html`! In `<form>`, let's add a `submit` handler like so
+
   ```html
   <form data-ng-submit="albumsIndexCtrl.createAlbum()">
   ```
 Don't forget to have a button with `type="submit"` in the form!
 1. `data-ng-submit` tells the `html` to call the `createAlbum()` function in the `albumsIndexCtrl` on submit of the function. So i guess that means we need to make a `createAlbum()` function?
+
   ```js
   vm.createAlbum = function () {
     $http({
