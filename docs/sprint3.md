@@ -1,272 +1,71 @@
-# Sprint 3
-
 ## Overview
 
 This sprint we will:
-* add an embedded Song model to our Album model
-* change the UI to allow users to see songs in the embedded model
-
-
-> Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions.
-
-> You must complete all of the previous sprint before starting this sprint. (excludes stretch challenges)
-
-In this step we'll be changing our Album schema to have an embedded schema that contains songs.
-
-The data from the database will look a little like this:
-
-```js
-{ genres: [ 'new wave', 'indie rock', 'synth pop' ],
-    songs:
-     [ { _id: a665ff1678209c64e51b4e6a,
-         trackNumber: 1,
-         name: 'Swamped' },
-       { _id: a665ff1678209c64e51b4e64,
-         trackNumber: 7,
-         name: 'Tight Rope' } ],
-    _id: a665ff1678209c64e51b4e63,
-    releaseDate: '2008, November 18',
-    name: 'Comalies',
-    artistName: 'Lacuna Coil',
-    __v: 0 },
-```
-
-* note that `songs` has been added and is an array of other records!
-
-
-## Step 1: Create the new model
-
-We're going to create an embedded model for songs and embed it in albums.  That's right, Albums usually have unique Songs on them.  
-
-1. Create a `models/song.js`
-
-1. Open the file and create a model with properties like:
-
-```js
-  name: String,
-  trackNumber: Number
-```
-
-1. Export the module and require it in `models/index.js`
-
-1. Require `./song.js` in `./albums.js`
-
-1. Alter the schema of Album to have a songs array that uses the `Song.schema`
-
-> You may have seen embedded models defined in the same file as the model that it's embedded in; that's OK.  Here we're building it in a separate file.
-
-## Step 2: Seeding
-
-Let's add seeds.  Some basic data is [provided for you](/docs/code_samples/sprint3_song_seeds.js).
-We're going to use this data for all albums for now, even though it's not accurate.
-
-1. Copy the sample songs into `seed.js`
-
-1. Write a `forEach` loop that adds the sample songs to each sampleAlbum in `seed.js`.  Compare your work to the sample above.
-
-1. Run `node seed.js`
-
-1. Fix any issues you encounter, until you can see that it's also adding songs for each album.
-
-## Step 3: Display
-
-Let's go back to `app.js` and our html.  If you check the output of your AJAX call, you should see that we're already retrieving songs with each album.  Double-check this before you proceed (in the browser console).  
-
-We'll change the client to add another `<li>` after the ones that are already being generated for each album.  We'll list our songs in there.
-For now we're just going to make this super simple and output something like:
-
-```html
-<li class="list-group-item">
-  <h4 class="inline-header">Songs:</h4>
-  <span>	– (1) Swamped – (2) Heaven's a Lie – (3) Daylight Dancer – (4) Humane – (5) Self Deception – (6) Aeon – (7) Tight Rope – </span>
-</li>
-```
-
-1. Refactory your current handlebars template.  Change it to use `#each` to display each song's name from the `album` object.  
-
-> Your HTML can look like what we have above, or you could make it a little better looking.
-
-> Checkout the solution for this step if you're struggling with the template.
-
-
-## Step 4: Create Songs
-
-Now let's create the functionality to add new songs.  To do this we're going to use a button to open a bootstrap modal.
-Fortunately, the modal is already setup for you in `index.html`.  We will have to add a button to trigger it.  Also since the modal will be used for creating a song for any album we'll have to track that.  
-
-
-We're going to do this by setting a data-attribute called `album-id` on the modal itself.  We will set this attribute when we display the modal.  
-
-
-Let's pseudo-code this.
-
-```
-// this function will be called when someone clicks a button to create a new song
-//   it has to determine what album (in the DB) the song will go to
-function handleNewSongButtonClick() {
-  // get the current album's id from the row the button is in
-  // set the album-id data attribute on the modal (jquery)
-  // display the modal
-}
-```
-
-
-First we need to make sure we have the album id so we can use it later.  We'll set a data-attribute on each album row first so that each row has it's ID listed.
-
-1. In the template HTML for each album add a new data-album-id attribute to the top `<div class='row album'>`.
-
-1. Set the value of that attribute to `album._id`.
-
-1. Refresh the page and inspect the HTML in the browser.  Make sure the attribute is set and different for each album.
-
-  ![example](assets/images/sprint3_album_id_example.png)
-
-1. Add a [button inside the panel-footer](assets/images/sprint3_add_song_button.png).
-	
-	<detail><summary>button code</summary>
-	```js
-	<div class='panel-footer'>
-	  <button class='btn btn-primary add-song'>Add Song</button>
-	</div>
-	```
-
-    > CSS IDs must be unique, that's why we used a class here.  We'll just use a compound CSS selector.
-
-	</detail>
-
-
-
-1. Use jQuery to bind to these buttons' click events.
-
-1. In your click event-handler get the current album row's data-album-id attribute.  
-
-> Hint: you may want to read the jQuery documentation for `parents` or `closest` and `data`
-
-```js
-$('#albums').on('click', '.add-song', function(e) {
-    console.log('add-song clicked!');
-    var id= $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
-    console.log('id',id);
-});
-```
-
-> The above code might be new to you.  We've added a second CSS-selector in the 'on' arguments.
-> Because the .add-song component is not on the page at document-ready our event-listener cannot bind to it.
-> Instead we'll bind to something above it like `body` or `#albums`. As long as it's on the page when we add our event-listener we will be able to capture the click and if it's on the '.add-song' handle it in our function.
-
-
-1.  Set the data-attribute `album-id` on the `#songModal`.  We'll use this to keep track of which album the modal is referring to at any time.
-
-<detail><summary>Hint: setting data-album-id</summary>
-
-```js
-$('#songModal').data('album-id', currentAlbumId);
-```
-
-</detail>
-
-1. You can open a bootstrap modal by selecting it in jQuery and calling the `.modal()` function.  After setting the data-album-id attribute in your function, open the modal.  It should appear on screen!
-
-> Suggested reading: [See the bootstrap docs](http://getbootstrap.com/javascript/#modals-usage)
-
-## Step 5:
-
-So we should now have a working modal, but it doesn't do anything yet.
-Let's add a function to handle the submit on the modal and POST the form data as a new song.
-
-	```pseudo
-	// call this when the button on the modal is clicked
-	function handleNewSongSubmit(e) {
-	  e.preventDefault();
-	  // get data from modal fields
-	  // get album ID
-	  // POST to SERVER
-	  // clear form
-	  // close modal
-	  // update the correct album to show the new song
-	}
-	```
-	
-	> You don't have to fill in all of the code here just yet, read further.
-
-1. Create the `handleNewSongSubmit` function.  
-
-1. We'll need the album-id in order to build the correct URL for the AJAX POST.  Our URL will eventually be like `http://localhost:3000/api/albums/:album_id/songs`.  In the `handleNewSongSubmit` function get the correct id from the modal.  Build the URL and save it as a variable.
-
-1. Prepare the AJAX POST.  For data make sure you get the `.val` from the input fields.  
-
-1. Don't forget to call handleNewSongSubmit when the modal button is clicked.
-
-> Hint: The modal doesn't actually have a form.  Use .val to get the data from the input fields and construct an object for your POST data.
-
-## Step 6:
-
-Now we need to add the POST route on the server.  We're going to be using request-params (URL parameters) this time.  
-
-1. In `controllers/albumsSongsController.js` build the `app.post` callback method for '/api/albums/:album_id/songs'.  Get the id from the request and find the correct album in the database.
-
-1. Configure the route in `server.js` to call the `create` function.
-
-1. In your method in `controllers/albumsSongsController` create the new Song and add it to the Album.
-
-1. Save your results and respond to the client with JSON.
-
-> Hint: when connecting to the database make sure that Song has been exported in `models/index.js`
-
-## Step 7: Display the created song on the page.
-
-1. Add a `GET /api/albums/:albumId` route (show method), it should respond with the requested album including it's songs.  Depending on your choice below, you may or may not need this right away.
-
-	> You can easily test this route by finding a valid ID and then using postman, curl or your browser console with code like: `$.get('/api/albums/56fdd7b7febebdd208a38934').success(function(data) { console.log(data) });`
-
-To get back and display the created song on the page, you have a couple of options:
-
-* You could have `POST /api/albums/:albumId/songs` return just the created song.  
-	* Then make a request to `GET /api/albums/:albumId` to get the entire album and render that on the page.
-	* You'll need to add the `show` function in `albumsController` and route in `server.js`.
-
-> This is a very common approach and probably the most standard.  
-> The solutions will take this route (and you're encouraged to as well).
-
-##### OR
-
-* You could have your `POST /api/albums/:albumId/songs` route return the entire album instead of just the song.  Then: 
-	* Re-render the album on the page.
-
-> This has the advantage of reducing the number of requests from client to server.  But **usually** a POST response contains just the created record (not it's parent).
-
-	
-#### Regardless, close the modal afterward.
-
-> Hint: `$('#id-to-modal').modal('hide');`
-> [bootstrap modal docs](http://getbootstrap.com/javascript/#modals)
-
-
-## Challenges
-
-1. Add imageUrl as a property on Albums.  Update everything to use it!
-
-1. Add the remaining GET and POST routes to **Create** and **Read**.
-
-```
-GET /api/albums/:album_id/songs/:id
-GET /api/albums/:album_id/songs
-```
-
-1. Add track length as a field for each album.  
-
-
-## Conclusion
-
-You should now have the following API routes at a minimum:
-
-```
-GET /api/albums
-POST /api/albums
-GET /api/albums/:id
-POST /api/albums/:albumId/songs
-```
-
-You should also have a working app!  Congratulations!
-
-![](http://i.giphy.com/wue4QtxncWuE8.gif)
+* Add the ability to `update` and `delete` albums
+
+## Add a click listener
+1. Let's start with delete. In the `index.html`, make a delete button inside of the `data-ng-repeat` for albums.
+1. To attach an event handler to this button, we can use Angular's `data-ng-click` attribute like so
+
+  ```html
+  <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
+  ```
+1. This tells Angular to run the function `deleteAlbum()` that's defined in `albumsIndexCtrl` when the button gets clicked. Note that this function passes in the `album._id` as an argument.
+
+## Delete in the database and the view
+1. Now that we have a button that knows to run a function on click, we need to create that function. Inside of our `AlbumsIndexController` define a `deleteAlbum` function like so
+
+  ```js
+  vm.deleteAlbum = function (id) {
+    $http({
+      method: 'DELETE',
+      url: // what goes here?
+    }).then(function successCallback(json) {
+      var index = findWithAttr(vm.albums, '_id', id);
+      vm.albums.splice(index, 1);
+    }, function errorCallback(response) {
+      console.log('There was an error deleting the data', response);
+    });
+  }
+  ```
+1. You can see that in the `successCallback` function, we manipulate `vm.albums` to match the change we just made in the database. This change to `vm.albums` creates an update in the view! The `findWithAttr` written below is a handy function that let's us find the album in our `vm.albums` array that has the same `_id` as the album that was just deleted in the database.
+
+  ```js
+  function findWithAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value) {
+          return i;
+      }
+    }
+  }
+  ```
+1. Does it work? Does it work? Check in with somebody nearby to see if they have this step working.
+
+## Creating buttons and forms to help us update
+1. Let's move on to update. We want an edit button for each album. When clicked, each data field for that album will turn into an input field that can be edited.
+1. Luckily, Angular gives us [`data-ng-show`](https://docs.angularjs.org/api/ng/directive/ngShow) and [`data-ng-hide`](https://docs.angularjs.org/api/ng/directive/ngHide). Say hello to your new best friends. These hide and show a specific html element based on whether a given condition is true or false.
+1. First, let's create an edit button. Put it next to your delete button.
+
+  ```html
+  <button class='btn btn-info' data-ng-hide="editing" data-ng-click="editing = true">Edit Album</button>
+  ```
+  This button has a click handler that when clicked, rather than calling a function like we saw with delete, sets a variable called `editing` to `true`. It also knows to hide itself when `editing` is `true`. So basically, right now, this button hides on click. Weird...and awesome!
+    > This `editing` variable is an interesting variable. Since it's not defined in our controller, it's only defined within it's current `scope`, which, in this case, is a single loop in our `data-ng-repeat` loop.
+
+1. Since we've gotten our edit button to hide on when `editing` is true, we can create a "Save Changes" button to show when `editing` is true. Like so:
+
+  ```html
+  <button class='btn btn-success' data-ng-show="editing" data-ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
+  ```
+  What does this button do?
+1. Now we need to figure out how to replace our data with input fields on click of the edit button. Here's an example of how we can do this:
+
+  ```html
+  <input data-ng-show="editing" data-ng-model="album.name" type="text" class="form-control input-md">
+  ```
+  Do this for the rest of the inputs.
+1. You also need to `data-ng-hide` the data fields when `editing` is true.
+1. How does it look? Does it all hide and show as expected?
+
+## Make the update happen
+1. The last step is to write the `editAlbum()` function. You need to reach out and tell the database to update and you need to change the view to reflect those changes. Go!
