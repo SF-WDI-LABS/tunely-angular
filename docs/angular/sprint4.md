@@ -4,14 +4,15 @@ This sprint we will:
 * Reorganize our code to use `ngRoute`
 * Add a route for viewing details of an album
 
-1. `ngRoute` is a separate Angular module. We already have it loaded in our `index.html`, so now we just need to tell Angular that we'd like to use it. in `app.js`, we can tell Angular that `ngRoute` is a dependency like so
+## Configuring our app with `ngRoute`
+1. `ngRoute` is a separate Angular module. We already have it loaded in our `index.html`, so now we just need to tell Angular that we'd like to use it. In `app.js`, we can tell Angular that `ngRoute` is a dependency like so
 
   ```js
   angular
     .module('tunely', ['ngRoute'])
   ```
-1. once we do that, we now have access to `ngRoute` everywhere in our tunely app
-1. `ngRoute` allows us to do some route configuration to our app. to tell our app that we'd like to `config` it, modify your code like so:
+1. Once we do that, we now have access to `ngRoute` everywhere in our tunely app!
+1. `ngRoute` allows us to do some route configuration to our app. That is, we can define what we want to happen at every different page within our application. To tell our app that we'd like to `config`ure it, modify your code like so:
 
   ```js
   angular
@@ -19,7 +20,7 @@ This sprint we will:
     .config(config)
     .controller('AlbumsIndexController', AlbumsIndexController);
   ```
-1. now we need to create a `config` function. `$routeProvider` comes with `ngRoute` and allows us to configure our routes. `$locationProvider` also comes with `ngRoute` allows us to get rid of the `/#/` in our url that you may have noticed.
+1. Now we need to create a `config` function. `$routeProvider` comes with `ngRoute` and allows us to configure our routes. `$locationProvider` also comes with `ngRoute` allows us to get rid of the `/#/` in our url that you may have noticed.
 
   ```js
   function config ($routeProvider, $locationProvider) {
@@ -41,17 +42,17 @@ This sprint we will:
     });
   }
   ```
-1. this code is saying that when the user is at the `/` aka home route, that Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. so instead of writing what controller our view should use in the `html` like we had before (`<div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">`), we write it here in the `config` function.
-1. so far we've been putting all of our view code in `index.html`, but we'd like a bit more modularity. let's start refactoring our code! we want to move a lot of our `html` into files inside a `templates` folder. so, create a `templates` folder inside of the views folder. inside of the `templates` folder, create an `html` file called `albums.html`. This is the file that Angular will look for when the user is at the `/` route, as defined above in our `config` function!
-1. let's move all of the code starting with the div that tells the view what controller to use (`<div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">`) into our new `albums.html` file. Remember that since we're now defining what controller to use with what view in our `config` function, we can now remove the `data-ng-controller` statement in our `html` because it's redundant.
-1. now back in `index.html` we need to add a `div` that tells Angular where the template file should get loaded. In the same place where the code was that you just moved, add this line
+1. This code is saying that when the user is at the `/` (a.k.a. home) route, Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. Before, we had specified the proper controller for our view within the html using `data-ng-controller` (`<div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">`). Now, we'll specify our controller  here in the `config` function.
+
+## Reorganize the code
+1. So far we've been putting all of our view code in `index.html`, but we'd like a bit more modularity. Let's start refactoring our code! We want to move a lot of our `html` into files inside a `templates` folder. So, create a `templates` folder inside of the views folder. Inside of the `templates` folder, create an `html` file called `albums.html`. This is the file that Angular will look for when the user is at the `/` route, as defined above in our `config` function!
+1. Let's move all of the code starting with the div that tells the view what controller to use (`<div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">`) into our new `albums.html` file. Remember that since we're now defining what controller to use with what view in our `config` function, we can now remove the `data-ng-controller` statement in our `html` because it's redundant.
+1. Now back in `index.html` we need to add a `div` that tells Angular where the template file should get loaded. In the same place where the code was that you just moved, add this line
 
   ```html
   <div data-ng-view></div>
   ```
 1. Now if you reload your page, everything will look exactly the same :). Wait. That's not very exciting... Actually it kind of is! It means that we now have a more modular app with the ability to expand into many different files.
-
-
 
 1. Along these same lines, we can move out controller code into its own file. To do this, create a `controllers` folder inside of `/public/scripts`. Inside of the `controllers` folder, create a `AlbumsIndexController.js` file. Just like any other `js` file we need to include this file in our `index.html` below where we load `app.js`.
 
@@ -101,7 +102,7 @@ Notice in the first line that we need to explicitly state what `module` this con
   ```
 1. Now make sure everything is loading properly in your browser. Phew.
 
-
+## Create a new route
 1. Creating a new route: You may have noticed that our `config` function refers to a `/:id` route. This route is going to show us the details of individual albums.
 1. This route will be accessible when the user clicks on an album name. To create this link, surround where you display the `albumName` with an `<a>` tag that links to `/:id` like so
 
@@ -126,7 +127,6 @@ Notice in the first line that we need to explicitly state what `module` this con
     }).then(function successCallback(json) {
       vm.album = json.data;
     });
-
   }
   ```
-1. Now add `html` to the view in `albums-show.html` to display all this data making sure to show (aka loop through) all the songs.
+1. Now add `html` to the view in `albums-show.html` to display all this data making sure to show (a.k.a. loop through) all the songs.
