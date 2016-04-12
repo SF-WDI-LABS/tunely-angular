@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="tunely">
+<html lang="en" ng-app="tunely">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,11 +26,11 @@
       </div>
     </div>
 
-    <div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">
+    <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-          <form class="form-horizontal" data-ng-submit="albumsIndexCtrl.createAlbum()">
+          <form class="form-horizontal" ng-submit="albumsIndexCtrl.createAlbum()">
             <fieldset>
 
               <!-- Form Name -->
@@ -40,7 +40,7 @@
               <div class="form-group">
                 <label class="col-md-4 control-label">Album Name</label>
                 <div class="col-md-4">
-                <input id="name" data-ng-model="albumsIndexCtrl.newAlbum.name" type="text" class="form-control input-md" required="">
+                <input id="name" ng-model="albumsIndexCtrl.newAlbum.name" type="text" class="form-control input-md" required="">
                 </div>
               </div>
 
@@ -48,7 +48,7 @@
               <div class="form-group">
                 <label class="col-md-4 control-label">Artist Name</label>
                 <div class="col-md-4">
-                <input data-ng-model="albumsIndexCtrl.newAlbum.artistName" type="text" class="form-control input-md">
+                <input ng-model="albumsIndexCtrl.newAlbum.artistName" type="text" class="form-control input-md">
                 </div>
               </div>
 
@@ -56,7 +56,7 @@
               <div class="form-group">
                 <label class="col-md-4 control-label">Release Date</label>
                 <div class="col-md-4">
-                <input data-ng-model="albumsIndexCtrl.newAlbum.releaseDate" type="text" class="form-control input-md">
+                <input ng-model="albumsIndexCtrl.newAlbum.releaseDate" type="text" class="form-control input-md">
                 </div>
               </div>
 
@@ -64,7 +64,7 @@
               <div class="form-group">
                 <label class="col-md-4 control-label">Genres (separated by commas)</label>
                 <div class="col-md-4">
-                  <textarea class="form-control" data-ng-model="albumsIndexCtrl.newAlbum.genres"></textarea>
+                  <textarea class="form-control" ng-model="albumsIndexCtrl.newAlbum.genres"></textarea>
                 </div>
               </div>
 
@@ -83,8 +83,8 @@
 
       <p>{{albumsIndexCtrl.newAlbum}}</p>
 
-      <input type="text" class="form-control" data-ng-model="searchText" placeholder="Search Albums">
-      <div data-ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
+      <input type="text" class="form-control" ng-model="searchText" placeholder="Search Albums">
+      <div ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
 
         <div class="col-md-10 col-md-offset-1">
           <div class="panel panel-default">
