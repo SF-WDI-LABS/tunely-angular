@@ -45,23 +45,16 @@ function AlbumsIndexController ($http) {
     });
   }
 
-  vm.deleteAlbum = function (id) {
+  vm.deleteAlbum = function (album) {
     $http({
       method: 'DELETE',
-      url: '/api/albums/'+ id
+      url: '/api/albums/'+ album._id
     }).then(function successCallback(json) {
-      var index = findWithAttr(vm.albums, '_id', id);
-      vm.albums.splice(index, 1);
+      var index = vm.albums.indexOf(album);
+      vm.albums.splice(index,1)
     }, function errorCallback(response) {
       console.log('There was an error deleting the data', response);
     });
   }
 
-  function findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-      if(array[i][attr] === value) {
-          return i;
-      }
-    }
-  }
 }
