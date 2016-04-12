@@ -3,20 +3,9 @@ This sprint we will:
 - `GET` data from our back-end to our Angular front-end with `$http`  
 - `POST` data from a form to save Albums into our database
 
-<<<<<<< HEAD
-This sprint we will:
-* `GET` data from our back-end to our Angular front-end with `$http`
-* `POST` data from a form to save Albums into our database
-
-1. let's get some real data to our client.
-1. all of Angular is not loaded in every module, controller, and template. Instead, you have to include or "inject" the parts of angular or external angular modules into the parts of your app where you want to use them.
-1. to use `$http`, we first need to tell angular that we'd like to have it available in our controller by `inject`ing it. to do that, include this line above the controller function definition
-=======
 1. We wil add real data to our client.
-1. Remove the `vm.albums` hard-coded data in `app.js`
 1. All of Angular is not loaded in every module, controller, and template. Instead, you have to include or "inject" the parts of angular or external angular modules into the parts of your app where you want to use them.
 1. To use `$http`, we first need to tell angular that we'd like to have it available in our controller by `inject`ing it. to do that, include this line above the controller function definition
->>>>>>> ec59cc44348eddb2b4d8f60441c7d5306f507301
 
   ```javascript
   AlbumsIndexController.$inject = ['$http'];
@@ -25,11 +14,7 @@ This sprint we will:
     ...
   }
   ```
-<<<<<<< HEAD
-The first line tells the controller that we'd like to have access to the `$http` module and the second line passes `$http` into the controller function
-=======
 The first line tells the controller that we'd like to have access to the `$http` module. The second line passes `$http` into the controller function.
->>>>>>> ec59cc44348eddb2b4d8f60441c7d5306f507301
 
 ## `GET` the data.
 1. Delete the hard-coded `vm.album` data from the previous sprint.
@@ -45,11 +30,10 @@ The first line tells the controller that we'd like to have access to the `$http`
 	    console.log('There was an error getting the data', response);
 	  });
   ```
-
 1. Now reload your page...
 
 
-![img](http://i.imgur.com/RJ6S6eY.gif)
+![img](./assets/images/sprint2-get.gif)
 
 
 **Holy Guacamolé!** The page is populated with data from the server! **How amazing!**
@@ -79,14 +63,9 @@ Don't forget to have a button with `type="submit"` in the form!
   ```
 # 4.  KABMLAM!! our page is posting!
 
-![img](http://i.imgur.com/zNJ4r1g.gif)
+![img](./assets/images/sprint2-post.gif)
 
-<<<<<<< HEAD
-## stretch challenges
-1. change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
-=======
 ## Stretch challenges
 1. Change the form by replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
->>>>>>> ec59cc44348eddb2b4d8f60441c7d5306f507301
 
 ![](assets/images/add_new_field_button.png)
