@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- VENDOR SCRIPTS -->
-    <script src="vendor/jQuery/dist/jquery.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/angular/angular.min.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>
@@ -32,7 +31,7 @@
 
     <!-- Here we declare the controller that will be in charge of the
         logic for this portion of the HTML. The 'as' part of the statement
-        means that the controller's alias within the HTML will be 
+        means that the controller's alias within the HTML will be
         albumsIndexCtrl-->
     <div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">
       <input type="text" class="form-control" placeholder="New album name" data-ng-model="albumsIndexCtrl.newAlbum.name">
