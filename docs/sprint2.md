@@ -5,8 +5,7 @@ This sprint we will:
 * `POST` data from a form to save Albums into our database
 
 1. let's get some real data to our client.
-1. remove the `vm.albums` hard-coded data in `app.js`
-1. All of Angular is not loaded in every module, controller, and template. Instead, you have to include or "inject" the parts of angular or external angular modules into the parts of your app where you want to use them.
+1. all of Angular is not loaded in every module, controller, and template. Instead, you have to include or "inject" the parts of angular or external angular modules into the parts of your app where you want to use them.
 1. to use `$http`, we first need to tell angular that we'd like to have it available in our controller by `inject`ing it. to do that, include this line above the controller function definition
 
   ```js
@@ -16,7 +15,7 @@ This sprint we will:
     ...
   }
   ```
-the first line tells the controller that we'd like to have access to the `$http` module and the second line passes `$http` into the controller function
+The first line tells the controller that we'd like to have access to the `$http` module and the second line passes `$http` into the controller function
 
 ## `GET` the data.
 1. delete the hard-coded `vm.album` data from before.
@@ -32,10 +31,10 @@ the first line tells the controller that we'd like to have access to the `$http`
     console.log('There was an error getting the data', response);
   });
   ```
-1. Now reload your page. WOW! the page is populated with data from the server! How easy...
+1. now reload your page. WOW! the page is populated with data from the server! How easy...
 
 ## `POST` some data
-1. Let's flesh out the `newAlbum` form. Create a form that has fields for Album Name and Artist Name; optionally Genres (separated by commas) and Release Date.
+1. let's flesh out the `newAlbum` form. Create a form that has fields for Album Name and Artist Name; optionally Genres (separated by commas) and Release Date.
 1. Angular allows us to call functions from our `html`! In `<form>`, let's add a `submit` handler like so
 
   ```html
@@ -60,6 +59,6 @@ Don't forget to have a button with `type="submit"` in the form!
 1. kablam! our page is posting!
 
 ## stretch challenges
-1. Change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
+1. change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
 
 ![](assets/images/add_new_field_button.png)
