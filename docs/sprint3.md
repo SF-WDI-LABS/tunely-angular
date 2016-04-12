@@ -8,7 +8,7 @@ This sprint we will:
 1. To attach an event handler to this button, we can use Angular's `data-ng-click` attribute like so
 
   ```html
-  <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
+  <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
   ```
 1. This tells Angular to run the function `deleteAlbum()` that's defined in `albumsIndexCtrl` when the button gets clicked. Note that this function passes in the `album._id` as an argument.
 
@@ -16,29 +16,19 @@ This sprint we will:
 1. Now that we have a button that knows to run a function on click, we need to create that function. Inside of our `AlbumsIndexController` define a `deleteAlbum` function like so
 
   ```js
-  vm.deleteAlbum = function (id) {
+  vm.deleteAlbum = function (album) {
     $http({
       method: 'DELETE',
-      url: // what goes here?
+      url: '/api/albums/'+ album._id
     }).then(function successCallback(json) {
-      var index = findWithAttr(vm.albums, '_id', id);
-      vm.albums.splice(index, 1);
+      var index = vm.albums.indexOf(album);
+      vm.albums.splice(index,1)
     }, function errorCallback(response) {
       console.log('There was an error deleting the data', response);
     });
   }
   ```
-1. You can see that in the `successCallback` function, we manipulate `vm.albums` to match the change we just made in the database. This change to `vm.albums` creates an update in the view! The `findWithAttr` written below is a handy function that let's us find the album in our `vm.albums` array that has the same `_id` as the album that was just deleted in the database.
-
-  ```js
-  function findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-      if(array[i][attr] === value) {
-          return i;
-      }
-    }
-  }
-  ```
+1. You can see that in the `successCallback` function, we manipulate `vm.albums` to match the change we just made in the database. This change to `vm.albums` creates an update in the view! 
 1. Does it work? Does it work? Check in with somebody nearby to see if they have this step working.
 
 ## Creating buttons and forms to help us update
