@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- VENDOR SCRIPTS -->
-    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="vendor/angular/angular.min.js"></script>
     <script src="vendor/angular-route/angular-route.min.js"></script>
 
@@ -126,7 +125,7 @@
 
               <div class='panel-footer'>
                 <div class='panel-footer'>
-                  <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album._id)">Delete Album</button>
+                  <button class='btn btn-danger' data-ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
                   <button class='btn btn-info' data-ng-hide="editing" data-ng-click="editing = true">Edit Album</button>
                   <button class='btn btn-success' data-ng-show="editing" data-ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
                 </div>
