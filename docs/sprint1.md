@@ -29,10 +29,10 @@ For sprint 1 we will:
 and also in `index.html`.
 
   ```html
-  <html lang="en" data-ng-app="tunely">
+  <html lang="en" ng-app="tunely">
   ```
 1. Create a controller to control the albums index page. The syntax is below - just *dot-chain* a controller after your app definition.
- 
+
   ```js
   angular
     .module('tunely', [])
@@ -52,7 +52,7 @@ and also in `index.html`.
     };
   }
   ```
-  
+
 1. Tell the view that you'd like to use this controller in part of your view  
 
   ```html
@@ -64,26 +64,26 @@ and also in `index.html`.
       </div>
     </div>
 
-    <div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">
+    <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
       <!--html inside of here can use the information from the AlbumsIndexController-->
     </div>
 
   </body>
   ```
-  
+
 1. Display the initialized data from your controller in the view
-  
+
   ```html
   <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
   ```
   if you move this `<p>` tag outside of the div that defines the controller, what happens?
 	- let's dynamically edit the initialized data. Add some input boxes
-  
+
   ```html
-  <input type="text" class="form-control" placeholder="New album name" data-ng-model="albumsIndexCtrl.newAlbum.name">
-  <input type="text" class="form-control" placeholder="New album artist" data-ng-model="albumsIndexCtrl.newAlbum.artistName">
+  <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
+  <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
   ```
-  
+
 When you edit the content inside these input boxes, what happens? This is called **two-way data binding**. When data changes in the view, it is automatically updated in the JS and vice versa. Whoa!
 
 1. Let's add some more data to our controller
@@ -105,10 +105,10 @@ When you edit the content inside these input boxes, what happens? This is called
   ];
   ```
 
-1. We can use the angular *built-in directive* `data-ng-repeat` to help us display this data
+1. We can use the angular *built-in directive* `ng-repeat` to help us display this data
 
   ```html
-  <div data-ng-repeat="album in albumsIndexCtrl.albums">
+  <div ng-repeat="album in albumsIndexCtrl.albums">
     {{album}}
   </div>
   ```

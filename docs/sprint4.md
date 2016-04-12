@@ -42,15 +42,15 @@ This sprint we will:
     });
   }
   ```
-1. This code is saying that when the user is at the `/` (a.k.a. home) route, Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. Before, we had specified the proper controller for our view within the html using `data-ng-controller` (`<div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">`). Now, we'll specify our controller  here in the `config` function.
+1. This code is saying that when the user is at the `/` (a.k.a. home) route, Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. Before, we had specified the proper controller for our view within the html using `ng-controller` (`<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`). Now, we'll specify our controller  here in the `config` function.
 
 ## Reorganize the code
 1. So far we've been putting all of our view code in `index.html`, but we'd like a bit more modularity. Let's start refactoring our code! We want to move a lot of our `html` into files inside a `templates` folder. So, create a `templates` folder inside of the views folder. Inside of the `templates` folder, create an `html` file called `albums.html`. This is the file that Angular will look for when the user is at the `/` route, as defined above in our `config` function!
-1. Let's move all of the code starting with the div that tells the view what controller to use (`<div class="container" data-ng-controller="AlbumsIndexController as albumsIndexCtrl">`) into our new `albums.html` file. Remember that since we're now defining what controller to use with what view in our `config` function, we can now remove the `data-ng-controller` statement in our `html` because it's redundant.
+1. Let's move all of the code starting with the div that tells the view what controller to use (`<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`) into our new `albums.html` file. Remember that since we're now defining what controller to use with what view in our `config` function, we can now remove the `ng-controller` statement in our `html` because it's redundant.
 1. Now back in `index.html` we need to add a `div` that tells Angular where the template file should get loaded. In the same place where the code was that you just moved, add this line
 
   ```html
-  <div data-ng-view></div>
+  <div ng-view></div>
   ```
 1. Now if you reload your page, everything will look exactly the same :). Wait. That's not very exciting... Actually it kind of is! It means that we now have a more modular app with the ability to expand into many different files.
 
@@ -107,7 +107,7 @@ Notice in the first line that we need to explicitly state what `module` this con
 1. This route will be accessible when the user clicks on an album name. To create this link, surround where you display the `albumName` with an `<a>` tag that links to `/:id` like so
 
   ```html
-  <a data-ng-href="{{album._id}}">{{album.name}}</a>
+  <a ng-href="{{album._id}}">{{album.name}}</a>
   ```
 1. Try clicking on this link in your browser and notice the error messages.
 1. Create two new files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`. Don't forget to include `AlbumsShowController.js` in `index.html`.

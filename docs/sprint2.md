@@ -43,10 +43,10 @@ The first line tells the controller that we'd like to have access to the `$http`
 1. Angular allows us to call functions from our `html`!  In `<form>`, let's add a `submit` handler like so
 
   ```html
-  <form data-ng-submit="albumsIndexCtrl.createAlbum()">
+  <form ng-submit="albumsIndexCtrl.createAlbum()">
   ```
 Don't forget to have a button with `type="submit"` in the form!
-1. `data-ng-submit` tells the `html` to call the `createAlbum()` function in the `albumsIndexCtrl` on submit of the function. Lastly we need to make a `createAlbum()` function.
+1. `ng-submit` tells the `html` to call the `createAlbum()` function in the `albumsIndexCtrl` on submit of the function. Lastly we need to make a `createAlbum()` function.
 
   ```js
   vm.createAlbum = function () {
