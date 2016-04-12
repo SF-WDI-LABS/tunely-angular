@@ -9,8 +9,7 @@ This sprint we will:
 
   ```javascript
   AlbumsIndexController.$inject = ['$http'];
-
-  function AlbumsIndexController ($http) {
+  function AlbumsIndexController (  $http  ) {
     ...
   }
   ```
