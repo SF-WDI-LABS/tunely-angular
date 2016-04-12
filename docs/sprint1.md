@@ -1,8 +1,9 @@
 ## Sprint 1 Overview
 
-For sprint 1 we will:
-	- Mock up data in our client-side `js` and display it in our `view`.
-	- Learn common Angular built-in directives such as `ng-repeat`.
+For sprint 1 we will:  
+
+- Mock up data in our client-side `js` and display it in our `view`.
+- Learn common Angular built-in directives such as `ng-repeat`.
 
 1. Look at `server.js` to see the differences between what we've done before and the pieces that are unique to an Angular app.  We've made a couple additions; namely:  
 
