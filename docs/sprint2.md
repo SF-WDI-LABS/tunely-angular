@@ -49,7 +49,7 @@ The first line tells the controller that we'd like to have access to the `$http`
 1. Now reload your page...
 
 
-![img](./assets/images/sprint2-get.gif)
+![img](http://i.imgur.com/RJ6S6eY.gif)
 
 
 **Holy Guacamolé!** The page is populated with data from the server! **How amazing!**
@@ -79,7 +79,7 @@ Don't forget to have a button with `type="submit"` in the form!
   ```
 # 4.  KABMLAM!! our page is posting!
 
-![img](./assets/images/sprint2-post.gif)
+![img](http://i.imgur.com/zNJ4r1g.gif)
 
 <<<<<<< HEAD
 ## stretch challenges
