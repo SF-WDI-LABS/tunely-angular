@@ -12,19 +12,7 @@ This sprint we will:
 
 ## Getting Started on Sprint 2
 
-To get started on a new tunely-angular sprint, we'll have you check out the solutions for the last sprint. Follow these steps from within your tunely-angular project directory:
-
-1. Stage your changes with `git add`.
-
-1. Commit your changes with a descriptive commit message like `"my work on sprint one"`.
-
-1. Run `git fetch --all`.
-
-1. Check out the solutions for the last sprint: `git checkout solutions_sprint_1`.
-
-1. Make sure you have the newest version of the code for that sprint: `git pull origin solutions_sprint_1`.
-
-1. Use this code as a starting point.
+To get started on a new tunely-angular sprint, we'll have you check out the solutions for the last sprint. Remember to follow the [branching instructions](https://github.com/SF-WDI-LABS/tunely-angular/blob/master/docs/starting_with_a_branch.md)!
 
 
 ## Inject `$http`
