@@ -30,8 +30,8 @@ This lab begins with no front-end and a fully built out Express/Mongoose back-en
 
 ## Getting Started
 
-* fork and clone this lab repo
-* read this doc then 
+* clone this lab repo (no need to fork since you won't be turning anything in)
+* read this doc then
 * follow the **branching** [instructions here](/docs/starting_with_a_branch.md)
 
 
