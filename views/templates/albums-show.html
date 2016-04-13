@@ -34,7 +34,7 @@
                       <h4 class="inline-header">Songs:</h4>
                         <div class="list-group-item" ng-repeat="song in albumsShowCtrl.album.songs">
                           <button type="button" class="btn btn-info" ng-hide="editing" ng-click="editing = true"><span class="glyphicon glyphicon-pencil"></span></button>
-                          <button type="button" class="btn btn-danger" ng-hide="editing" ng-click="albumsShowCtrl.deleteSong(song._id)"><span class="glyphicon glyphicon-remove"></span></button>
+                          <button type="button" class="btn btn-danger" ng-hide="editing" ng-click="albumsShowCtrl.deleteSong(song)"><span class="glyphicon glyphicon-remove"></span></button>
                           <button type="button" class="btn btn-success" ng-show="editing" ng-click="albumsShowCtrl.editSong(song); editing = false"><span class="glyphicon glyphicon-ok"> Save</span></button>
                           ({{song.trackNumber}})
                           <span ng-hide="editing">{{song.name}}</span>

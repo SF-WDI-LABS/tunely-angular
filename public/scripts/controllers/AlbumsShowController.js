@@ -13,6 +13,8 @@ function AlbumsShowController ($http, $routeParams) {
     url: '/api/albums/'+$routeParams.id
   }).then(function successCallback(json) {
     vm.album = json.data;
+  }, function errorCallback(response) {
+    console.log('There was an error getting the data', response);
   });
 
   vm.editSong = function (song) {
@@ -21,17 +23,22 @@ function AlbumsShowController ($http, $routeParams) {
       url: '/api/albums/'+ $routeParams.id + '/songs/' + song._id ,
       data: song
     }).then(function successCallback(json) {
-    })
+      // don't need to do anything!
+    }, function errorCallback(response) {
+      console.log('There was an error editing the data', response);
+    });
   }
 
-  vm.deleteSong = function (id) {
+  vm.deleteSong = function (song) {
     $http({
       method: 'DELETE',
-      url: '/api/albums/'+ $routeParams.id + '/songs/' + id
+      url: '/api/albums/'+ $routeParams.id + '/songs/' + song._id
     }).then(function successCallback(json) {
-      var index = findWithAttr(vm.album.songs, '_id', id);
+      var index = vm.album.songs.indexOf(song);
       vm.album.songs.splice(index, 1);
-    })
+    }, function errorCallback(response) {
+      console.log('There was an error deleting the data', response);
+    });
   }
 
   vm.createSong = function () {
@@ -42,14 +49,9 @@ function AlbumsShowController ($http, $routeParams) {
     }).then(function successCallback(json) {
       vm.album.songs.push(json.data);
       vm.newSong = {};
-    })
+    }, function errorCallback(response) {
+      console.log('There was an error creating the data', response);
+    });
   }
 
-  function findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-      if(array[i][attr] === value) {
-          return i;
-      }
-    }
-  }
 }

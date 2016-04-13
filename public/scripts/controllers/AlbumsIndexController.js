@@ -51,7 +51,7 @@ function AlbumsIndexController ($http) {
       url: '/api/albums/'+ album._id
     }).then(function successCallback(json) {
       var index = vm.albums.indexOf(album);
-      vm.albums.splice(index,1)
+      vm.albums.splice(index,1);
     }, function errorCallback(response) {
       console.log('There was an error deleting the data', response);
     });
