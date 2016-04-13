@@ -58,4 +58,4 @@ This sprint we will:
 1. How does it look? Does it all hide and show as expected?
 
 ## Make the update happen
-1. The last step is to write the `editAlbum()` function. You need to reach out and tell the database to update and you need to change the view to reflect those changes. Go! <3
+1. The last step is to write the `vm.editAlbum()` function in the `AlbumsIndexController`. In this function, you need to write an `$http` request to send the new data to the back-end. Then, in the `successCallback` of this `$http` call, you need to think about what do to to make sure the view reflects these updates. Go! <3
