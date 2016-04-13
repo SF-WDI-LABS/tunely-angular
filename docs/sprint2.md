@@ -3,7 +3,8 @@ This sprint we will:
 - `GET` data from our back-end to our Angular front-end with `$http`  
 - `POST` data from a form to save Albums into our database
 
-1. We will add real data to our client.
+## Inject `$http`
+
 1. Not all of Angular is loaded into every module, controller, and template. Instead, you have to include or "inject" parts of Angular, or external Angular modules, into parts of your app where you want to use them.
 1. [`$http`](https://docs.angularjs.org/api/ng/service/$http) is a core part of Angular. Still, to use it in our controller, we first need to tell Angular that we'd like to have it available by `inject`ing it. to do that, include this line above the controller function definition:
 
