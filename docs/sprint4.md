@@ -37,17 +37,17 @@ This sprint we will:
         controller: 'AlbumsShowController'
       });
 
-      $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
     });
   }
   ```
   <details><summary>Why is this function called `config`?</summary>
   We passed our `config` function to angular at `.config(config)`.  We could have called this something else, but it's customary to just call it `config` because it configures our app.
   </details>
-  
-  
+
+
 1. This code is saying that when the user is at the `/` (a.k.a. home) route, Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. Before, we had specified the proper controller for our view within the html using `ng-controller` (`<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`). Now, we'll specify our controller  here in the `config` function.
 
 ## Reorganize the code
@@ -74,8 +74,7 @@ This sprint we will:
     .controller('AlbumsIndexController', AlbumsIndexController);
 
   AlbumsIndexController.$inject = ['$http'];
-
-  function AlbumsIndexController ($http) {
+  function AlbumsIndexController (  $http  ) {
     ...
   }
   ```
@@ -100,9 +99,9 @@ Notice in the first line that we need to explicitly state what `module` this con
         controller: 'AlbumsShowController'
       })
 
-      $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
     });
   }
   ```
@@ -122,8 +121,7 @@ Notice in the first line that we need to explicitly state what `module` this con
 
   ```js
   AlbumsShowController.$inject = ['$http', '$routeParams'];
-
-  function AlbumsShowController ($http, $routeParams) {
+  function AlbumsShowController (  $http,   $routeParams  ) {
     var vm = this;
     vm.newSong = {};
 
@@ -135,4 +133,5 @@ Notice in the first line that we need to explicitly state what `module` this con
     });
   }
   ```
+
 1. Now add `html` to the view in `albums-show.html` to display all this data making sure to show (a.k.a. loop through) all the songs.
