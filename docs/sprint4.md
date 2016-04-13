@@ -1,6 +1,7 @@
 ## Overview
 
 This sprint we will:
+
 * Reorganize our code to use `ngRoute`
 * Add a route for viewing details of an album
 
@@ -12,7 +13,7 @@ This sprint we will:
     .module('tunely', ['ngRoute'])
   ```
 1. Once we do that, we now have access to `ngRoute` everywhere in our tunely app!
-1. `ngRoute` allows us to do some route configuration to our app. That is, we can define what we want to happen at every different page within our application. To tell our app that we'd like to `config`ure it, modify your code like so:
+1. `ngRoute` allows us to configure routes in our app. That is, we can define what we want to happen at every different (front-end) URL within our application. To tell our app that we'd like to `config`ure it, modify your code like so:
 
   ```js
   angular
@@ -34,7 +35,7 @@ This sprint we will:
         templateUrl: 'templates/albums-show',
         controllerAs: 'albumsShowCtrl',
         controller: 'AlbumsShowController'
-      })
+      });
 
       $locationProvider.html5Mode({
         enabled: true,
@@ -42,6 +43,11 @@ This sprint we will:
     });
   }
   ```
+  <details><summary>Why is this function called `config`?</summary>
+  We passed our `config` function to angular at `.config(config)`.  We could have called this something else, but it's customary to just call it `config` because it configures our app.
+  </details>
+  
+  
 1. This code is saying that when the user is at the `/` (a.k.a. home) route, Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. Before, we had specified the proper controller for our view within the html using `ng-controller` (`<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`). Now, we'll specify our controller  here in the `config` function.
 
 ## Reorganize the code
@@ -54,7 +60,7 @@ This sprint we will:
   ```
 1. Now if you reload your page, everything will look exactly the same :). Wait. That's not very exciting... Actually it kind of is! It means that we now have a more modular app with the ability to expand into many different files.
 
-1. Along these same lines, we can move out controller code into its own file. To do this, create a `controllers` folder inside of `/public/scripts`. Inside of the `controllers` folder, create a `AlbumsIndexController.js` file. Just like any other `js` file we need to include this file in our `index.html` below where we load `app.js`.
+1. Along these same lines, we can move the controller code out into its own file. To do this, create a `controllers` folder inside of `/public/scripts`. Inside of the `controllers` folder, create a `AlbumsIndexController.js` file. Just like any other `js` file we need to include this file in our `index.html` below where we load `app.js`.
 
   ```html
   <script src="scripts/app.js"></script>
