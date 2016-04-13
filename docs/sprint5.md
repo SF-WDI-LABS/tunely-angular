@@ -12,6 +12,4 @@ This sprint we will:
 
   ![inline-edit](https://cloud.githubusercontent.com/assets/3010270/14510992/5f7e0fbe-0189-11e6-9bfc-1e6751c23f7a.png)
 
-1. Make all the things work! Go!!!!
-
-## <3
+1. Make all the things work! Go!!!! <3
