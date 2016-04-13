@@ -42,7 +42,7 @@ Let's assume you're starting *sprint 2*
 1. Check out the next solution branch using `git checkout REMOTE/BRANCH_NAME`.  Note that our remote is `origin` if you cloned the repo.
 
    ```sh
-   git checkout origin/solutions_sprint_1
+   git checkout solutions_sprint_1
    ```
    > If you're starting sprint 2, use the solutions from 1 as your starting point.
    > Using `origin/BRANCH_NAME` says to use origin's copy of that branch, ignoring any local changes you may have made.
