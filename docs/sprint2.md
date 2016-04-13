@@ -1,4 +1,11 @@
 ## Sprint 2 Overview
+
+Before this sprint, you should:  
+- Have mock data in the controller of your Angular app, displayed in the view 
+- Use two-way data binding to change objects in the controller based on user input
+- Recall RESTful routing conventions and key components of requests: method, url, data, and query parameters
+- Recognize the structure of `$http` requests
+
 This sprint we will:  
 - `GET` data from our back-end to our Angular front-end with `$http`  
 - `POST` data from a form to save Albums into our database
