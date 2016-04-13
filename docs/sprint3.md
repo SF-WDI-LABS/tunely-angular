@@ -10,7 +10,7 @@ This sprint we will:
   ```html
   <button class='btn btn-danger' ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
   ```
-1. This tells Angular to run the function `deleteAlbum()` that's defined in `albumsIndexCtrl` when the button gets clicked. Note that this function passes in the `album._id` as an argument.
+1. This tells Angular to run the function `deleteAlbum()` that's defined in `albumsIndexCtrl` when the button gets clicked. Note that this function passes in the `album` as an argument.
 
 ## Delete in the database and the view
 1. Now that we have a button that knows to run a function on click, we need to create that function. Inside of our `AlbumsIndexController` define a `deleteAlbum` function like so
@@ -22,7 +22,7 @@ This sprint we will:
       url: '/api/albums/'+ album._id
     }).then(function successCallback(json) {
       var index = vm.albums.indexOf(album);
-      vm.albums.splice(index,1)
+      vm.albums.splice(index, 1);
     }, function errorCallback(response) {
       console.log('There was an error deleting the data', response);
     });
@@ -58,4 +58,4 @@ This sprint we will:
 1. How does it look? Does it all hide and show as expected?
 
 ## Make the update happen
-1. The last step is to write the `editAlbum()` function. You need to reach out and tell the database to update and you need to change the view to reflect those changes. Go!
+1. The last step is to write the `editAlbum()` function. You need to reach out and tell the database to update and you need to change the view to reflect those changes. Go! <3
