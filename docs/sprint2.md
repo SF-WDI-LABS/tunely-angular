@@ -1,9 +1,22 @@
 ## Sprint 2 Overview
+
+Before this sprint, you should:  
+- Have mock data in the controller of your Angular app, displayed in the view 
+- Use two-way data binding to change objects in the controller based on user input
+- Recall RESTful routing conventions and key components of requests: method, url, data, and query parameters
+- Recognize the structure of `$http` requests
+
 This sprint we will:  
 - `GET` data from our back-end to our Angular front-end with `$http`  
 - `POST` data from a form to save Albums into our database
 
-1. We will add real data to our client.
+## Getting Started on Sprint 2
+
+To get started on a new tunely-angular sprint, we'll have you check out the solutions for the last sprint. Remember to follow the [branching instructions](https://github.com/SF-WDI-LABS/tunely-angular/blob/master/docs/starting_with_a_branch.md)!
+
+
+## Inject `$http`
+
 1. Not all of Angular is loaded into every module, controller, and template. Instead, you have to include or "inject" parts of Angular, or external Angular modules, into parts of your app where you want to use them.
 1. [`$http`](https://docs.angularjs.org/api/ng/service/$http) is a core part of Angular. Still, to use it in our controller, we first need to tell Angular that we'd like to have it available by `inject`ing it. to do that, include this line above the controller function definition:
 

@@ -5,8 +5,7 @@ As you start each lab in the series you are strongly encouraged to:
 * start from the previous solutions and build on them
 * do your work on your own new local branch
 
-
-
+**ACHTUNG! do not FORK this repo; just CLONE it.**
 
 
 ## First sprint and setup
@@ -40,12 +39,14 @@ Let's assume you're starting *sprint 2*
    Then verify that the above worked.  If `git status` shows that your *working directory is clean* you're good to go!
 
    
-1. Check out the next solution branch using `git checkout BRANCH_NAME`
+1. Check out the next solution branch using `git checkout REMOTE/BRANCH_NAME`.  Note that our remote is `origin` if you cloned the repo.
 
    ```sh
    git checkout solutions_sprint_1
    ```
    > If you're starting sprint 2, use the solutions from 1 as your starting point.
+   > Using `origin/BRANCH_NAME` says to use origin's copy of that branch, ignoring any local changes you may have made.
+
    
 1. Create a new branch for your work in this sprint.
    
@@ -58,4 +59,22 @@ Let's assume you're starting *sprint 2*
 
 
 
-## Pulling updates
+## Getting updated solutions
+
+If at some point we tell you that you **need** updated solutions follow these instructions.
+
+1. **Before you checkout** the solution branch; fetch the data from `origin`
+
+   ```sh
+   git fetch origin
+   ```
+
+1. Follow the instructions in [subsequent sprints](#Subsequent Sprints)
+
+> When you checkout **make sure** that you specify that you want the copy from the remote by prepending `origin/` to the branch name.  e.g.:
+>
+>   ```sh
+>   git checkout origin/solutions_sprint_3
+>   ```
+> 
+> The instructions above already use `origin/`, so if you follow them it should just work.
