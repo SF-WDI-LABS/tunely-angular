@@ -5,6 +5,17 @@ This sprint we will:
 * Reorganize our code to use `ngRoute`
 * Add a route for viewing details of an album
 
+### Covered / pre-requisite topics
+* templates and layouts
+* [`ngRoute` Module](https://docs.angularjs.org/api/ngRoute)
+    - [`ngView` directive](https://docs.angularjs.org/api/ngRoute/directive/ngView)
+    - [`$routeProvider`](https://docs.angularjs.org/api/ngRoute/provider/$routeProvider)
+    - [`$locationProvider`](https://docs.angularjs.org/api/ng/provider/$locationProvider)
+    - [`$routeParams`](https://docs.angularjs.org/api/ngRoute/service/$routeParams)
+    - using `controllerAs` syntax in `ngRoute`.
+ * [`ngHref`](https://docs.angularjs.org/api/ng/directive/ngHref)
+
+
 ## Configuring our app with `ngRoute`
 1. `ngRoute` is a separate Angular module. We already have it loaded in our `index.html`, so now we just need to tell Angular that we'd like to use it. In `app.js`, we can tell Angular that `ngRoute` is a dependency like so
 
