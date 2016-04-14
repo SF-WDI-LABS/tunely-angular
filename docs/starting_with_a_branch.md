@@ -30,6 +30,8 @@ Here's how you can do that:
 
 Let's assume you're starting *sprint 2*
 
+1. Save your changes to any files you've been working on. 
+
 1. Commit any changes you've made.
    
    ```sh
