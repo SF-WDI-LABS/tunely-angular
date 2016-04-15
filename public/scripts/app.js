@@ -8,6 +8,8 @@ angular
   .module('tunely', ['ngRoute'])
   .config(config);
 
+config.$inject = ['$routeProvider', '$locationProvider'];
+
 function config ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
