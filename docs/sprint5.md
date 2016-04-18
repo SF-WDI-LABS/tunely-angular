@@ -28,7 +28,7 @@ This sprint we will:
    > You can add your new logic to the controller in charge of the view you're modifying.  Check which controller by looking at your routes in app.js. 
    
      <details><summary>Click for controller name...</summary> 
-       >`AlbumsShowController`</details>
+       >`AlbumsSongsController`</details>
   </details>
 
 </details>
