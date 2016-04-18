@@ -1,7 +1,7 @@
 ## Overview
 
 This sprint we will:
-* Add ability to `POST`, `UPDATE`, and `DELETE` songs
+* Add ability to `CREATE`, `READ`, `UPDATE`, and `DELETE` songs
 
 1. Update your album show page to show a list of songs, like this:
 
