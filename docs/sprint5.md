@@ -3,13 +3,31 @@
 This sprint we will:
 * Add ability to `POST`, `UPDATE`, and `DELETE` songs
 
-1. I want your song show page to look like this:
+1. Update your album show page to show a list of songs, like this:
 
   ![full-view](https://cloud.githubusercontent.com/assets/3010270/14510977/4b621d0e-0189-11e6-82b0-965e6d1f0484.png)
 
+1. Submitting the "+ Add Song" form should add a new song to the UI and the database. 
 
-1. With an inline edit that changes the text into an input field and the blue and red buttons into a green save button like this:
+1. Clicking the delete button near each song should remove that song from the UI and from the database. 
+
+1. Clicking the pencil icon near each song should allow editing that song.  Create an inline edit form by changing the text on the page into an input field, removing the edit and delete buttons, and adding a green save button, like this:
 
   ![inline-edit](https://cloud.githubusercontent.com/assets/3010270/14510992/5f7e0fbe-0189-11e6-9bfc-1e6751c23f7a.png)
 
 1. Make all the things work! Go!!!! <3
+
+
+## Hints
+
+1. Reference Sprints 1-4. 
+
+1. You won't need to add new routes. You can add your new logic to the controller in charge of the view you're modifying.
+
+  <details><summary>Click for a reminder...</summary> 
+   > Check your routes in app.js. 
+   
+     <details><summary>Click for controller name...</summary> 
+       >`AlbumsShowController`</details>
+       
+
