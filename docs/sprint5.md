@@ -22,12 +22,15 @@ This sprint we will:
 
 1. Reference Sprints 1-4. 
 
-1. You won't need to add new routes. You can add your new logic to the controller in charge of the view you're modifying.
+1. Since there's no new view, you won't _need_ to add a new client-side route or controller. 
 
-  <details><summary>Click for a reminder...</summary> 
-   > Check your routes in app.js. 
+  <details><summary>Click for more...</summary> 
+   > You can add your new logic to the controller in charge of the view you're modifying.  Check which controller by looking at your routes in app.js. 
    
      <details><summary>Click for controller name...</summary> 
        >`AlbumsShowController`</details>
+  </details>
+
+</details>
        
 
