@@ -16,11 +16,6 @@ app.use(bodyParser.json());
 // We're placing these under /vendor to differentiate them from our own assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
-// // set 'html' as the engine, using ejs's renderFile function
-// var ejs = require('ejs');
-// app.engine('html', ejs.renderFile);
-// app.set('view engine', 'html');
-
 var controllers = require('./controllers');
 
 
@@ -36,8 +31,7 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
-app.get('/templates/:name', function homepage (req, res) {
+app.get('/templates/:name', function templates(req, res) {
   var name = req.params.name;
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
