@@ -113,11 +113,6 @@
                       <span ng-hide="editing">{{album.releaseDate}}</span>
                       <input ng-show="editing" ng-model="album.releaseDate" type="text" class="form-control input-md">
                     </li>
-
-                    <li class="list-group-item">
-                      <h4 class="inline-header">Songs:</h4>
-                      <span ng-repeat="song in album.songs">&ndash; ({{song.trackNumber}}) {{song.name}} &ndash;</span>
-                    </li>
                   </ul>
                 </div>
               </div>
