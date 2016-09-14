@@ -16,11 +16,6 @@ app.use(bodyParser.json());
 // We're placing these under /vendor to differentiate them from our own assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
-// set 'html' as the engine, using ejs's renderFile function
-var ejs = require('ejs');
-app.engine('html', ejs.renderFile);
-app.set('view engine', 'html');
-
 var controllers = require('./controllers');
 
 
@@ -34,6 +29,11 @@ var controllers = require('./controllers');
 
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/templates/:name', function templates(req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
 
@@ -54,7 +54,6 @@ app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
 app.delete('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.destroy);
 app.put('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.update);
 
-app.get('/templates/:name', controllers.api.templates);
 
 // ALL OTHER ROUTES (ANGULAR HANDLES)
 // redirect all other paths to index
