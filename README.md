@@ -11,7 +11,7 @@ Full CRUD single page app (SPA) with MEAN stack. A refactor of tunely with an An
 
 This lab begins with just HTML and CSS on the front end and a fully built out back end. Each sprint in the project has its own objectives.  As you work through the project, you'll:
 
-* see how to set up an Express serve to serve an Angular front end
+* see how to set up an Express server to serve an Angular front end
 * consume a JSON API using Angular's `$http`
 * update Angular views using 2-way data binding and Angular's client-side templating
 * CRUD albums and embedded songs
