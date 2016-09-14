@@ -13,12 +13,17 @@ config.$inject = ['$routeProvider', '$locationProvider'];
 function config ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'templates/albums',
+      templateUrl: '/templates/albums',
       controllerAs: 'albumsIndexCtrl',
       controller: 'AlbumsIndexController'
     })
-    .when('/:id', {
-      templateUrl: 'templates/albums-show',
+    .when('/albums', {
+      templateUrl: '/templates/albums',
+      controllerAs: 'albumsIndexCtrl',
+      controller: 'AlbumsIndexController'
+    })
+    .when('/albums/:id', {
+      templateUrl: '/templates/albums-show',
       controllerAs: 'albumsShowCtrl',
       controller: 'AlbumsShowController'
     })
