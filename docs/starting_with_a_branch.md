@@ -1,14 +1,30 @@
 # Using branches
 
-As you start each lab in the series you are strongly encouraged to:
+As you start each sprint in this series you are strongly encouraged to:
 
 * start from the previous solutions and build on them
 * do your work on your own new local branch
 
-**ACHTUNG! do not FORK this repo; just CLONE it.**
+## Initial setup
 
+**Follow these steps immediately after you first fork and clone the repository.**
 
-## First sprint and setup
+This project is carrying on throughout the week, so there may be changes to the class version of this repository after you clone.  To make it easy for you to get updates, you should add the class version as an extra remote repository.   
+
+* In your Terminal, navigate to your local repository for this project. Copy the clone url of the class version of this repository, then run the following command (paste in the class repo clone url instead of typing CLASS_REPO_CLONE_URL):
+
+    ```sh
+    git remote add upstream CLASS_REPO_CLONE_URL
+    ```
+
+* In the future, if your teaching team asks you to get class updates for a specific branch, you can pull updates from the `upstream` remote.  Try this now with the master branch (there shouldn't be anything new on master yet):
+
+    ```sh
+    git checkout master
+    git pull upstream master
+    ```
+
+## First sprint
 
 **Follow these steps only on your first sprint!**
 
@@ -30,53 +46,32 @@ Here's how you can do that:
 
 Let's assume you're starting *sprint 2*
 
-1. Save your changes to any files you've been working on. 
+1. Save your changes to any files you've been working on.
+
+1. Make sure you're on a branch for your work.  The `git branch` command should show you being on your branch for the previous sprint (e.g., `my_work_sprint_1`).
 
 1. Commit any changes you've made.
-   
+
    ```sh
    git add .
-   git commit -m "saving my changes on sprint X"
+   git commit -m "saves changes on sprint 1"
    ```
-   Then verify that the above worked.  If `git status` shows that your *working directory is clean* you're good to go!
+   Then verify that the above worked.  If `git status` shows that your *working directory is clean*, you're good to go!
 
-   
-1. Check out the next solution branch using `git checkout REMOTE/BRANCH_NAME`.  Note that our remote is `origin` if you cloned the repo.
+
+1. Check out the solution branch for the sprint you *were* previously  working on using `git checkout BRANCH_NAME`.  
 
    ```sh
    git checkout solutions_sprint_1
    ```
    > If you're starting sprint 2, use the solutions from 1 as your starting point.
-   > Using `origin/BRANCH_NAME` says to use origin's copy of that branch, ignoring any local changes you may have made.
 
-   
+
 1. Create a new branch for your work in this sprint.
-   
+
    ```sh
    git checkout -b my_work_sprint_2
    ```
    > `git checkout -b` creates a new, local branch from the current branch.
-   
+
 1. Begin working!  Make all your commits on **YOUR** branch.
-
-
-
-## Getting updated solutions
-
-If at some point we tell you that you **need** updated solutions follow these instructions.
-
-1. **Before you checkout** the solution branch; fetch the data from `origin`
-
-   ```sh
-   git fetch origin
-   ```
-
-1. Follow the instructions in [subsequent sprints](#Subsequent Sprints)
-
-> When you checkout **make sure** that you specify that you want the copy from the remote by prepending `origin/` to the branch name.  e.g.:
->
->   ```sh
->   git checkout origin/solutions_sprint_3
->   ```
-> 
-> The instructions above already use `origin/`, so if you follow them it should just work.
