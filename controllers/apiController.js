@@ -11,7 +11,9 @@ function index(req, res) {
 
 function templates(req, res) {
   var name = req.params.name;
-  res.render('templates/' + name);
+  var templateFilePath = __dirname.replace(/controllers$/, 'views/templates/') + name + '.html';
+  res.sendFile(templateFilePath);
+
 }
 
 module.exports.index = index;
