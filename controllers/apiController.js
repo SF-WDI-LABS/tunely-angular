@@ -9,10 +9,4 @@ function index(req, res) {
   });
 }
 
-function templates(req, res) {
-  var name = req.params.name;
-  res.render('templates/' + name);
-}
-
 module.exports.index = index;
-module.exports.templates = templates;
