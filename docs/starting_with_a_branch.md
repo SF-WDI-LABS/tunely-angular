@@ -11,7 +11,7 @@ As you start each sprint in this series you are strongly encouraged to:
 
 This project is carrying on throughout the week, so there may be changes to the class version of this repository after you clone.  To make it easy for you to get updates, you should add the class version as an extra remote repository.   
 
-* In your Terminal, navigate to your local repository for this project. Copy the clone url of the class version of this repository, then run the following command (paste in the class repo clone url instead of typing CLASS_REPO_CLONE_URL):
+* In GitHub, copy the clone url of the class version of this repository.  Back in your Terminal, navigate to your local repository for this project. Run the following command (paste in the class repo clone url instead of typing `CLASS_REPO_CLONE_URL`):
 
     ```sh
     git remote add upstream CLASS_REPO_CLONE_URL
