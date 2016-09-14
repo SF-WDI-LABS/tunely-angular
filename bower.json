@@ -1,9 +1,9 @@
 {
   "name": "tunely",
-  "version": "0.0.0",
-  "homepage": "https://github.com/tgaff/tunely",
+  "version": "1.0.31A",
+  "homepage": "https://github.com/sf-wdi-31/tunely-angular",
   "authors": [
-    "tgaff <tgaff@alumni.nd.edu>"
+    "GA SF WDI"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,7 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.6",
+    "bootstrap": "~3.3.7",
     "angular": "~1.5.3",
     "angular-route": "~1.5.3"
   }
