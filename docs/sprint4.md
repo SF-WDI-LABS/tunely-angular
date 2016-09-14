@@ -100,12 +100,12 @@ Notice in the first line that we need to explicitly state what `module` this con
   function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'templates/albums',
+        templateUrl: '/templates/albums',
         controllerAs: 'albumsIndexCtrl',
         controller: 'AlbumsIndexController'
       })
       .when('/:id', {
-        templateUrl: 'templates/albums-show',
+        templateUrl: '/templates/albums-show',
         controllerAs: 'albumsShowCtrl',
         controller: 'AlbumsShowController'
       })
@@ -134,7 +134,6 @@ Notice in the first line that we need to explicitly state what `module` this con
   AlbumsShowController.$inject = ['$http', '$routeParams'];
   function AlbumsShowController (  $http,   $routeParams  ) {
     var vm = this;
-    vm.newSong = {};
 
     $http({
       method: 'GET',
