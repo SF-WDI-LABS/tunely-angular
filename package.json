@@ -1,6 +1,6 @@
 {
   "name": "tunely",
-  "version": "1.0.0",
+  "version": "1.0.31A",
   "description": "An app for tracking your music collection",
   "main": "server.js",
   "scripts": {
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/tgaff/tunely.git"
+    "url": "git+ssh://git@github.com/sf-wdi-31/tunely-angular.git"
   },
-  "author": "tgaff",
+  "author": "GA SF WDI",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tgaff/tunely/issues"
+    "url": "https://github.com/sf-wdi-31/tunely-angular/issues"
   },
-  "homepage": "https://github.com/tgaff/tunely#readme",
+  "homepage": "https://github.com/sf-wdi-31/tunely-angular#readme",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "ejs": "^2.4.1",
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
     "express": "^4.13.3",
-    "mongoose": "^4.2.9"
+    "mongoose": "^4.6.0"
   }
 }
