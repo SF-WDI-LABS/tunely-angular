@@ -37,6 +37,12 @@ app.get('/', function homepage (req, res) {
 });
 
 
+app.get('/templates/:name', function homepage (req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
+});
+
+
 /*
  * JSON API Endpoints
  */
@@ -53,8 +59,6 @@ app.get('/api/albums/:albumId/songs', controllers.albumsSongs.index);
 app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
 app.delete('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.destroy);
 app.put('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.update);
-
-app.get('/templates/:name', controllers.api.templates);
 
 // ALL OTHER ROUTES (ANGULAR HANDLES)
 // redirect all other paths to index

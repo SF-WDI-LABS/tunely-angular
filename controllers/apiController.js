@@ -9,12 +9,5 @@ function index(req, res) {
   });
 }
 
-function templates(req, res) {
-  var name = req.params.name;
-  var templateFilePath = __dirname.replace(/controllers$/, 'views/templates/') + name + '.html';
-  res.sendFile(templateFilePath);
-
-}
 
 module.exports.index = index;
-module.exports.templates = templates;
