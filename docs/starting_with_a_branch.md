@@ -41,9 +41,7 @@ git checkout -b my_work_sprint_1
 
 **Follow these steps on every sprint except the first one!**
 > Why? You likely have changes from previous sprints that need to be committed first!
-
-Here's how you can do that:
-
+\
 Let's assume you're starting *sprint 2*
 
 1. Save your changes to any files you've been working on.
@@ -59,13 +57,19 @@ Let's assume you're starting *sprint 2*
    Then verify that the above worked.  If `git status` shows that your *working directory is clean*, you're good to go!
 
 
-1. Check out the solution branch for the sprint you *were* previously  working on using `git checkout BRANCH_NAME`.  
+1. Check out the solution branch for the sprint you were previously  working on using `git checkout BRANCH_NAME`.  
 
    ```sh
    git checkout solutions_sprint_1
    ```
    > If you're starting sprint 2, use the solutions from 1 as your starting point.
 
+1. Pull any changes to the branch from upstream, and push them to your origin:
+
+    ```sh
+    git pull upstream solutions_sprint_1
+    git push origin solutions_sprint_1
+    ```
 
 1. Create a new branch for your work in this sprint.
 
