@@ -1,30 +1,42 @@
-## Overview
+# Sprint 4
 
+## Overview
 This sprint we will:
 
-* Reorganize our code to use `ngRoute`
-* Add a route for viewing details of an album
+* Reorganize our code with client-side routing and template files, using `ngRoute`.
+* Add a client-side route and a template file  for viewing details of an album.
 
-### Covered / pre-requisite topics
-* templates and layouts
-* [`ngRoute` Module](https://docs.angularjs.org/api/ngRoute)
+### Prerequisites
+
+Before this sprint, you should:
+
+* Be able to describe templates and layouts.
+* Be ready to look up documentation for [`ngRoute` Module](https://docs.angularjs.org/api/ngRoute) and these features:
     - [`ngView` directive](https://docs.angularjs.org/api/ngRoute/directive/ngView)
     - [`$routeProvider`](https://docs.angularjs.org/api/ngRoute/provider/$routeProvider)
     - [`$locationProvider`](https://docs.angularjs.org/api/ng/provider/$locationProvider)
     - [`$routeParams`](https://docs.angularjs.org/api/ngRoute/service/$routeParams)
-    - using `controllerAs` syntax in `ngRoute`.
- * [`ngHref`](https://docs.angularjs.org/api/ng/directive/ngHref)
 
 
-## Configuring our app with `ngRoute`
-1. `ngRoute` is a separate Angular module. We already have it loaded in our `index.html`, so now we just need to tell Angular that we'd like to use it. In `app.js`, we can tell Angular that `ngRoute` is a dependency like so
+##Instructions
+
+###Configure routes with `ngRoute`
+
+1. `ngRoute` is a separate Angular module. We've had it included sneakily in the `<head>` of `index.html` since sprint 1 (muhahaha):
+
+  ```html
+    <script src="/vendor/angular-route/angular-route.min.js"></script>
+  ```
+  
+   Now we just need to tell Angular that we'd like to use it in this app. In `app.js`, add the `ngRoute` module as a dependency available everywhere in our tunely app -- here's the syntax:
 
   ```js
   angular
     .module('tunely', ['ngRoute'])
+    .controller('AlbumsIndexController', AlbumsIndexController);
   ```
-1. Once we do that, we now have access to `ngRoute` everywhere in our tunely app!
-1. `ngRoute` allows us to configure routes in our app. That is, we can define what we want to happen at every different (front-end) URL within our application. To tell our app that we'd like to `config`ure it, modify your code like so:
+  
+1. `ngRoute` allows us to configure client-side routes in our app. That is, we can define what we want to happen at every different (front-end) URL within our application. We'll configure these routes using Angular's `.config`, and we usually pass it in a function that's also just called `config`. Add in a `.config` line:
 
   ```js
   angular
@@ -32,18 +44,18 @@ This sprint we will:
     .config(config)
     .controller('AlbumsIndexController', AlbumsIndexController);
   ```
-1. Now we need to create a `config` function. `$routeProvider` comes with `ngRoute` and allows us to configure our routes. `$locationProvider` also comes with `ngRoute` allows us to get rid of the `/#/` in our url that you may have noticed.
+1. Let's define that `config` function. With `ngRoute`, we'll use `$routeProvider` to set up routes. We'll also use `$locationProvider` to help make cleaner URLs (by default, `ngRoute`d URLs have a `/#/` in them).  Both `$routeProvider` and `$locationProvider` are part of the `ngRoute` module. Copy the following `config` function into your `app.js`:
 
   ```js
   function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'templates/albums',
+        template: 'This template will show the homepage, with all ablums!',
         controllerAs: 'albumsIndexCtrl',
         controller: 'AlbumsIndexController'
       })
-      .when('/:id', {
-        templateUrl: 'templates/albums-show',
+      .when('/albums/:id', {
+        template: 'This template will show an album!',
         controllerAs: 'albumsShowCtrl',
         controller: 'AlbumsShowController'
       });
@@ -54,22 +66,36 @@ This sprint we will:
     });
   }
   ```
-  <details><summary>Why is this function called `config`?</summary>
-  We passed our `config` function to angular at `.config(config)`.  We could have called this something else, but it's customary to just call it `config` because it configures our app.
-  </details>
+  
+  Check what happens when you visit the `/` route and a `/albums/:id` route in your browser now. The home page is temporarily gone, but you should see your messages from above. 
 
+### Refactor with Partials (Template Files)
 
-1. This code is saying that when the user is at the `/` (a.k.a. home) route, Angular should use the view template located at `templates/albums` (hmm looks like we need to create that!) and the controller named `AlbumsIndexController` as `albumsIndexCtrl`. Before, we had specified the proper controller for our view within the html using `ng-controller` (`<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`). Now, we'll specify our controller  here in the `config` function.
+1. So far, we've been putting all of our view code in `index.html`, but we'd like a bit more modularity. The `index.html` file will still have the `<head>` and any `<body>` content that doesn't change on each page. Most of our page content will move to HTML into files inside a `templates` folder. Create a `templates` folder inside of the project's `views` folder. 
 
-## Reorganize the code
-1. So far we've been putting all of our view code in `index.html`, but we'd like a bit more modularity. Let's start refactoring our code! We want to move a lot of our `html` into files inside a `templates` folder. So, create a `templates` folder inside of the views folder. Inside of the `templates` folder, create an `html` file called `albums.html`. This is the file that Angular will look for when the user is at the `/` route, as defined above in our `config` function!
-1. Let's move all of the code starting with the div that tells the view what controller to use (`<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`) into our new `albums.html` file. Remember that since we're now defining what controller to use with what view in our `config` function, we can now remove the `ng-controller` statement in our `html` because it's redundant.
-1. Now back in `index.html` we need to add a `div` that tells Angular where the template file should get loaded. In the same place where the code was that you just moved, add this line
+1. Inside of the `templates` folder, create an HTML file called `albums.html`. Move most of the HTML from `index.html` to this new file -- the entire div that starts `<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`. 
+
+1. Update the `config` to use this template new file on the `/` path:
+
+    ```js
+    .when('/', {
+        templateUrl: '/templates/albums',
+        controllerAs: 'albumsIndexCtrl',
+        controller: 'AlbumsIndexController'
+      })
+    ```
+    
+1. Now that we have a template file, our `config` function will take care of setting which controller should be used on that page.  The `ng-controller` statement in `albums.html` has been made redundant; remove it. 
+
+1. Back in `index.html`, we've removed all our content!  We need to add a `div` that tells Angular where each partial template file should get loaded. In the same place where you removed the prior `div`, add this line:
 
   ```html
   <div ng-view></div>
   ```
-1. Now if you reload your page, everything will look exactly the same :). Wait. That's not very exciting... Actually it kind of is! It means that we now have a more modular app with the ability to expand into many different files.
+  
+1. Now if you reload your page, everything will look exactly the same!!!  
+
+  That's not very exciting... Actually it kind of is! Now have a more modular app with the ability to expand into many different files.
 
 1. Along these same lines, we can move the controller code out into its own file. To do this, create a `controllers` folder inside of `/public/scripts`. Inside of the `controllers` folder, create a `AlbumsIndexController.js` file. Just like any other `js` file we need to include this file in our `index.html` below where we load `app.js`.
 
