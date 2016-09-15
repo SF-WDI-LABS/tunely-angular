@@ -8,7 +8,7 @@ For sprint 1 we will:
 
 ### Getting Started on Sprint 1
 
-Follow the [branching instructions](https://github.com/SF-WDI-LABS/tunely-angular/blob/master/docs/starting_with_a_branch.md) to create a branch for your work in your Tunely project.
+Follow the [branching instructions](https://github.com/sf-wdi-31/tunely-angular/blob/master/docs/starting_with_a_branch.md) to create a branch for your work in your Tunely project.
 
 ### Instructions
 
