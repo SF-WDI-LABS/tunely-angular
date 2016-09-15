@@ -41,7 +41,7 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
 
   <details><summary>click for code hint</summary>
   ```js
-  vm.createAlbum = function () {
+    // inside controller
     $http({
       method: 'GET',
       url: // what goes here?
@@ -50,7 +50,6 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
     }, function errorCallback(response) {
       console.log('There was an error getting the data', response);
     });
-  }
   ```
   </details>
 
