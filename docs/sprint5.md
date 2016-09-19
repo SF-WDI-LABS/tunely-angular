@@ -3,7 +3,7 @@
 This sprint we will:
 * Add ability to `CREATE`, `READ`, `UPDATE`, and `DELETE` songs
 
-1. Update your album show page to show a list of songs, like this:
+1. Update your album show page to include UI elements for users to create,  edit, and delete song:
 
   ![full-view](https://cloud.githubusercontent.com/assets/3010270/14510977/4b621d0e-0189-11e6-82b0-965e6d1f0484.png)
 
