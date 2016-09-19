@@ -40,8 +40,8 @@ git checkout -b my_work_sprint_1
 ## Subsequent Sprints
 
 **Follow these steps on every sprint except the first one!**
-> Why? You likely have changes from previous sprints that need to be committed first!
-\
+> Why? You likely have changes from previous sprints that need to be committed first! Plus, you'll want the most recent version of the starter code each sprint!
+
 Let's assume you're starting *sprint 2*
 
 1. Save your changes to any files you've been working on.
@@ -52,9 +52,17 @@ Let's assume you're starting *sprint 2*
 
    ```sh
    git add .
-   git commit -m "saves changes on sprint 1"
+   git commit -m "saves final changes on sprint 1"
    ```
    Then verify that the above worked.  If `git status` shows that your *working directory is clean*, you're good to go!
+   
+1. If you want to be sure you have the most recent version of each sprint's instructions, you should update your  `master` branch. Now is a good time
+
+    ```sh
+    git checkout master       
+    git pull upstream master  # get your local master up to date with any doc changes
+    git push origin master    # make sure your GitHub copy is up to date, too!
+    ```
 
 
 1. Check out the solution branch for the sprint you were previously  working on using `git checkout BRANCH_NAME`.  
@@ -63,6 +71,12 @@ Let's assume you're starting *sprint 2*
    git checkout solutions_sprint_1
    ```
    > If you're starting sprint 2, use the solutions from 1 as your starting point.
+   
+   **If that command didn't work for you**, try this version that tells git your new `solutions_sprint_1` branch should match `upstream/solutions_sprint_`: 
+   
+   ```sh
+   git checkout -b solutions_sprint_1 upstream/solutions_sprint_1
+   ```
 
 1. Pull any changes to the branch from upstream, and push them to your origin:
 
