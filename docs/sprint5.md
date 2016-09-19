@@ -1,7 +1,8 @@
 ## Overview
 
-This sprint will help review CRUD actions with Angular. As you've seen, the data from the database includes songs. In this sprint, you'll:
-* Add the ability to `CREATE`, `READ`, `UPDATE`, and `DELETE` songs through the user interface.
+In this sprint, you'll **review** and **practice** CRUD actions with Angular. 
+
+As you've seen, the data from the database includes songs. Now it's time to add the ability to `CREATE`, `READ`, `UPDATE`, and `DELETE` songs through the user interface.
 
 Rememeber to follow the [branching instructions](https://github.com/sf-wdi-31/tunely-angular/blob/master/docs/starting_with_a_branch.md) to get started. 
 
