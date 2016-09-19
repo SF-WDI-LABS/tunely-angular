@@ -17,7 +17,7 @@ Before this sprint, you should:
 
 ## Getting Started on Sprint 2
 
-To get started on a new tunely-angular sprint, we'll have you check out the solutions for the previous sprint. Remember to follow the [branching instructions](https://github.com/SF-WDI-31/tunely-angular/blob/master/docs/starting_with_a_branch.md)!
+To get started on a new tunely-angular sprint, we'll have you check out the solutions for the previous sprint. Remember to follow the branching instructions!
 
 
 ## instructions
