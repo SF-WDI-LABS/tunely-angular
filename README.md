@@ -25,6 +25,7 @@ Before starting this lab, developers should have some familiarity with...
 * Express server routes for JSON (`/api` routes), including the controller pattern (see [docs/controllers_example.md](docs/controllers_example.md))
 * RESTful route design
 * AJAX
+* Git and GitHub, including branches
 
 
 ## Getting Started
