@@ -3,7 +3,7 @@
  * This is your main angular file. Edit as you see fit.
  *
  */
-<<<<<<< HEAD
+
 
 angular
   .module('tunely', [])
@@ -46,5 +46,4 @@ function AlbumsIndexController ($http) {
   });
 }
 }
-=======
->>>>>>> master
+
