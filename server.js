@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-// need to add this so that we can accept request payloads
-app.use(bodyParser.json());
+// need to add this so that we can accept request payloads from Angular
+app.use(bodyParser.json()); 
 
 // We'll serve jQuery and bootstrap from a local bower cache avoiding CDNs
 // We're placing these under /vendor to differentiate them from our own assets
@@ -31,6 +31,10 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/templates/:name', function templates(req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
+});
 
 
 /* set up a route to get the templates. Templates are
