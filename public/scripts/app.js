@@ -47,3 +47,4 @@ function AlbumsIndexController ($http) {
 }
 }
 
+
