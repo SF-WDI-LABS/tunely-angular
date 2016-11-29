@@ -20,8 +20,8 @@ This sprint we will:
     $http({
       method: 'DELETE',
       url: '/api/albums/'+ album._id
-    }).then(function successCallback(deletedAlbum) {
-      var index = vm.albums.indexOf(deletedAlbum);
+    }).then(function successCallback(album) {
+      var index = vm.albums.indexOf(album);
       vm.albums.splice(index, 1);
     }, function errorCallback(response) {
       console.log('There was an error deleting the data', response);
