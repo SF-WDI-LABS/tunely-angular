@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60">
 
 
@@ -56,3 +58,4 @@ Before starting this lab, developers should have some familiarity with...
 #### Sprint 5
 
 [Sprint 5: add ability to CRUD songs](/docs/sprint5.md)
+>>>>>>> master
