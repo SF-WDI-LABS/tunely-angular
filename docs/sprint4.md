@@ -76,19 +76,19 @@ Before this sprint, you should:
 
 Most of our page content will move to HTML into files inside a `templates` folder. Create a `templates` folder inside of the project's `views` folder.
 
-1. Inside of the `templates` folder, create an HTML file called `albums.html`. Move most of the HTML from `index.html` to this new file -- the entire div that starts `<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`.
+1. Inside of the `templates` folder, create an HTML file called `albums-index.html`. Move most of the HTML from `index.html` to this new file -- the entire div that starts `<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`.
 
 1. Update the `config` to use this template new file by giving its `templateUrl` on the `/` path:
 
     ```js
     .when('/', {
-        templateUrl: '/templates/albums',
+        templateUrl: '/templates/albums-index.html',
         controllerAs: 'albumsIndexCtrl',
         controller: 'AlbumsIndexController'
       })
     ```
 
-1. Now that we have a template file, our `config` function will take care of setting which controller should be used on that page.  The `ng-controller` statement in `albums.html` has been made redundant; remove it.
+1. Now that we have a template file, our `config` function will take care of setting which controller should be used on that page.  The `ng-controller` statement in `albums-index.html` has been made redundant; remove it.
 
 1. Back in `index.html`, we've removed all our content!  We need to add a `div` that tells Angular where the partial template file for this URL should get loaded. In the same place where you removed the prior `div`, add this line:
 
@@ -135,12 +135,12 @@ Most of our page content will move to HTML into files inside a `templates` folde
   function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/templates/albums',
+        templateUrl: '/templates/albums-index.html',
         controllerAs: 'albumsIndexCtrl',
         controller: 'AlbumsIndexController'
       })
       .when('/albums/:id', {
-        templateUrl: '/templates/albums-show',
+        templateUrl: '/templates/albums-show.html',
         controllerAs: 'albumsShowCtrl',
         controller: 'AlbumsShowController'
       })
@@ -167,7 +167,7 @@ Most of our page content will move to HTML into files inside a `templates` folde
 
 1. Create two new files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`. Don't forget to include `AlbumsShowController.js` in `index.html`.
 
-1. These files will be similar to `albums.html` and `AlbumsIndexController.js`.  Reference those two files to create a basic structure for your new files and to check the connections between them.
+1. These files will be similar to `albums-index.html` and `AlbumsIndexController.js`.  Reference those two files to create a basic structure for your new files and to check the connections between them.
 
 1. In `AlbumsShowController.js`, we need to `GET` the data for one album. To do that, we need to grab the `_id` of that data object that we're interested in from the URL.
 
