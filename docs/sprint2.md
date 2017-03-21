@@ -39,7 +39,7 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
 
 1. Use Angular's `$http` method to get data from the back-end. Make sure your back-end is populated with data by doing a quick check of the route in postman or your browser. If there's no data, run `node seed.js` to create some.
 
-  <details><summary>click for code hint</summary>
+
   ```js
     // inside controller
     $http({
@@ -51,7 +51,7 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
       console.log('There was an error getting the data', response);
     });
   ```
-  </details>
+
 
 1. Make sure the albums in the response will be displayed on the page. How were the hard-coded albums displayed on the page? Using that code as an inspiration, add a line that will update which albums are displayed on the page, once the GET request response comes back successfully.
 
