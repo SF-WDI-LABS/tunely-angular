@@ -37,7 +37,7 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
 ### `GET` albums data.
 1. Empty out the hard-coded `vm.albums` array from the previous sprint.
 
-1. Use Angular's `$http` method to get data from the back-end. Make sure your back-end is populated with data by doing a quick check of the route in postman or your browser. If there's no data, run `node seed.js` to create some.
+2. Use Angular's `$http` method to get data from the back-end. Make sure your back-end is populated with data by doing a quick check of the route in postman or your browser. If there's no data, run `node seed.js` to create some.
 
 
   ```js
@@ -53,10 +53,10 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
   ```
 
 
-1. Make sure the albums in the response will be displayed on the page. How were the hard-coded albums displayed on the page? Using that code as an inspiration, add a line that will update which albums are displayed on the page, once the GET request response comes back successfully.
+3. Make sure the albums in the response will be displayed on the page. How were the hard-coded albums displayed on the page? Using that code as an inspiration, add a line that will update which albums are displayed on the page, once the GET request response comes back successfully.
 
 
-1. Now reload your page...
+4. Now reload your page...
 
 
 ![img](./assets/images/sprint2-get.gif)
@@ -67,7 +67,7 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
 ### `POST` a new album.
 1. Let's flesh out the `newAlbum` form. Create a form that has fields for Album Name and Artist Name. Optionally add fields for Genres (separated by commas) and Release Date.  Also add a submit button (with `type="submit"`) in the form!
 
-1. In the `<form>` tag,  add a `submit` event handler:
+2. In the `<form>` tag,  add a `submit` event handler:
 
   ```html
   <form ng-submit="albumsIndexCtrl.createAlbum()">
@@ -75,7 +75,7 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
 
   This tells Angular to call the `createAlbum()` function in the `albumsIndexCtrl` when this form is submitted.
 
-1. We'd better make a `createAlbum()` function!
+3. We'd better make a `createAlbum()` function!
 
   ```js
   vm.createAlbum = function () {
