@@ -4,7 +4,7 @@ In this sprint, you'll **review** and **practice** CRUD actions with Angular.
 
 As you've seen, the data from the database includes songs. Now it's time to add the ability to `CREATE`, `READ`, `UPDATE`, and `DELETE` songs through the user interface.
 
-Rememeber to follow the branching instructions to get started. 
+Remember to follow the branching instructions to get started. 
 
 1. Update your album show page to include UI elements for users to create,  edit, and delete song:
 
