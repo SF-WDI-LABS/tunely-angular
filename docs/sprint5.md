@@ -25,11 +25,5 @@ Remember to follow the branching instructions to get started.
 
 1. Reference Sprints 1-4. 
 
-2. Since there is no new view, you will not _need_ to add a new client-side route or controller. 
-
-  <details><summary>Click for more...</summary> 
-    <p>You can add your new logic to the controller in charge of the view you're modifying: AlbumsShowController.
-    
-  </details>
-       
+2. Since there is no new view, you will not _need_ to add a new client-side route or controller. You can add your new logic to the controller in charge of the view you're modifying.
 
