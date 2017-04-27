@@ -4,9 +4,9 @@ In this sprint, you'll **review** and **practice** CRUD actions with Angular.
 
 As you've seen, the data from the database includes songs. Now it's time to add the ability to `CREATE`, `READ`, `UPDATE`, and `DELETE` songs through the user interface.
 
-Remember to follow the branching instructions to get started. 
+**Remember to follow the branching instructions to get started.** 
 
-1. Update your album show page to include UI elements for users to create,  edit, and delete song:
+1. Update your album show page to include UI elements for users to create,  edit, and delete songs:
 
   ![full-view](https://cloud.githubusercontent.com/assets/3010270/14510977/4b621d0e-0189-11e6-82b0-965e6d1f0484.png)
 
@@ -18,12 +18,18 @@ Remember to follow the branching instructions to get started.
 
   ![inline-edit](https://cloud.githubusercontent.com/assets/3010270/14510992/5f7e0fbe-0189-11e6-9bfc-1e6751c23f7a.png)
 
-5. Make all the things work! Go!!!! <3
+5. Make it happen!
 
 
 ## Hints
 
-1. Reference Sprints 1-4. 
+1. Right after you create your 'my-work-sprint-5' branch, run the solutions for sprint 4 and examine any the (sprint 4 solution) starter code. 
 
-2. Since there is no new view, you will not _need_ to add a new client-side route or controller. You can add your new logic to the controller in charge of the view you're modifying.
+2. Plan or pseudocode what you need to do before adding code. 
+
+3. Reference Sprints 1-4. 
+
+4. Make at least one commit for each feature you add from the list of tasks. 
+
+5. Since there is no new view, you will not _need_ to add a new client-side route or controller. You can add your new logic to the controller in charge of the view you're modifying.
 
