@@ -23,7 +23,7 @@ As you've seen, the data from the database includes songs. Now it's time to add 
 
 ## Hints
 
-1. Right after you create your 'my-work-sprint-5' branch, run the solutions for sprint 4 and examine any the (sprint 4 solution) starter code. 
+1. Right after you create your 'my-work-sprint-5' branch, run the solutions for sprint 4 and examine the (sprint 4 solution) starter code. 
 
 2. Plan or pseudocode what you need to do before adding code. 
 
