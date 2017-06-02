@@ -18,9 +18,9 @@ Before this sprint, you should:
     - [`$routeParams`](https://docs.angularjs.org/api/ngRoute/service/$routeParams)
 
 
-##Instructions
+## Instructions
 
-####Configure routes with `ngRoute`
+#### Configure routes with `ngRoute`
 
 1. `ngRoute` is a separate Angular module. We've had its code included sneakily in the `<head>` of `index.html` since sprint 1 (muhahaha):
 
@@ -36,7 +36,7 @@ Before this sprint, you should:
     .controller('AlbumsIndexController', AlbumsIndexController);
   ```
 
-1. `ngRoute` allows us to configure client-side routes in our app. We can define what we want to happen at every different (front-end) URL within our application. We'll configure these routes using Angular's `.config`, and we usually pass it in a function that's also just called `config`. Add in a `.config` line right after you set up the tunely app:
+2. `ngRoute` allows us to configure client-side routes in our app. We can define what we want to happen at every different (front-end) URL within our application. We'll configure these routes using Angular's `.config`, and we usually pass it in a function that's also just called `config`. Add in a `.config` line right after you set up the tunely app:
 
   ```js
   angular
@@ -44,7 +44,7 @@ Before this sprint, you should:
     .config(config)
     .controller('AlbumsIndexController', AlbumsIndexController);
   ```
-1. Let's define that `config` function. With `ngRoute`, we'll use `$routeProvider` to set up routes. We'll also use `$locationProvider` to help make cleaner URLs (by default, `ngRoute`d URLs have a `/#/` in them).  Both `$routeProvider` and `$locationProvider` are part of the `ngRoute` module. Copy the following `config` function into your `app.js`:
+3. Let's define that `config` function. With `ngRoute`, we'll use `$routeProvider` to set up routes. We'll also use `$locationProvider` to help make cleaner URLs (by default, `ngRoute`d URLs have a `/#/` in them).  Both `$routeProvider` and `$locationProvider` are part of the `ngRoute` module. Copy the following `config` function into your `app.js`:
 
   ```js
   config.$inject = ['$routeProvider', '$locationProvider'];
@@ -78,7 +78,7 @@ Most of our page content will move to HTML into files inside a `templates` folde
 
 1. Inside of the `templates` folder, create an HTML file called `albums.html`. Move most of the HTML from `index.html` to this new file -- the entire div that starts `<div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">`.
 
-1. Update the `config` to use this template new file by giving its `templateUrl` on the `/` path:
+2. Update the `config` to use this template new file by giving its `templateUrl` on the `/` path:
 
     ```js
     .when('/', {
@@ -88,15 +88,15 @@ Most of our page content will move to HTML into files inside a `templates` folde
       })
     ```
 
-1. Now that we have a template file, our `config` function will take care of setting which controller should be used on that page.  The `ng-controller` statement in `albums.html` has been made redundant; remove it.
+3. Now that we have a template file, our `config` function will take care of setting which controller should be used on that page.  The `ng-controller` statement in `albums.html` has been made redundant; remove it.
 
-1. Back in `index.html`, we've removed all our content!  We need to add a `div` that tells Angular where the partial template file for this URL should get loaded. In the same place where you removed the prior `div`, add this line:
+4. Back in `index.html`, we've removed all our content!  We need to add a `div` that tells Angular where the partial template file for this URL should get loaded. In the same place where you removed the prior `div`, add this line:
 
   ```html
   <div ng-view></div>
   ```
 
-1. Now if you reload your page, everything will look exactly the same!!!  
+5. Now if you reload your page, everything will look exactly the same!!!  
 
   That's not very exciting... Actually it kind of is! Now have a more modular app with the ability to expand into many different files.
 
@@ -105,13 +105,13 @@ Most of our page content will move to HTML into files inside a `templates` folde
 
 1. Along these same lines, we can move the controller code out into its own file. To get started, create a `controllers` folder inside of `/public/scripts`.
 
-1. Inside of the `controllers` folder, create a `AlbumsIndexController.js` file. Just like any other JavaScript file, we need to include this file in our `index.html`. Add it below where we load `app.js` so that the tunely app is created before we try to give it controllers.
+2. Inside of the `controllers` folder, create a `AlbumsIndexController.js` file. Just like any other JavaScript file, we need to include this file in our `index.html`. Add it below where we load `app.js` so that the tunely app is created before we try to give it controllers.
 
   ```html
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/AlbumsIndexController.js"></script>
   ```
-1. Move the contents of `AlbumsIndexController` into the new file. When all is said and done, our new `AlbumsIndexController.js` should look like this:
+3. Move the contents of `AlbumsIndexController` into the new file. When all is said and done, our new `AlbumsIndexController.js` should look like this:
 
   ```js
   angular
@@ -125,7 +125,7 @@ Most of our page content will move to HTML into files inside a `templates` folde
   ```
   Notice in the first line that we need to explicitly state what `module` this controller is a part of.  We *don't* restate tunely's dependencies.  We're referencing our app's module, not creating a new one.
 
-1. Without `AlbumsIndexController`, `app.js` looks like this:
+4. Without `AlbumsIndexController`, `app.js` looks like this:
 
   ```js
   angular
@@ -152,24 +152,24 @@ Most of our page content will move to HTML into files inside a `templates` folde
   }
   ```
 
-1. Now make sure everything loads properly in your browser. Debug any issues.
+5. Now make sure everything loads properly in your browser. Debug any issues.
 
 #### Set up album show pages
 
 1. Creating a new route: You may have noticed the `config` function refers to an `/albums/:id` route. This route is going to show us the details of individual albums.
 
-1. This route will be accessible when the user clicks on an album name. To create this link, surround where you display the `albumName` with an `<a>` tag that links to `/albums/:id`. Use the `ng-href` directive for the url portion, like so
+2. This route will be accessible when the user clicks on an album name. To create this link, surround where you display the `albumName` with an `<a>` tag that links to `/albums/:id`. Use the `ng-href` directive for the url portion, like so
 
   ```html
   <a ng-href="albums/{{album._id}}">{{album.name}}</a>
   ```
-1. Try clicking on this link in your browser, and notice the error messages.
+3. Try clicking on this link in your browser, and notice the error messages.
 
-1. Create two new files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`. Don't forget to include `AlbumsShowController.js` in `index.html`.
+4. Create two new files: `/views/templates/albums-show.html` and `/public/scripts/controllers/AlbumsShowController.js`. Don't forget to include `AlbumsShowController.js` in `index.html`.
 
-1. These files will be similar to `albums.html` and `AlbumsIndexController.js`.  Reference those two files to create a basic structure for your new files and to check the connections between them.
+5. These files will be similar to `albums.html` and `AlbumsIndexController.js`.  Reference those two files to create a basic structure for your new files and to check the connections between them.
 
-1. In `AlbumsShowController.js`, we need to `GET` the data for one album. To do that, we need to grab the `_id` of that data object that we're interested in from the URL.
+6. In `AlbumsShowController.js`, we need to `GET` the data for one album. To do that, we need to grab the `_id` of that data object that we're interested in from the URL.
 
 Angular provides us with a component called `$routeParams` that allows us access the URL path's parameters. To use `$routeParams`, we  `$inject` it in the controller. After it's injected, the parameters from the URL are aailable inside the `$routeParams`  object.
 
@@ -188,4 +188,4 @@ Angular provides us with a component called `$routeParams` that allows us access
   }
   ```
 
-1. Add HTML to the view in `albums-show.html` to display all this data.  You should show each of the songs on the album's show page.
+7. Add HTML to the view in `albums-show.html` to display all this data.  You should show each of the songs on the album's show page.

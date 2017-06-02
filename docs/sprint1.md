@@ -29,7 +29,7 @@ Follow the branching instructions to create a branch for your work in your Tunel
   });
   ```
 
-1. Let's add some code. Initialize an Angular app in `app.js`:
+2. Let's add some code. Initialize an Angular app in `app.js`:
 
   ```js
   angular
@@ -40,7 +40,7 @@ and also in `index.html`:
   ```html
   <html lang="en" ng-app="tunely">
   ```
-1. Create a controller to control the albums index page. The syntax is below - just *dot-chain* a controller after your app definition.
+3. Create a controller to control the albums index page. The syntax is below - just *dot-chain* a controller after your app definition.
 
   ```js
   angular
@@ -48,7 +48,7 @@ and also in `index.html`:
     .controller('AlbumsIndexController', AlbumsIndexController);
   ```
 
-1. Create the controller function with some initial data:  
+4. Create the controller function with some initial data:  
 
   ```javascript
   function AlbumsIndexController () {
@@ -62,7 +62,7 @@ and also in `index.html`:
   }
   ```
 
-1. Tell Angular that you'd like to use this controller for part of your view:  
+5. Tell Angular that you'd like to use this controller for part of your view:  
 
   ```html
   <body>
@@ -80,7 +80,7 @@ and also in `index.html`:
   </body>
   ```
 
-1. Display the initial data from your controller in the view:
+6. Display the initial data from your controller in the view:
 
   ```html
   <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
@@ -89,7 +89,7 @@ and also in `index.html`:
   > If you move this `<p>` tag outside of the div that defines the controller, what happens?
 
 
-1. Let's dynamically edit the initial data. Add some input boxes:
+7. Let's dynamically edit the initial data. Add some input boxes:
 
   ```html
   <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
@@ -98,7 +98,7 @@ and also in `index.html`:
 
   > When you edit the content inside these input boxes, what happens? This is called **two-way data binding**. When data changes in the view, it is automatically updated in the JavaScript, and vice versa. Whoa!
 
-1. Let's add some more data to our controller:
+8. Let's add some more data to our controller:
 
   ```js
   vm.albums = [
@@ -117,7 +117,7 @@ and also in `index.html`:
   ];
   ```
 
-1. We can use the angular *built-in directive* `ng-repeat` to help us display this data:
+9. We can use the angular *built-in directive* `ng-repeat` to help us display this data:
 
   ```html
   <div ng-repeat="album in albumsIndexCtrl.albums">
