@@ -28,7 +28,7 @@ var controllers = require('./controllers');
  * HTML Endpoints
  */
 
-app.get('/', function homepage (req, res) {
+app.get(['/', '/albums/:id?'], function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -54,10 +54,9 @@ app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
 app.delete('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.destroy);
 app.put('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.update);
 
-// ALL OTHER ROUTES (ANGULAR HANDLES)
-// redirect all other paths to index
-app.get('*', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+// 404 NOT FOUND Catchall
+app.use(function notFound(req, res){
+  res.sendStatus(404);
 });
 
 /**********
